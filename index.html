@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Tarihi Anadolu ve Ermenistan bölgesindeki 90 yerleşim noktasını keşfedin. Kaleler, kiliseler ve manastırlar harita üzerinde interaktif olarak sunulmaktadır.">
+    <title>La Foa — Tarihî Yerleşim Haritası</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2L20 10L28 12L22 18L24 28L16 24L8 28L10 18L4 12L12 10L16 2Z" fill="url(#logoGrad)"
+                            stroke="#8B4513" stroke-width="1" />
+                        <defs>
+                            <linearGradient id="logoGrad" x1="4" y1="2" x2="28" y2="28">
+                                <stop offset="0%" stop-color="#D4A574" />
+                                <stop offset="100%" stop-color="#8B4513" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>La Foa</h1>
+                    <span class="logo-subtitle">Tarihî Yerleşim Haritası</span>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <span class="settlement-count"><span id="totalCount">0</span> Yerleşim</span>
+                <div class="search-box">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Yerleşim ara..." autocomplete="off">
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Map Container -->
+        <div class="map-wrapper" id="mapWrapper">
+            <div class="map-container" id="mapContainer">
+                <img src="assets/harita.svg" alt="Tarihî Anadolu ve Ermenistan Haritası" class="map-image" id="mapImage"
+                    draggable="false">
+                <!-- Markers will be injected by JS -->
+                <div class="markers-layer" id="markersLayer"></div>
+            </div>
+            <!-- Map Controls -->
+            <div class="map-controls">
+                <button class="control-btn" id="zoomIn" title="Yakınlaştır">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                </button>
+                <button class="control-btn" id="zoomOut" title="Uzaklaştır">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                </button>
+                <button class="control-btn" id="resetView" title="Sıfırla">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                        <path d="M3 3v5h5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Info Card (popup) -->
+        <div class="info-card" id="infoCard">
+            <button class="card-close" id="cardClose">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+            <div class="card-header">
+                <span class="card-id" id="cardId"></span>
+                <h2 class="card-title" id="cardTitle"></h2>
+            </div>
+            <div class="card-body">
+                <div class="card-coords">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span id="cardCoords"></span>
+                </div>
+                <p class="card-description" id="cardDescription">Bu yerleşim hakkında detaylı bilgiler yakında
+                    eklenecektir.</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="card-detail-btn" id="cardDetailBtn">
+                    Detayları Gör
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Search Results Dropdown -->
+        <div class="search-results" id="searchResults"></div>
+    </main>
+
+    <!-- Legend -->
+    <div class="map-legend">
+        <div class="legend-item">
+            <span class="legend-marker legend-kale"></span>
+            <span>Kale</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-marker legend-kilise"></span>
+            <span>Kilise / Manastır</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-marker legend-diger"></span>
+            <span>Diğer</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

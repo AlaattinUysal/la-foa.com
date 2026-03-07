@@ -1,0 +1,742 @@
+/* ===========================
+   La Foa — Design System
+   Light Theme, Premium Feel
+   =========================== */
+
+/* --- CSS Variables --- */
+:root {
+    --color-bg: #FAF8F5;
+    --color-surface: #FFFFFF;
+    --color-surface-glass: rgba(255, 255, 255, 0.85);
+    --color-text: #2C1810;
+    --color-text-secondary: #6B5C4E;
+    --color-text-muted: #9E8E7E;
+    --color-accent: #8B4513;
+    --color-accent-light: #D4A574;
+    --color-accent-hover: #A0522D;
+    --color-border: #E8DDD0;
+    --color-border-light: #F0E8DD;
+    --color-shadow: rgba(44, 24, 16, 0.08);
+    --color-shadow-strong: rgba(44, 24, 16, 0.15);
+    --color-kale: #C0392B;
+    --color-kilise: #8E44AD;
+    --color-diger: #2980B9;
+    --color-marker-glow: rgba(192, 57, 43, 0.3);
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Noto Serif', Georgia, serif;
+
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    --shadow-sm: 0 1px 3px var(--color-shadow);
+    --shadow-md: 0 4px 12px var(--color-shadow);
+    --shadow-lg: 0 8px 30px var(--color-shadow-strong);
+    --shadow-xl: 0 20px 60px var(--color-shadow-strong);
+
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.25s ease;
+    --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- Header --- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--color-surface-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 64px;
+    max-width: 100%;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FAF0E6, #F5E6D0);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.logo-text h1 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.logo-subtitle {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.settlement-count {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    background: var(--color-border-light);
+    padding: 6px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--color-text-muted);
+    pointer-events: none;
+}
+
+#searchInput {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    padding: 8px 14px 8px 36px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 100px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    width: 240px;
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), width var(--transition-base);
+}
+
+#searchInput:focus {
+    border-color: var(--color-accent-light);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+    width: 300px;
+}
+
+#searchInput::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* --- Search Results --- */
+.search-results {
+    position: fixed;
+    top: 64px;
+    right: 24px;
+    width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 200;
+    display: none;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: #FDF8F3;
+}
+
+.search-result-item .result-id {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: #FDF0E6;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.search-result-item .result-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+/* --- Main Content --- */
+.main-content {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* --- Map --- */
+.map-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    cursor: grab;
+    background: #E8DDD0;
+}
+
+.map-wrapper:active {
+    cursor: grabbing;
+}
+
+.map-container {
+    position: absolute;
+    transform-origin: 0 0;
+    will-change: transform;
+    transition: none;
+    contain: layout style paint;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Force GPU compositing layer */
+    transform: translate3d(0, 0, 0);
+}
+
+.map-image {
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    /* Prevent canvas from triggering repaints */
+    contain: strict;
+}
+
+.markers-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* --- Markers --- */
+.marker {
+    position: absolute;
+    pointer-events: all;
+    cursor: pointer;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    /* No transitions on markers — they cause jank during pan/zoom */
+    contain: layout style;
+}
+
+.marker-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2.5px solid var(--color-surface);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    position: relative;
+}
+
+.marker-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.marker.type-kale .marker-dot {
+    background: var(--color-kale);
+}
+
+.marker.type-kilise .marker-dot {
+    background: var(--color-kilise);
+}
+
+.marker.type-diger .marker-dot {
+    background: var(--color-diger);
+}
+
+.marker:hover .marker-dot {
+    transform: scale(1.25);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.marker:hover {
+    z-index: 50;
+}
+
+.marker.active {
+    z-index: 60;
+}
+
+.marker.active .marker-dot {
+    transform: scale(1.35);
+    box-shadow: 0 0 0 4px rgba(139, 69, 19, 0.25), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Marker Label (on hover) */
+.marker-label {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    white-space: nowrap;
+    background: var(--color-text);
+    color: var(--color-surface);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    letter-spacing: 0.01em;
+}
+
+.marker-label::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--color-text);
+}
+
+.marker:hover .marker-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Pulse animation for markers */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--color-marker-glow);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(192, 57, 43, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(192, 57, 43, 0);
+    }
+}
+
+.marker.active .marker-dot::before {
+    content: '';
+    position: absolute;
+    top: -2.5px;
+    left: -2.5px;
+    right: -2.5px;
+    bottom: -2.5px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* --- Map Controls --- */
+.map-controls {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 50;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.control-btn:hover {
+    background: var(--color-accent);
+    color: white;
+    transform: scale(1.05);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+/* --- Info Card --- */
+.info-card {
+    position: fixed;
+    bottom: -300px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    background: var(--color-surface);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    box-shadow: var(--shadow-xl);
+    z-index: 150;
+    transition: bottom var(--transition-slow);
+    overflow: hidden;
+}
+
+.info-card.active {
+    bottom: 0;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+}
+
+.card-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--color-border-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    transition: background var(--transition-fast), color var(--transition-fast);
+    z-index: 5;
+}
+
+.card-close:hover {
+    background: var(--color-kale);
+    color: white;
+}
+
+.card-header {
+    padding: 24px 24px 12px;
+}
+
+.card-id {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: #FDF0E6;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.3;
+    padding-right: 32px;
+}
+
+.card-body {
+    padding: 0 24px 16px;
+}
+
+.card-coords {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+}
+
+.card-description {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.card-footer {
+    padding: 0 24px 24px;
+}
+
+.card-detail-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-surface);
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+    padding: 10px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3);
+}
+
+.card-detail-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(139, 69, 19, 0.4);
+}
+
+.card-detail-btn:active {
+    transform: translateY(0);
+}
+
+/* --- Legend --- */
+.map-legend {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: var(--color-surface-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    display: flex;
+    gap: 16px;
+    z-index: 50;
+    box-shadow: var(--shadow-md);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.legend-marker {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--color-surface);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.legend-kale {
+    background: var(--color-kale);
+}
+
+.legend-kilise {
+    background: var(--color-kilise);
+}
+
+.legend-diger {
+    background: var(--color-diger);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 16px;
+        height: 56px;
+    }
+
+    .logo-text h1 {
+        font-size: 1.1rem;
+    }
+
+    .logo-subtitle {
+        display: none;
+    }
+
+    .settlement-count {
+        display: none;
+    }
+
+    #searchInput {
+        width: 160px;
+    }
+
+    #searchInput:focus {
+        width: 200px;
+    }
+
+    .main-content {
+        top: 56px;
+    }
+
+    .info-card {
+        width: 100%;
+        max-width: 100%;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .map-legend {
+        bottom: 16px;
+        left: 16px;
+        gap: 12px;
+        padding: 8px 12px;
+    }
+
+    .legend-item {
+        font-size: 0.7rem;
+    }
+
+    .map-controls {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .search-results {
+        left: 16px;
+        right: 16px;
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-icon {
+        display: none;
+    }
+
+    #searchInput {
+        width: 130px;
+    }
+
+    .map-legend {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+/* --- Scrollbar --- */
+.search-results::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+/* --- Loading animation (removed staggered delays — they cause jank) --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.marker {
+    animation: fadeInUp 0.3s ease both;
+}
+
+/* ── Dragging State ── */
+/* Disable ALL marker interactions and hover effects while panning
+   so the browser can focus on compositing the transform only. */
+.is-dragging .markers-layer {
+    pointer-events: none !important;
+}
+
+.is-dragging .marker {
+    animation: none !important;
+}
+
+.is-dragging .marker-dot {
+    transition: none !important;
+}
+
+.is-dragging .marker-label {
+    display: none !important;
+}
