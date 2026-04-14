@@ -126,6 +126,16 @@ let imgWidth = 0;
 let imgHeight = 0;
 let rafPending = false;
 
+// ── Multi-Resolution Image System ──
+const MAP_LEVELS = [
+    { src: 'assets/map-low.webp', maxScale: 1.5 },
+    { src: 'assets/map-mid.webp', maxScale: 3.5 },
+    { src: 'assets/map-high.webp', maxScale: Infinity }
+];
+let currentLevelIndex = 0;
+let levelChangeTimeout = null;
+const preloadedImages = {};
+
 // ── DOM Elements (cached once) ──
 const mapWrapper = document.getElementById('mapWrapper');
 const mapContainer = document.getElementById('mapContainer');
@@ -231,6 +241,61 @@ function applyTransform() {
         mapContainer.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
         rafPending = false;
     });
+    scheduleResolutionCheck();
+}
+
+// ── Resolution Swap Logic ──
+function getTargetLevel(currentScale) {
+    for (let i = 0; i < MAP_LEVELS.length; i++) {
+        if (currentScale <= MAP_LEVELS[i].maxScale) return i;
+    }
+    return MAP_LEVELS.length - 1;
+}
+
+function scheduleResolutionCheck() {
+    clearTimeout(levelChangeTimeout);
+    levelChangeTimeout = setTimeout(() => {
+        const targetLevel = getTargetLevel(scale);
+        if (targetLevel !== currentLevelIndex) {
+            swapMapImage(targetLevel);
+        }
+    }, 200); // Wait 200ms after zoom stops to avoid swaps during rapid scrolling
+}
+
+function swapMapImage(targetLevel) {
+    const targetSrc = MAP_LEVELS[targetLevel].src;
+
+    // If already preloaded, swap immediately
+    if (preloadedImages[targetSrc]) {
+        doSwap(targetSrc, targetLevel);
+        return;
+    }
+
+    // Load in background, then swap
+    const img = new Image();
+    img.onload = () => {
+        preloadedImages[targetSrc] = true;
+        // Only swap if still needed (user might have zoomed again)
+        if (getTargetLevel(scale) === targetLevel) {
+            doSwap(targetSrc, targetLevel);
+        }
+    };
+    img.src = targetSrc;
+}
+
+function doSwap(src, levelIndex) {
+    mapImage.src = src;
+    currentLevelIndex = levelIndex;
+
+    // Preload the next level up if it exists
+    if (levelIndex + 1 < MAP_LEVELS.length) {
+        const nextSrc = MAP_LEVELS[levelIndex + 1].src;
+        if (!preloadedImages[nextSrc]) {
+            const preImg = new Image();
+            preImg.onload = () => { preloadedImages[nextSrc] = true; };
+            preImg.src = nextSrc;
+        }
+    }
 }
 
 // ── Fit the map to the viewport ──
@@ -246,56 +311,16 @@ function fitMapToView() {
     applyTransform();
 }
 
-// ── Rasterize SVG to Canvas for Performance ──
-// Draws the SVG image onto a canvas once so the browser
-// works with a fast bitmap during pan/zoom instead of
-// re-rendering 46 MB of vector paths every frame.
-function rasterizeToCanvas() {
-    const canvas = document.createElement('canvas');
-
-    let w = mapImage.naturalWidth;
-    let h = mapImage.naturalHeight;
-
-    // SVGs without explicit width/height may report 0
-    if (!w || !h) { w = 4096; h = 2731; }
-
-    // Cap to safe browser canvas limits — keep it reasonable for perf
-    const maxDim = 4096;
-    if (w > maxDim || h > maxDim) {
-        const ratio = Math.min(maxDim / w, maxDim / h);
-        w = Math.floor(w * ratio);
-        h = Math.floor(h * ratio);
-    }
-
-    canvas.width = w;
-    canvas.height = h;
-    canvas.className = 'map-image';
-    canvas.draggable = false;
-    // Prevent canvas from being a compositing bottleneck
-    canvas.style.imageRendering = 'auto';
-
-    const ctx = canvas.getContext('2d', { alpha: false });
-    // Fill with a background color first (avoids transparency compositing cost)
-    ctx.fillStyle = '#E8DDD0';
-    ctx.fillRect(0, 0, w, h);
-    ctx.drawImage(mapImage, 0, 0, w, h);
-
-    // Replace SVG <img> with the rasterized canvas
-    mapContainer.replaceChild(canvas, mapImage);
-
-    return { width: w, height: h };
-}
-
 // ── Initialize Map ──
 function initMap() {
     // Hide loading state if any
     mapWrapper.classList.add('loaded');
 
-    // Rasterize SVG → canvas (one-time, fixes SVG re-render lag)
-    const dims = rasterizeToCanvas();
-    imgWidth = dims.width;
-    imgHeight = dims.height;
+    // Use original dimensions, but fallback if SVG gives 0
+    imgWidth = mapImage.naturalWidth || 4096;
+    imgHeight = mapImage.naturalHeight || 2731;
 
+    // Apply explicit dimensions to container
     mapContainer.style.width = imgWidth + 'px';
     mapContainer.style.height = imgHeight + 'px';
 

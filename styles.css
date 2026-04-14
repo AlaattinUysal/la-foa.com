@@ -260,19 +260,23 @@ body {
     transform-origin: 0 0;
     will-change: transform;
     transition: none;
-    contain: layout style paint;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     /* Force GPU compositing layer */
     transform: translate3d(0, 0, 0);
+    /* Rendering isolation — browser only repaints this layer */
+    contain: strict;
 }
 
 .map-image {
     display: block;
+    width: 100%;
+    height: 100%;
     user-select: none;
     -webkit-user-drag: none;
-    /* Prevent canvas from triggering repaints */
-    contain: strict;
+    /* Smooth WebP scaling during zoom */
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
 }
 
 .markers-layer {
