@@ -147,6 +147,7 @@ const cardId = document.getElementById('cardId');
 const cardTitle = document.getElementById('cardTitle');
 const cardCoords = document.getElementById('cardCoords');
 const cardDescription = document.getElementById('cardDescription');
+const cardQrCode = document.getElementById('cardQrCode');
 const cardDetailBtn = document.getElementById('cardDetailBtn');
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
@@ -216,6 +217,9 @@ function openInfoCard(settlement, markerEl) {
     } else {
         cardDescription.textContent = `${settlement.name} hakkında detaylı bilgiler yakında eklenecektir.`;
     }
+
+    const safeName = settlement.name.replace(/[^a-z0-9]/gi, '_').replace(/_+/g, '_').toLowerCase();
+    cardQrCode.src = `qrcodes/id-${settlement.id}-${safeName}.png`;
 
     cardDetailBtn.href = `yerlesim/${settlement.id}.html`;
     infoCard.classList.add('active');
