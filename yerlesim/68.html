@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vadinin Bekçisi: Akhiza-Ferhatlı Kalesi — La Foa</title>
+<meta name="description" content="Artvin Ardanuç'ta yer alan Akhiza-Ferhatlı Kalesi: 5-8. yüzyıla tarihlenen Gürcü mimarisi eseri, vadinin bekçisi tarihi kale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: #8B4513;
+  --accent-light: #D4A574;
+  --bg: #FAF8F5;
+  --surface: #fff;
+  --text: #2C1810;
+  --text-sec: #6B5C4E;
+  --text-muted: #9E8E7E;
+  --border: #E8DDD0;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Noto Serif', serif;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text); }
+
+/* HEADER */
+.site-header {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: linear-gradient(135deg,rgba(220,232,245,.95),rgba(240,245,255,.92));
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(180,210,240,.4);
+  box-shadow: 0 2px 16px rgba(100,150,200,.1);
+}
+.header-content {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 32px; height:80px;
+}
+.logo-area { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.logo-icon { display:flex; align-items:center; justify-content:center; width:120px; height:120px; overflow:hidden; position:relative; }
+.logo-img { width:100%; height:100%; object-fit:contain; filter:brightness(.5) sepia(1) saturate(2) hue-rotate(-15deg); }
+.logo-text h1 { font-family:var(--font-serif); font-size:1.35rem; font-weight:700; color:var(--accent); line-height:1.1; letter-spacing:-0.01em; }
+.logo-subtitle { font-size:.72rem; color:var(--text-muted); font-weight:500; text-transform:uppercase; letter-spacing:.04em; }
+.back-btn {
+  display:flex; align-items:center; gap:8px; text-decoration:none;
+  color:var(--text-sec); font-size:.85rem; font-weight:600;
+  padding:8px 18px; border-radius:100px; border:1.5px solid var(--border);
+  transition:.2s;
+}
+.back-btn:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+
+/* HERO */
+.hero {
+  margin-top:80px; position:relative; height:480px; overflow:hidden;
+}
+.hero-main {
+  width:100%; height:100%; position:relative; overflow:hidden;
+  background:#000;
+}
+/* Hero Video */
+.hero-video {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+.hero-overlay {
+  position:absolute; bottom: 0; left:0; right:0;
+  background:linear-gradient(to top, rgba(20,10,5,0.95) 0%, rgba(20,10,5,0.6) 50%, transparent 100%);
+  padding:100px 32px 76px;
+  pointer-events:none;
+  z-index: 5;
+}
+.hero-badge {
+  display:inline-block; background:var(--accent); color:#fff;
+  font-size:.65rem; font-weight:700; letter-spacing:.08em;
+  padding:4px 12px; border-radius:100px; text-transform:uppercase;
+  margin-bottom:10px;
+}
+.hero-title {
+  font-family:var(--font-serif); font-size:2rem; color:#fff; font-weight:700;
+  line-height:1.2;
+}
+.hero-loc {
+  font-size:.85rem; color:rgba(255,255,255,.75); margin-top:6px;
+  display:flex; align-items:center; gap:6px;
+}
+
+/* Video Controls */
+.video-controls-wrapper {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 0 32px 24px;
+  background: transparent;
+  z-index: 10;
+  transition: opacity 0.4s ease;
+}
+.progress-container {
+  width: 100%; height: 6px; background: rgba(255,255,255,0.3);
+  border-radius: 4px; cursor: pointer; position: relative;
+  transition: 0.2s;
+}
+.progress-container:hover { height: 8px; }
+.progress-filled {
+  height: 100%; background: var(--accent); border-radius: 4px; width: 0%;
+  transition: width 0.1s linear; pointer-events: none;
+}
+.controls-main {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.controls-left, .controls-right {
+  display: flex; align-items: center; gap: 16px;
+}
+.control-btn {
+  background: none; border: none; color: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: 0.2s; padding: 4px; border-radius: 4px;
+}
+.control-btn:hover { color: var(--accent-light); background: rgba(255,255,255,0.1); }
+.control-text {
+  color: #fff; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  background: rgba(255,255,255,0.15); padding: 4px 8px; border-radius: 4px;
+  transition: 0.2s; user-select: none;
+}
+.control-text:hover { background: rgba(255,255,255,0.25); }
+
+/* Photos button */
+.hero-photos-btn {
+  position:absolute; top:24px; right:24px;
+  display:flex; align-items:center; gap:8px;
+  background:rgba(0,0,0,.5); border:1.5px solid rgba(255,255,255,.3);
+  color:#fff; padding:10px 18px; border-radius:100px;
+  font-size:.85rem; font-weight:600; cursor:pointer;
+  backdrop-filter:blur(12px); transition:.2s; z-index:10;
+  text-decoration:none;
+}
+.hero-photos-btn:hover { background:rgba(0,0,0,.7); transform: translateY(-2px); }
+
+/* LAYOUT */
+.page-layout {
+  display:grid; grid-template-columns:1fr 360px;
+  gap:32px; max-width:1400px; margin:0 auto;
+  padding:48px 32px 80px;
+}
+
+/* CONTENT */
+.content-section { display:flex; flex-direction:column; gap:36px; }
+.section-block {
+  background:var(--surface); border-radius:16px;
+  border:1px solid var(--border); padding:32px;
+  box-shadow:0 4px 24px rgba(44,24,16,.06);
+}
+.section-label {
+  font-size:.65rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:8px;
+}
+.section-title {
+  font-family:var(--font-serif); font-size:1.5rem;
+  font-weight:700; color:var(--text); margin-bottom:20px;
+  padding-bottom:16px; border-bottom:2px solid var(--border);
+}
+.section-title::after {
+  content:''; display:block; width:48px; height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-light));
+  border-radius:2px; margin-top:12px;
+}
+.prose p {
+  font-size:.95rem; line-height:1.85; color:var(--text-sec);
+  margin-bottom:16px;
+}
+.prose p:last-child { margin-bottom:0; }
+
+/* INFO TABLE */
+.info-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:16px; margin-top:4px;
+}
+.info-item {
+  background:var(--bg); border-radius:12px;
+  padding:14px 18px; border:1px solid var(--border);
+}
+.info-item .label {
+  font-size:.65rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--text-muted); margin-bottom:4px;
+}
+.info-item .value {
+  font-size:.92rem; font-weight:600; color:var(--text);
+}
+
+/* GALLERY GRID */
+.gallery-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:12px; margin-top:4px;
+}
+.gallery-img {
+  border-radius:12px; overflow:hidden; aspect-ratio:4/3;
+  cursor:pointer; position:relative;
+}
+.gallery-img img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .4s ease;
+}
+.gallery-img:hover img { transform:scale(1.06); }
+.gallery-img::after {
+  content:''; position:absolute; inset:0;
+  background:rgba(44,24,16,0); transition:.3s;
+  border-radius:12px;
+}
+.gallery-img:hover::after { background:rgba(44,24,16,.12); }
+
+/* SIDEBAR */
+.sidebar { display:flex; flex-direction:column; gap:24px; }
+
+/* MINI MAP */
+.minimap-card {
+  background:var(--surface); border-radius:16px;
+  border:1px solid var(--border);
+  box-shadow:0 4px 24px rgba(44,24,16,.08);
+  overflow:hidden; position:sticky; top:96px;
+}
+.minimap-header {
+  padding:16px 20px; border-bottom:1px solid var(--border);
+  display:flex; align-items:center; gap:10px;
+}
+.minimap-header .map-icon {
+  width:32px; height:32px; border-radius:8px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-light));
+  display:flex; align-items:center; justify-content:center;
+  color:#fff;
+}
+.minimap-title {
+  font-size:.9rem; font-weight:700; color:var(--text);
+}
+.minimap-subtitle {
+  font-size:.72rem; color:var(--text-muted);
+}
+.minimap-wrap {
+  position:relative; height:260px; overflow:hidden;
+  background:#E8DDD0;
+}
+#minimapCanvas {
+  width:100%; height:100%;
+  cursor:pointer;
+}
+.minimap-marker {
+  position:absolute; width:16px; height:16px;
+  background:#C0392B; border:2.5px solid #fff;
+  border-radius:50%; transform:translate(-50%,-50%);
+  box-shadow:0 0 0 4px rgba(192,57,43,.3);
+  animation:pulse 2s infinite;
+  pointer-events:none;
+}
+@keyframes pulse {
+  0%{box-shadow:0 0 0 0 rgba(192,57,43,.5)}
+  70%{box-shadow:0 0 0 10px rgba(192,57,43,0)}
+  100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}
+}
+.minimap-footer {
+  padding:12px 20px; background:var(--bg);
+  border-top:1px solid var(--border);
+  display:flex; flex-direction:column; gap:6px;
+}
+.coords-row {
+  display:flex; align-items:center; gap:8px;
+  font-size:.75rem; color:var(--text-muted);
+}
+.open-map-btn {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  background:linear-gradient(135deg,var(--accent),#A0522D);
+  color:#fff; padding:10px; border-radius:10px;
+  text-decoration:none; font-size:.82rem; font-weight:600;
+  transition:.2s; margin-top:4px;
+}
+.open-map-btn:hover { opacity:.9; transform:translateY(-1px); }
+
+/* QUICK FACTS */
+.quick-facts {
+  background:var(--surface); border-radius:16px;
+  border:1px solid var(--border); padding:20px;
+  box-shadow:0 4px 24px rgba(44,24,16,.06);
+}
+.facts-title {
+  font-size:.8rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--accent); margin-bottom:16px;
+}
+.fact-row {
+  display:flex; align-items:flex-start; gap:12px;
+  padding:10px 0; border-bottom:1px solid var(--border);
+}
+.fact-row:last-child { border-bottom:none; padding-bottom:0; }
+.fact-icon {
+  width:28px; height:28px; border-radius:8px;
+  background:rgba(139,69,19,.1); color:var(--accent);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.9rem; flex-shrink:0;
+}
+.fact-label { font-size:.68rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; }
+.fact-value { font-size:.85rem; color:var(--text); font-weight:500; margin-top:2px; }
+
+/* LIGHTBOX */
+.lightbox {
+  display:none; position:fixed; inset:0; z-index:999;
+  background:rgba(0,0,0,.92); align-items:center; justify-content:center;
+}
+.lightbox.open { display:flex; }
+.lightbox img {
+  max-width:85vw; max-height:85vh;
+  border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.5);
+  user-select: none;
+}
+.lightbox-close {
+  position:absolute; top:24px; right:24px;
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,.15); border:none; color:#fff;
+  font-size:1.2rem; cursor:pointer; display:flex;
+  align-items:center; justify-content:center; transition: 0.2s;
+}
+.lightbox-close:hover { background:rgba(255,255,255,.3); }
+.lightbox-prev, .lightbox-next {
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:rgba(255,255,255,.1); border:none; color:#fff;
+  width:56px; height:56px; border-radius:50%;
+  font-size:1.5rem; cursor:pointer; display:flex;
+  align-items:center; justify-content:center;
+  transition:0.2s; backdrop-filter:blur(4px);
+}
+.lightbox-prev:hover, .lightbox-next:hover { background:rgba(255,255,255,.3); transform:translateY(-50%) scale(1.1); }
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+
+@media(max-width:1024px) {
+  .page-layout { grid-template-columns:1fr; }
+  .minimap-card { position:static; }
+}
+@media(max-width:768px) {
+  .hero { height:320px; }
+  .hero-side { display:none; }
+  .hero-title { font-size:1.4rem; }
+  .gallery-grid { grid-template-columns:1fr 1fr; }
+  .page-layout { padding:24px 16px 60px; }
+  .info-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>La Foa</h1>
+        <span class="logo-subtitle">Tarihî Yerleşim Haritası</span>
+      </div>
+    </a>
+    <a href="../index.html" class="back-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      Haritaya Dön
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <!-- Arka plan videosu -->
+    <video class="hero-video" id="heroVideo"
+      src="../assets/akhiza/hero.mp4"
+      autoplay muted loop playsinline
+      poster="../assets/akhiza/akhiza (1).png"
+      onclick="togglePlayPause()">
+    </video>
+
+    <!-- Overlay (Title vs) -->
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #68</span>
+      <div class="hero-title">Akhiza-Ferhatlı Kalesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        Ardanuç, Artvin, Türkiye
+      </div>
+    </div>
+
+    <!-- Video Controls -->
+    <div class="video-controls-wrapper">
+      <div class="progress-container" id="progressContainer" onclick="seekVideo(event)">
+        <div class="progress-filled" id="progressBar"></div>
+      </div>
+      <div class="controls-main">
+        <div class="controls-left">
+          <button class="control-btn" onclick="togglePlayPause()" id="playPauseBtn" title="Oynat/Duraklat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <button class="control-btn" onclick="toggleMute()" id="muteBtn" title="Sesi aç/kapat">
+            <svg id="muteIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          </button>
+          <span style="color:#fff; font-size:0.8rem; font-weight:500; font-variant-numeric: tabular-nums;" id="timeDisplay">0:00 / 0:00</span>
+        </div>
+        <div class="controls-right">
+          <div class="control-text" onclick="toggleSpeed()" id="speedBtn" title="Oynatma Hızı">1x</div>
+          <div class="control-text" title="Kalite (Tek Çözünürlük Mevcut)" style="cursor:default;">720p HD</div>
+          <button class="control-btn" onclick="toggleFullscreen()" title="Tam Ekran">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fotoğrafları Gör butonu -->
+    <a class="hero-photos-btn" onclick="openLightbox(0); return false;" href="#">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+      10 Fotoğrafı Gör
+    </a>
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="section-label">Yerleşim Hakkında</div>
+      <h2 class="section-title">Vadinin Bekçisi: Akhiza-Ferhatlı Kalesi</h2>
+      <div class="prose" id="mainText">
+        <p><strong>Akhiza</strong> (Gürcüce: <em>ახიზა</em>) yer adı, muhtemelen Gürcücede "geçici sığınma" anlamına gelen <em>hizvna</em> (ხიზვნა) ya da "sığınan kişi" anlamındaki <em>hizani</em> (ხიზანი) kelimeleriyle ilişkili olup, bu durum yerleşimdeki kalenin dış tehditler karşısında bir sığınak işlevi görmesiyle bağlantılı görünmektedir. Ad, Türkçeye de büyük ölçüde aynı biçimde aktarılmıştır.</p>
+        <p>Günümüzde Ardanuç ilçesine bağlı <strong>Ferhatlı Köyü</strong> olarak bilinen bu yerleşim, Ardanuç'un yaklaşık 5 km batısında yer almakta ve tarihsel süreçte hem askeri hem de dini açıdan önemli bir merkez olarak öne çıkmaktadır.</p>
+        <p>Akhiza, Gürcü Kralı <strong>Vakhtang Gorgasali</strong>'nin 5. yüzyılda Tao-Klarceti bölgesinde kurdurduğu piskoposluk merkezlerinden biri olarak bilinmektedir. Yerleşimde piskoposluk merkezi olan kilisenin yanı sıra, kalıntıları günümüze ulaşan ve <strong>9.-10. yüzyıllara</strong> tarihlenen 2 Gürcü kilisesi daha bulunmaktadır. Bu durum, Akhiza'nın Orta Çağ boyunca bölgesel bir dini merkez niteliği taşıdığını göstermektedir.</p>
+      </div>
+    </div>
+
+    <!-- MİMARİ -->
+    <div class="section-block">
+      <div class="section-label">Mimari ve Tarih</div>
+      <h2 class="section-title">Yapının Tarihi ve Mimarisi</h2>
+      <div class="prose">
+        <p>Yerleşimin en dikkat çekici yapısı olan <strong>Akhiza Kalesi</strong>, kitabesiz olmakla birlikte Ardanuç Kalesi ile benzer bir tarihsel süreç içinde değerlendirilmekte ve 5. yüzyılda Vakhtang Gorgasali döneminde onarılarak kullanıldığı kabul edilmektedir. Kale, Ardanuç Çayı vadisine paralel uzanan kayalık bir yükselti üzerine kurulmuş olup, stratejik konumu sayesinde vadiyi denetleyen bir noktada yer almaktadır.</p>
+        <p><strong>Evliya Çelebi'nin</strong> Seyahatnâme'sinde <em>"Harbe Kalesi"</em> olarak anılan yapıdan günümüze sur duvarlarının bir bölümü ulaşmış, ancak genel olarak yapı büyük ölçüde tahrip olmuştur. Savunma sistemi, iri kulelerle güçlendirilmiş surlardan oluşmakta; iç kısımda yer alan dikdörtgen planlı ana kulenin ise yıkılmış olduğu görülmektedir.</p>
+        <p>Kaleye ait savunma düzeninin önemli unsurlarından biri de <strong>doğal ve yapay mağaralardan oluşan ağ</strong>dır; bu sistemin kökeni 6. yüzyıla kadar götürülmekte ve Artavaz ile ilişkilendirilmektedir. Yapıda, düzenli sıralar hâlinde yerleştirilmiş dikdörtgen taş blokların kullanıldığı anlaşılmaktadır.</p>
+        <p>Akhiza'daki dini mimari kalıntılar da yerleşimin tarihsel önemini desteklemektedir. Köyün doğu kesiminde, küçük bir yükselti üzerinde yer alan salon planlı ve küçük ölçekli bir kilisenin kalıntıları günümüze ulaşmıştır <em>(41°8'24.95"N; 41°59'50.89"E)</em>. Bu yapıda özellikle doğu duvarının bir bölümü, apsisin yarım daire formu ve güney duvarın bir kısmı ayırt edilebilmektedir. Kaplama taşlarının büyük ölçüde sökülmüş olduğu yapı, sarımsı tonlarda kesme taş ve harç kullanılarak inşa edilmiştir.</p>
+        <p>Köyün güney kesiminde ise daha büyük boyutlu, yine salon planlı bir başka kilise yer almaktadır <em>(41°7'57.30"N; 42°0'15.75"E)</em>. Bu yapının üst örtüsü tamamen çökmüş, duvarları ise ciddi ölçüde zarar görmüştür. Batı cephede kemerli bir giriş açıklığı korunmuş olup, apsis duvarının alt kesiminde dış kaplamaya ait kaba işlenmiş taşların bir kısmı günümüze ulaşmıştır.</p>
+        <p>Tüm bu bulgular, Akhiza'nın yalnızca bir savunma noktası değil, aynı zamanda güçlü bir dinsel ve idari merkez olarak Orta Çağ <strong>Tao-Klarceti</strong> coğrafyasında önemli bir yer tuttuğunu ortaya koymaktadır.</p>
+      </div>
+
+      <!-- INFO GRID -->
+      <div class="info-grid" style="margin-top:24px;">
+        <div class="info-item">
+          <div class="label">Dönem</div>
+          <div class="value">Orta Çağ (MS 9–13. yy)</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Dönem</div>
+          <div class="value">5(?) – 8. Yüzyıl</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Mimari Tarzı</div>
+          <div class="value">Gürcü Mimarisi</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Kültür</div>
+          <div class="value">Gürcü / Bizans / Osmanlı</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Durum</div>
+          <div class="value">Harap / Kısmen Ayakta</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Koordinatlar</div>
+          <div class="value">41.1430°N, 42.0088°E</div>
+        </div>
+        <div class="info-item">
+          <div class="label">İl / İlçe</div>
+          <div class="value">Artvin / Ardanuç, Ferhatlı Köyü</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <h2 class="section-title">Görsel Belgeleme</h2>
+      <div class="gallery-grid">
+        <div class="gallery-img" onclick="openLightbox(0)">
+          <img src="../assets/akhiza/akhiza (1).png" alt="Akhiza Kalesi - Görünüm 1">
+        </div>
+        <div class="gallery-img" onclick="openLightbox(1)">
+          <img src="../assets/akhiza/akhiza (2).png" alt="Akhiza Kalesi - Görünüm 2">
+        </div>
+        <div class="gallery-img" onclick="openLightbox(2)">
+          <img src="../assets/akhiza/akhiza (3).png" alt="Akhiza Kalesi - Görünüm 3">
+        </div>
+        <div class="gallery-img" onclick="openLightbox(3)">
+          <img src="../assets/akhiza/akhiza (4).png" alt="Akhiza Kalesi - Görünüm 4">
+        </div>
+        <div class="gallery-img" onclick="openLightbox(4)">
+          <img src="../assets/akhiza/akhiza (5).png" alt="Akhiza Kalesi - Görünüm 5">
+        </div>
+        <div class="gallery-img" onclick="openLightbox(5)">
+          <img src="../assets/akhiza/akhiza (6).png" alt="Akhiza Kalesi - Görünüm 6">
+        </div>
+        <div class="gallery-img" onclick="openLightbox(6)">
+          <img src="../assets/akhiza/akhiza (7).png" alt="Akhiza Kalesi - Görünüm 7">
+        </div>
+        <div class="gallery-img" onclick="openLightbox(7)">
+          <img src="../assets/akhiza/akhiza (8).png" alt="Akhiza Kalesi - Görünüm 8">
+        </div>
+        <div class="gallery-img" onclick="openLightbox(8)">
+          <img src="../assets/akhiza/akhiza (9).png" alt="Akhiza Kalesi - Görünüm 9">
+        </div>
+        <div class="gallery-img" onclick="openLightbox(9)">
+          <img src="../assets/akhiza/akhiza (10).png" alt="Akhiza Kalesi - Görünüm 10">
+        </div>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block">
+      <div class="section-label">Bilimsel Kaynaklar</div>
+      <h2 class="section-title">Ana Kaynaklar</h2>
+      <div class="prose">
+        <p><em>KC. Kartlis Tskhovreba.</em> Vol. I. Edited by Simon Kaukhchishvili. Tbilisi: Sakhelgami, 1955.</p>
+        <p>Vakhushti Batonishvili, <em>Aghtsera Samepossa Sakartvelossa, Kartlis Tskhovreba,</em> Teksti Dadgenili Qvela Dziritadi Khelnatseris Mikhedvit S. Qaukhchishvilis Mier, C. IV, Tbilisi, 1973.</p>
+      </div>
+
+      <h2 class="section-title" style="margin-top:28px;">Modern Literatür</h2>
+      <div class="prose">
+        <p>Aytekin, Osman. <em>Ortaçağdan Osmanlı Dönemi Sonuna Kadar Artvin'deki Mimari Eserler,</em> Kültür Bakanlığı Yayınları, Ankara 1999.</p>
+        <p>Baumgartner B., <em>Studien zur historischen Geographie von Tao-Klarjeti</em> (Dissertation), Wien, 1996.</p>
+        <p>Edwards R.W., <em>The Fortifications of Artvin: A Second Preliminary Report on the Marchland of Nordeast Turkey,</em> DOP, 40, 1986.</p>
+        <p>Jobadze V., <em>Adreuli shuasa saukuneebis kartuli monastrebi istoriul Taoshi, Klarjet'sa da Shavsheti,</em> Tbilisi, 2006.</p>
+        <p>Khoshtaria D., <em>Shatberdis (Eni-Rabat'is) eklesia da Klarjetis arkitektur'is mkhatvrul-istoriuli problemebi,</em> disertatsia, Tbilisi, 2004.</p>
+        <p>Khoshtaria D., <em>Shavsheti-Klarjetis eklesiebi,</em> zhurn. "Literatura da Khelovneba", №2, 1998.</p>
+        <p>Khoshtaria, D., <em>Klarjetis Eklesiebi Da Monasterebi,</em> Artanuji, Tbilisi 2005.</p>
+        <p>Koch K., <em>Wanderungen im Orient Während der Jahre 1843 und 1844, II, Reise im pontischen Gebirge und türkischen Armenien,</em> Weimar, 1846–1847.</p>
+        <p>Kudava, Buba ed. <em>Tao Klarjeti - Historical and Cultural Essays.</em> Artanuji, 2018.</p>
+        <p>Silogava, Valeri, Shengelia, Kakha. <em>Tao-Klarceti,</em> Kapkasis Universitetis Gamotsemebi. Tiflis 2006.</p>
+        <p>Thierry M., <em>Topographie et état actuel des monuments géorgiens en Turquie orientale,</em> Revue des études géorgiennes et caucasiennes, 5, 1989.</p>
+        <p>Uvarova P., <em>Kavkaz: Abkhaziya, Adzhariya, Shavshetiya, Poskhovskiy uchastok, Putevye zametki,</em> ch. II, M., 1891.</p>
+        <p>Yıldırım, Sefa. <em>"Artvin İli Şavşat ve Ardanuç İlçelerinde Yer Alan Bazı Önemli Kaleler",</em> Uluslararası Karadeniz İncelemeleri Dergisi, 19–35.</p>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle">Ardanuç, Artvin</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,55%) var(--my,23%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          41.1430°N, 42.0088°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+    <!-- QUICK FACTS -->
+    <div class="quick-facts">
+      <div class="facts-title">Hızlı Bilgi</div>
+      <div class="fact-row">
+        <div class="fact-icon">🏰</div>
+        <div>
+          <div class="fact-label">Tür</div>
+          <div class="fact-value">Savunma Kalesi</div>
+        </div>
+      </div>
+      <div class="fact-row">
+        <div class="fact-icon">📍</div>
+        <div>
+          <div class="fact-label">Konum</div>
+          <div class="fact-value">Çoruh Nehri Vadisi</div>
+        </div>
+      </div>
+      <div class="fact-row">
+        <div class="fact-icon">⏳</div>
+        <div>
+          <div class="fact-label">Dönem</div>
+          <div class="fact-value">Orta Çağ</div>
+        </div>
+      </div>
+      <div class="fact-row">
+        <div class="fact-icon">🗿</div>
+        <div>
+          <div class="fact-label">Malzeme</div>
+          <div class="fact-value">Kesme Taş / Kaya</div>
+        </div>
+      </div>
+      <div class="fact-row">
+        <div class="fact-icon">📷</div>
+        <div>
+          <div class="fact-label">Belgeleyen</div>
+          <div class="fact-value">LAFOA Araştırma Ekibi</div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = [
+  '../assets/akhiza/akhiza (1).png',
+  '../assets/akhiza/akhiza (2).png',
+  '../assets/akhiza/akhiza (3).png',
+  '../assets/akhiza/akhiza (4).png',
+  '../assets/akhiza/akhiza (5).png',
+  '../assets/akhiza/akhiza (6).png',
+  '../assets/akhiza/akhiza (7).png',
+  '../assets/akhiza/akhiza (8).png',
+  '../assets/akhiza/akhiza (9).png',
+  '../assets/akhiza/akhiza (10).png'
+];
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => { 
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox(); 
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Video Controls
+const video = document.getElementById('heroVideo');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
+const timeDisplay = document.getElementById('timeDisplay');
+const speedBtn = document.getElementById('speedBtn');
+const muteIcon = document.getElementById('muteIcon');
+
+function togglePlayPause() {
+  if (video.paused) {
+    video.play();
+    playPauseBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+  } else {
+    video.pause();
+    playPauseBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+  }
+}
+
+function toggleMute() {
+  video.muted = !video.muted;
+  if (video.muted) {
+    muteIcon.innerHTML = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+  } else {
+    muteIcon.innerHTML = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+  }
+}
+
+video.addEventListener('timeupdate', () => {
+  if(!video.duration) return;
+  const percent = (video.currentTime / video.duration) * 100;
+  progressBar.style.width = percent + '%';
+  timeDisplay.innerText = formatTime(video.currentTime) + ' / ' + formatTime(video.duration);
+});
+
+function seekVideo(e) {
+  const container = document.getElementById('progressContainer');
+  const pos = (e.pageX - container.getBoundingClientRect().left) / container.offsetWidth;
+  video.currentTime = pos * video.duration;
+}
+
+function formatTime(seconds) {
+  if (isNaN(seconds)) return "0:00";
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return m + ':' + (s < 10 ? '0' + s : s);
+}
+
+const speeds = [1, 1.25, 1.5, 2, 0.5];
+let speedIndex = 0;
+function toggleSpeed() {
+  speedIndex = (speedIndex + 1) % speeds.length;
+  video.playbackRate = speeds[speedIndex];
+  speedBtn.innerText = speeds[speedIndex] + 'x';
+}
+
+function toggleFullscreen() {
+  const heroMain = document.querySelector('.hero-main');
+  if (!document.fullscreenElement) {
+    heroMain.requestFullscreen().catch(err => console.log(err));
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Mini-map marker positioning
+// Map bounds: lat 42.178-36.779, lng 38.539-46.168
+const LAT = 41.143047, LNG = 42.008760;
+const latRange = 42.178 - 36.779;
+const lngRange = 46.168 - 38.539;
+const mx = ((LNG - 38.539) / lngRange) * 100;
+const my = ((42.178 - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+
+// Auto-hide video controls
+const heroMainElement = document.querySelector('.hero-main');
+const controlsWrapper = document.querySelector('.video-controls-wrapper');
+let controlsTimeout;
+
+function showControls() {
+  controlsWrapper.style.opacity = '1';
+  controlsWrapper.style.pointerEvents = 'auto';
+  heroMainElement.style.cursor = 'default';
+  
+  clearTimeout(controlsTimeout);
+  controlsTimeout = setTimeout(() => {
+    if (!video.paused) {
+      controlsWrapper.style.opacity = '0';
+      controlsWrapper.style.pointerEvents = 'none';
+      heroMainElement.style.cursor = 'none';
+    }
+  }, 3500);
+}
+
+heroMainElement.addEventListener('mousemove', showControls);
+heroMainElement.addEventListener('mouseleave', () => {
+  if (!video.paused) {
+    controlsWrapper.style.opacity = '0';
+    controlsWrapper.style.pointerEvents = 'none';
+  }
+});
+
+video.addEventListener('pause', () => {
+  clearTimeout(controlsTimeout);
+  controlsWrapper.style.opacity = '1';
+  controlsWrapper.style.pointerEvents = 'auto';
+  heroMainElement.style.cursor = 'default';
+});
+
+video.addEventListener('play', showControls);
+showControls(); // Initialize
+</script>
+</body>
+</html>
