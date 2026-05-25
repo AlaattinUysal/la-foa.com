@@ -123,6 +123,39 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
 }
 .control-text:hover { background: rgba(255,255,255,0.25); }
 
+/* Quality Selector */
+.quality-selector {
+  position: relative;
+}
+.quality-btn {
+  color: #fff; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  background: rgba(255,255,255,0.15); padding: 4px 8px; border-radius: 4px;
+  transition: 0.2s; user-select: none; border: none;
+  display: flex; align-items: center; gap: 4px;
+}
+.quality-btn:hover { background: rgba(255,255,255,0.28); }
+.quality-dropdown {
+  display: none; position: absolute; bottom: calc(100% + 8px); right: 0;
+  background: rgba(20,14,8,0.92); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 10px;
+  overflow: hidden; min-width: 110px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+.quality-selector.open .quality-dropdown { display: block; }
+.quality-option {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 14px; color: rgba(255,255,255,0.85);
+  font-size: 0.78rem; font-weight: 500; cursor: pointer;
+  transition: 0.15s; gap: 10px;
+}
+.quality-option:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.quality-option.active { color: var(--accent-light); font-weight: 700; }
+.quality-option .q-badge {
+  font-size: 0.65rem; background: rgba(255,255,255,0.1);
+  padding: 1px 5px; border-radius: 4px; color: rgba(255,255,255,0.5);
+}
+.quality-option.active .q-badge { background: rgba(212,165,116,0.2); color: var(--accent-light); }
+
 /* Photos button */
 .hero-photos-btn {
   position:absolute; top:24px; right:24px;
@@ -273,29 +306,49 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
 }
 .open-map-btn:hover { opacity:.9; transform:translateY(-1px); }
 
-/* QUICK FACTS */
-.quick-facts {
-  background:var(--surface); border-radius:16px;
-  border:1px solid var(--border); padding:20px;
-  box-shadow:0 4px 24px rgba(44,24,16,.06);
+/* QUICK SUMMARY */
+.quick-summary {
+  background: var(--surface); border-radius: 16px;
+  border: 1px solid var(--border); padding: 22px 20px;
+  box-shadow: 0 4px 24px rgba(44,24,16,.06);
 }
-.facts-title {
-  font-size:.8rem; font-weight:700; text-transform:uppercase;
-  letter-spacing:.06em; color:var(--accent); margin-bottom:16px;
+.summary-title {
+  font-size: .75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--accent); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 7px;
 }
-.fact-row {
-  display:flex; align-items:flex-start; gap:12px;
-  padding:10px 0; border-bottom:1px solid var(--border);
+.summary-title::before {
+  content: ''; display: inline-block; width: 14px; height: 3px;
+  background: var(--accent); border-radius: 2px;
 }
-.fact-row:last-child { border-bottom:none; padding-bottom:0; }
-.fact-icon {
-  width:28px; height:28px; border-radius:8px;
-  background:rgba(139,69,19,.1); color:var(--accent);
-  display:flex; align-items:center; justify-content:center;
-  font-size:.9rem; flex-shrink:0;
+.summary-lead {
+  font-family: var(--font-serif); font-size: .97rem; line-height: 1.65;
+  color: var(--text); font-style: italic; margin-bottom: 14px;
+  padding-left: 12px; border-left: 3px solid var(--accent-light);
 }
-.fact-label { font-size:.68rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; }
-.fact-value { font-size:.85rem; color:var(--text); font-weight:500; margin-top:2px; }
+.summary-tags {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;
+}
+.summary-tag {
+  font-size: .7rem; font-weight: 600; padding: 4px 10px;
+  border-radius: 100px; background: rgba(139,69,19,.09);
+  color: var(--accent); border: 1px solid rgba(139,69,19,.18);
+  letter-spacing: .02em;
+}
+.summary-facts {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.sf-item {
+  background: var(--bg); border-radius: 10px;
+  padding: 10px 12px; border: 1px solid var(--border);
+}
+.sf-label {
+  font-size: .6rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .07em; color: var(--text-muted); margin-bottom: 3px;
+}
+.sf-value {
+  font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.3;
+}
 
 /* LIGHTBOX */
 .lightbox {
@@ -405,7 +458,24 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
         </div>
         <div class="controls-right">
           <div class="control-text" onclick="toggleSpeed()" id="speedBtn" title="Oynatma Hızı">1x</div>
-          <div class="control-text" title="Kalite (Tek Çözünürlük Mevcut)" style="cursor:default;">720p HD</div>
+          <!-- Quality Selector -->
+          <div class="quality-selector" id="qualitySelector">
+            <button class="quality-btn" onclick="toggleQualityMenu(event)" id="qualityBtn" title="Video Kalitesi">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              <span id="qualityLabel">720p HD</span>
+            </button>
+            <div class="quality-dropdown" id="qualityDropdown">
+              <div class="quality-option active" data-src="../assets/akhiza/hero.mp4" data-label="720p HD" onclick="setQuality(this)">
+                720p HD <span class="q-badge">Yüksek</span>
+              </div>
+              <div class="quality-option" data-src="../assets/akhiza/hero_480p.mp4" data-label="480p" onclick="setQuality(this)">
+                480p <span class="q-badge">Orta</span>
+              </div>
+              <div class="quality-option" data-src="../assets/akhiza/hero_360p.mp4" data-label="360p" onclick="setQuality(this)">
+                360p <span class="q-badge">Düşük</span>
+              </div>
+            </div>
+          </div>
           <button class="control-btn" onclick="toggleFullscreen()" title="Tam Ekran">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
           </button>
@@ -593,42 +663,33 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
       </div>
     </div>
 
-    <!-- QUICK FACTS -->
-    <div class="quick-facts">
-      <div class="facts-title">Hızlı Bilgi</div>
-      <div class="fact-row">
-        <div class="fact-icon">🏰</div>
-        <div>
-          <div class="fact-label">Tür</div>
-          <div class="fact-value">Savunma Kalesi</div>
-        </div>
+    <!-- QUICK SUMMARY -->
+    <div class="quick-summary">
+      <div class="summary-title">Hızlı Özet</div>
+      <p class="summary-lead">Ardanuç Çayı vadisini gözetleyen kayalık bir yükselti üzerinde kurulu, 5.–8. yüzyıl Gürcü mirasının nadide bir savunma eseri.</p>
+      <div class="summary-tags">
+        <span class="summary-tag">Savunma Kalesi</span>
+        <span class="summary-tag">Gürcü Mimarisi</span>
+        <span class="summary-tag">Orta Çağ</span>
+        <span class="summary-tag">Tao-Klarceti</span>
+        <span class="summary-tag">UNESCO Değeri</span>
       </div>
-      <div class="fact-row">
-        <div class="fact-icon">📍</div>
-        <div>
-          <div class="fact-label">Konum</div>
-          <div class="fact-value">Çoruh Nehri Vadisi</div>
+      <div class="summary-facts">
+        <div class="sf-item">
+          <div class="sf-label">Dönem</div>
+          <div class="sf-value">5–8. Yüzyıl</div>
         </div>
-      </div>
-      <div class="fact-row">
-        <div class="fact-icon">⏳</div>
-        <div>
-          <div class="fact-label">Dönem</div>
-          <div class="fact-value">Orta Çağ</div>
+        <div class="sf-item">
+          <div class="sf-label">İl / İlçe</div>
+          <div class="sf-value">Artvin / Ardanuç</div>
         </div>
-      </div>
-      <div class="fact-row">
-        <div class="fact-icon">🗿</div>
-        <div>
-          <div class="fact-label">Malzeme</div>
-          <div class="fact-value">Kesme Taş / Kaya</div>
+        <div class="sf-item">
+          <div class="sf-label">Konum</div>
+          <div class="sf-value">Çoruh Vadisi</div>
         </div>
-      </div>
-      <div class="fact-row">
-        <div class="fact-icon">📷</div>
-        <div>
-          <div class="fact-label">Belgeleyen</div>
-          <div class="fact-value">LAFOA Araştırma Ekibi</div>
+        <div class="sf-item">
+          <div class="sf-label">Durum</div>
+          <div class="sf-value">Kısmen Ayakta</div>
         </div>
       </div>
     </div>
@@ -753,6 +814,35 @@ function toggleFullscreen() {
     document.exitFullscreen();
   }
 }
+
+// Quality Selector
+function toggleQualityMenu(e) {
+  e.stopPropagation();
+  document.getElementById('qualitySelector').classList.toggle('open');
+}
+function setQuality(el) {
+  const src = el.dataset.src;
+  const label = el.dataset.label;
+  const savedTime = video.currentTime;
+  const wasPaused = video.paused;
+  // Update active state
+  document.querySelectorAll('.quality-option').forEach(o => o.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('qualityLabel').textContent = label;
+  // Switch source and restore time
+  video.src = src;
+  video.load();
+  video.addEventListener('canplay', function onCanPlay() {
+    video.currentTime = savedTime;
+    if (!wasPaused) video.play();
+    video.removeEventListener('canplay', onCanPlay);
+  }, { once: true });
+  document.getElementById('qualitySelector').classList.remove('open');
+}
+// Close quality menu on outside click
+document.addEventListener('click', () => {
+  document.getElementById('qualitySelector').classList.remove('open');
+});
 
 // Mini-map marker positioning
 // Map bounds: lat 42.178-36.779, lng 38.539-46.168
