@@ -24,34 +24,68 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-sans); background: var(--bg); color: var(--text); }
 
-/* HEADER */
+/* HEADER / NAVBAR */
 .site-header {
   position: fixed; top:0; left:0; right:0; z-index:100;
-  background: linear-gradient(135deg,rgba(220,232,245,.95),rgba(240,245,255,.92));
-  backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(180,210,240,.4);
-  box-shadow: 0 2px 16px rgba(100,150,200,.1);
+  background: linear-gradient(135deg, rgba(38, 92, 75, 0.94) 0%, rgba(115, 55, 25, 0.94) 100%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
 }
 .header-content {
   display:flex; align-items:center; justify-content:space-between;
-  padding:0 32px; height:80px;
+  padding:0 40px; height:74px; max-width:1400px; margin:0 auto;
 }
-.logo-area { display:flex; align-items:center; gap:12px; text-decoration:none; }
-.logo-icon { display:flex; align-items:center; justify-content:center; width:120px; height:120px; overflow:hidden; position:relative; }
-.logo-img { width:100%; height:100%; object-fit:contain; filter:brightness(.5) sepia(1) saturate(2) hue-rotate(-15deg); }
-.logo-text h1 { font-family:var(--font-serif); font-size:1.35rem; font-weight:700; color:var(--accent); line-height:1.1; letter-spacing:-0.01em; }
-.logo-subtitle { font-size:.72rem; color:var(--text-muted); font-weight:500; text-transform:uppercase; letter-spacing:.04em; }
-.back-btn {
-  display:flex; align-items:center; gap:8px; text-decoration:none;
-  color:var(--text-sec); font-size:.85rem; font-weight:600;
-  padding:8px 18px; border-radius:100px; border:1.5px solid var(--border);
-  transition:.2s;
+/* Logo */
+.logo-area { display:flex; align-items:center; text-decoration:none; flex-shrink:0; position:relative; padding-left: 105px; height: 74px; }
+.logo-icon { 
+  position: absolute; left: -5px; top: -18px;
+  display:flex; align-items:center; justify-content:center; 
+  width:110px; height:110px; 
 }
-.back-btn:hover { background:var(--accent); color:#fff; border-color:var(--accent); }
+.logo-img { width:100%; height:100%; object-fit:contain; filter: brightness(1.2) sepia(0.3) saturate(1.5); }
+.logo-text h1 { font-family:var(--font-serif); font-size:1.4rem; font-weight:700; color:#E8D8BE; line-height:1; letter-spacing:-0.01em; }
+.logo-subtitle { font-size:.65rem; color:rgba(232, 216, 190, 0.7); font-weight:500; text-transform:uppercase; letter-spacing:.08em; margin-top:4px; }
+/* Nav links */
+.nav-links {
+  display:flex; align-items:center; gap:2px;
+  list-style:none;
+}
+.nav-links a {
+  display:flex; align-items:center; gap:7px;
+  text-decoration:none; color:rgba(255, 255, 255, 0.85);
+  font-size:.83rem; font-weight:500;
+  padding:8px 15px; border-radius:8px;
+  transition:.18s; white-space:nowrap;
+}
+.nav-links a svg { opacity:.7; flex-shrink:0; }
+.nav-links a:hover { background:rgba(255, 255, 255, 0.15); color:#FFF; }
+.nav-links a:hover svg { opacity:1; }
+/* CTA button */
+.nav-cta {
+  display:flex; align-items:center; gap:7px; text-decoration:none;
+  background:linear-gradient(135deg, #E8D8BE, #C4925A);
+  color:#2C1810; font-size:.83rem; font-weight:700;
+  padding:10px 22px; border-radius:100px;
+  transition:.2s; flex-shrink:0; white-space:nowrap;
+  box-shadow:0 2px 14px rgba(0, 0, 0, 0.2);
+}
+.nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 22px rgba(0, 0, 0, 0.3); opacity:.95; }
+/* Mobile hamburger */
+.nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:6px; color:var(--text-sec); }
+@media(max-width:900px) {
+  .nav-links { display:none; }
+  .nav-hamburger { display:flex; }
+  .header-content { padding:0 20px; }
+}
+@media(max-width:600px) {
+  .nav-cta span { display:none; }
+  .nav-cta { padding:10px 13px; border-radius:50%; }
+}
 
 /* HERO */
 .hero {
-  margin-top:80px; position:relative; height:480px; overflow:hidden;
+  margin-top:74px; position:relative; height:480px; overflow:hidden;
 }
 .hero-main {
   width:100%; height:100%; position:relative; overflow:hidden;
@@ -399,6 +433,8 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
 
 <header class="site-header">
   <div class="header-content">
+
+    <!-- Logo -->
     <a href="../index.html" class="logo-area">
       <div class="logo-icon">
         <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
@@ -408,12 +444,66 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
         <span class="logo-subtitle">Tarihî Yerleşim Haritası</span>
       </div>
     </a>
-    <a href="../index.html" class="back-btn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="../index.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+          Harita
+        </a>
+      </li>
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.querySelector('.section-label').closest('.section-block').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="../index.html#about" onclick="alert('Yakında eklenecek!'); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="m15 18-6-6 6-6"/>
       </svg>
-      Haritaya Dön
+      <span>Haritaya Dön</span>
     </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="this.nextElementSibling && document.querySelector('.nav-links').style.display === 'flex' ? document.querySelector('.nav-links').style.display='none' : document.querySelector('.nav-links').style.display='flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
   </div>
 </header>
 
@@ -501,32 +591,10 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
   <!-- MAIN CONTENT -->
   <div class="content-section">
 
-    <!-- HAKKINDA -->
+    <!-- HAKKINDA + MİMARİ (birleşik) -->
     <div class="section-block">
-      <div class="section-label">Yerleşim Hakkında</div>
-      <h2 class="section-title">Vadinin Bekçisi: Akhiza-Ferhatlı Kalesi</h2>
-      <div class="prose" id="mainText">
-        <p><strong>Akhiza</strong> (Gürcüce: <em>ახიზა</em>) yer adı, muhtemelen Gürcücede "geçici sığınma" anlamına gelen <em>hizvna</em> (ხიზვნა) ya da "sığınan kişi" anlamındaki <em>hizani</em> (ხიზანი) kelimeleriyle ilişkili olup, bu durum yerleşimdeki kalenin dış tehditler karşısında bir sığınak işlevi görmesiyle bağlantılı görünmektedir. Ad, Türkçeye de büyük ölçüde aynı biçimde aktarılmıştır.</p>
-        <p>Günümüzde Ardanuç ilçesine bağlı <strong>Ferhatlı Köyü</strong> olarak bilinen bu yerleşim, Ardanuç'un yaklaşık 5 km batısında yer almakta ve tarihsel süreçte hem askeri hem de dini açıdan önemli bir merkez olarak öne çıkmaktadır.</p>
-        <p>Akhiza, Gürcü Kralı <strong>Vakhtang Gorgasali</strong>'nin 5. yüzyılda Tao-Klarceti bölgesinde kurdurduğu piskoposluk merkezlerinden biri olarak bilinmektedir. Yerleşimde piskoposluk merkezi olan kilisenin yanı sıra, kalıntıları günümüze ulaşan ve <strong>9.-10. yüzyıllara</strong> tarihlenen 2 Gürcü kilisesi daha bulunmaktadır. Bu durum, Akhiza'nın Orta Çağ boyunca bölgesel bir dini merkez niteliği taşıdığını göstermektedir.</p>
-      </div>
-    </div>
-
-    <!-- MİMARİ -->
-    <div class="section-block">
-      <div class="section-label">Mimari ve Tarih</div>
-      <h2 class="section-title">Yapının Tarihi ve Mimarisi</h2>
-      <div class="prose">
-        <p>Yerleşimin en dikkat çekici yapısı olan <strong>Akhiza Kalesi</strong>, kitabesiz olmakla birlikte Ardanuç Kalesi ile benzer bir tarihsel süreç içinde değerlendirilmekte ve 5. yüzyılda Vakhtang Gorgasali döneminde onarılarak kullanıldığı kabul edilmektedir. Kale, Ardanuç Çayı vadisine paralel uzanan kayalık bir yükselti üzerine kurulmuş olup, stratejik konumu sayesinde vadiyi denetleyen bir noktada yer almaktadır.</p>
-        <p><strong>Evliya Çelebi'nin</strong> Seyahatnâme'sinde <em>"Harbe Kalesi"</em> olarak anılan yapıdan günümüze sur duvarlarının bir bölümü ulaşmış, ancak genel olarak yapı büyük ölçüde tahrip olmuştur. Savunma sistemi, iri kulelerle güçlendirilmiş surlardan oluşmakta; iç kısımda yer alan dikdörtgen planlı ana kulenin ise yıkılmış olduğu görülmektedir.</p>
-        <p>Kaleye ait savunma düzeninin önemli unsurlarından biri de <strong>doğal ve yapay mağaralardan oluşan ağ</strong>dır; bu sistemin kökeni 6. yüzyıla kadar götürülmekte ve Artavaz ile ilişkilendirilmektedir. Yapıda, düzenli sıralar hâlinde yerleştirilmiş dikdörtgen taş blokların kullanıldığı anlaşılmaktadır.</p>
-        <p>Akhiza'daki dini mimari kalıntılar da yerleşimin tarihsel önemini desteklemektedir. Köyün doğu kesiminde, küçük bir yükselti üzerinde yer alan salon planlı ve küçük ölçekli bir kilisenin kalıntıları günümüze ulaşmıştır <em>(41°8'24.95"N; 41°59'50.89"E)</em>. Bu yapıda özellikle doğu duvarının bir bölümü, apsisin yarım daire formu ve güney duvarın bir kısmı ayırt edilebilmektedir. Kaplama taşlarının büyük ölçüde sökülmüş olduğu yapı, sarımsı tonlarda kesme taş ve harç kullanılarak inşa edilmiştir.</p>
-        <p>Köyün güney kesiminde ise daha büyük boyutlu, yine salon planlı bir başka kilise yer almaktadır <em>(41°7'57.30"N; 42°0'15.75"E)</em>. Bu yapının üst örtüsü tamamen çökmüş, duvarları ise ciddi ölçüde zarar görmüştür. Batı cephede kemerli bir giriş açıklığı korunmuş olup, apsis duvarının alt kesiminde dış kaplamaya ait kaba işlenmiş taşların bir kısmı günümüze ulaşmıştır.</p>
-        <p>Tüm bu bulgular, Akhiza'nın yalnızca bir savunma noktası değil, aynı zamanda güçlü bir dinsel ve idari merkez olarak Orta Çağ <strong>Tao-Klarceti</strong> coğrafyasında önemli bir yer tuttuğunu ortaya koymaktadır.</p>
-      </div>
-
-      <!-- INFO GRID -->
-      <div class="info-grid" style="margin-top:24px;">
+      <!-- INFO GRID (en üstte) -->
+      <div class="info-grid" style="margin-bottom:28px;">
         <div class="info-item">
           <div class="label">Dönem</div>
           <div class="value">Orta Çağ (MS 9–13. yy)</div>
@@ -556,12 +624,50 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
           <div class="value">Artvin / Ardanuç, Ferhatlı Köyü</div>
         </div>
       </div>
+
+      <div class="prose" id="mainText">
+        <p>Akhiza (Gürcüce: <em>ახიზა</em>) yer adı, muhtemelen Gürcücede "geçici sığınma" anlamına gelen <em>hizvna</em> (ხიზვნა) ya da "sığınan kişi" anlamındaki <em>hizani</em> (ხიზანი) kelimeleriyle ilişkili olup, bu durum yerleşimdeki kalenin dış tehditler karşısında bir sığınak işlevi görmesiyle bağlantılı görünmektedir. Ad, Türkçeye de büyük ölçüde aynı biçimde aktarılmıştır.</p>
+        <p>Günümüzde Ardanuç ilçesine bağlı Ferhatlı Köyü olarak bilinen bu yerleşim, Ardanuç'un yaklaşık 5 km batısında yer almakta ve tarihsel süreçte hem askeri hem de dini açıdan önemli bir merkez olarak öne çıkmaktadır.</p>
+        <p>Akhiza, Gürcü Kralı Vakhtang Gorgasali'nin 5. yüzyılda Tao-Klarceti bölgesinde kurdurduğu piskoposluk merkezlerinden biri olarak bilinmektedir. Yerleşimde piskoposluk merkezi olan kilisenin yanı sıra, kalıntıları günümüze ulaşan ve 9.-10. yüzyıllara tarihlenen 2 Gürcü kilisesi daha bulunmaktadır. Bu durum, Akhiza'nın Orta Çağ boyunca bölgesel bir dini merkez niteliği taşıdığını göstermektedir.</p>
+        <p>Yerleşimin en dikkat çekici yapısı olan Akhiza Kalesi, kitabesiz olmakla birlikte Ardanuç Kalesi ile benzer bir tarihsel süreç içinde değerlendirilmekte ve 5. yüzyılda Vakhtang Gorgasali döneminde onarılarak kullanıldığı kabul edilmektedir. Kale, Ardanuç Çayı vadisine paralel uzanan kayalık bir yükselti üzerine kurulmuş olup, stratejik konumu sayesinde vadiyi denetleyen bir noktada yer almaktadır.</p>
+        <p>Evliya Çelebi'nin Seyahatnâme'sinde <em>"Harbe Kalesi"</em> olarak anılan yapıdan günümüze sur duvarlarının bir bölümü ulaşmış, ancak genel olarak yapı büyük ölçüde tahrip olmuştur. Savunma sistemi, iri kulelerle güçlendirilmiş surlardan oluşmakta; iç kısımda yer alan dikdörtgen planlı ana kulenin ise yıkılmış olduğu görülmektedir.</p>
+        <p>Kaleye ait savunma düzeninin önemli unsurlarından biri de doğal ve yapay mağaralardan oluşan ağdır; bu sistemin kökeni 6. yüzyıla kadar götürülmekte ve Artavaz ile ilişkilendirilmektedir. Yapıda, düzenli sıralar hâlinde yerleştirilmiş dikdörtgen taş blokların kullanıldığı anlaşılmaktadır.</p>
+        <p>Akhiza'daki dini mimari kalıntılar da yerleşimin tarihsel önemini desteklemektedir. Köyün doğu kesiminde, küçük bir yükselti üzerinde yer alan salon planlı ve küçük ölçekli bir kilisenin kalıntıları günümüze ulaşmıştır <em>(41°8'24.95"N; 41°59'50.89"E)</em>. Bu yapıda özellikle doğu duvarının bir bölümü, apsisin yarım daire formu ve güney duvarın bir kısmı ayırt edilebilmektedir. Kaplama taşlarının büyük ölçüde sökülmüş olduğu yapı, sarımsı tonlarda kesme taş ve harç kullanılarak inşa edilmiştir.</p>
+        <p>Köyün güney kesiminde ise daha büyük boyutlu, yine salon planlı bir başka kilise yer almaktadır <em>(41°7'57.30"N; 42°0'15.75"E)</em>. Bu yapının üst örtüsü tamamen çökmüş, duvarları ise ciddi ölçüde zarar görmüştür. Batı cephede kemerli bir giriş açıklığı korunmuş olup, apsis duvarının alt kesiminde dış kaplamaya ait kaba işlenmiş taşların bir kısmı günümüze ulaşmıştır.</p>
+        <p>Tüm bu bulgular, Akhiza'nın yalnızca bir savunma noktası değil, aynı zamanda güçlü bir dinsel ve idari merkez olarak Orta Çağ Tao-Klarceti coğrafyasında önemli bir yer tuttuğunu ortaya koymaktadır.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block">
+      <div class="section-label">Bilimsel Kaynaklar</div>
+      <h2 class="section-title">Ana Kaynaklar</h2>
+      <div class="prose">
+        <p><em>KC. Kartlis Tskhovreba.</em> Vol. I. Edited by Simon Kaukhchishvili. Tbilisi: Sakhelgami, 1955.</p>
+        <p>Vakhushti Batonishvili, <em>Aghtsera Samepossa Sakartvelossa, Kartlis Tskhovreba,</em> Teksti Dadgenili Qvela Dziritadi Khelnatseris Mikhedvit S. Qaukhchishvilis Mier, C. IV, Tbilisi, 1973.</p>
+      </div>
+
+      <h2 class="section-title" style="margin-top:28px;">Modern Literatür</h2>
+      <div class="prose">
+        <p>Aytekin, Osman. <em>Ortaçağdan Osmanlı Dönemi Sonuna Kadar Artvin'deki Mimari Eserler,</em> Kültür Bakanlığı Yayınları, Ankara 1999.</p>
+        <p>Baumgartner B., <em>Studien zur historischen Geographie von Tao-Klarjeti</em> (Dissertation), Wien, 1996.</p>
+        <p>Edwards R.W., <em>The Fortifications of Artvin: A Second Preliminary Report on the Marchland of Nordeast Turkey,</em> DOP, 40, 1986.</p>
+        <p>Jobadze V., <em>Adreuli shuasa saukuneebis kartuli monastrebi istoriul Taoshi, Klarjet'sa da Shavsheti,</em> Tbilisi, 2006.</p>
+        <p>Khoshtaria D., <em>Shatberdis (Eni-Rabat'is) eklesia da Klarjetis arkitektur'is mkhatvrul-istoriuli problemebi,</em> disertatsia, Tbilisi, 2004.</p>
+        <p>Khoshtaria D., <em>Shavsheti-Klarjetis eklesiebi,</em> zhurn. "Literatura da Khelovneba", №2, 1998.</p>
+        <p>Khoshtaria, D., <em>Klarjetis Eklesiebi Da Monasterebi,</em> Artanuji, Tbilisi 2005.</p>
+        <p>Koch K., <em>Wanderungen im Orient Während der Jahre 1843 und 1844, II, Reise im pontischen Gebirge und türkischen Armenien,</em> Weimar, 1846–1847.</p>
+        <p>Kudava, Buba ed. <em>Tao Klarjeti - Historical and Cultural Essays.</em> Artanuji, 2018.</p>
+        <p>Silogava, Valeri, Shengelia, Kakha. <em>Tao-Klarceti,</em> Kapkasis Universitetis Gamotsemebi. Tiflis 2006.</p>
+        <p>Thierry M., <em>Topographie et état actuel des monuments géorgiens en Turquie orientale,</em> Revue des études géorgiennes et caucasiennes, 5, 1989.</p>
+        <p>Uvarova P., <em>Kavkaz: Abkhaziya, Adzhariya, Shavshetiya, Poskhovskiy uchastok, Putevye zametki,</em> ch. II, M., 1891.</p>
+        <p>Yıldırım, Sefa. <em>"Artvin İli Şavşat ve Ardanuç İlçelerinde Yer Alan Bazı Önemli Kaleler",</em> Uluslararası Karadeniz İncelemeleri Dergisi, 19–35.</p>
+      </div>
     </div>
 
     <!-- GALERİ -->
     <div class="section-block">
       <div class="section-label">Fotoğraf Galerisi</div>
-      <h2 class="section-title">Görsel Belgeleme</h2>
       <div class="gallery-grid">
         <div class="gallery-img" onclick="openLightbox(0)">
           <img src="../assets/akhiza/akhiza (1).png" alt="Akhiza Kalesi - Görünüm 1">
@@ -593,33 +699,6 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
         <div class="gallery-img" onclick="openLightbox(9)">
           <img src="../assets/akhiza/akhiza (10).png" alt="Akhiza Kalesi - Görünüm 10">
         </div>
-      </div>
-    </div>
-
-    <!-- KAYNAKLAR -->
-    <div class="section-block">
-      <div class="section-label">Bilimsel Kaynaklar</div>
-      <h2 class="section-title">Ana Kaynaklar</h2>
-      <div class="prose">
-        <p><em>KC. Kartlis Tskhovreba.</em> Vol. I. Edited by Simon Kaukhchishvili. Tbilisi: Sakhelgami, 1955.</p>
-        <p>Vakhushti Batonishvili, <em>Aghtsera Samepossa Sakartvelossa, Kartlis Tskhovreba,</em> Teksti Dadgenili Qvela Dziritadi Khelnatseris Mikhedvit S. Qaukhchishvilis Mier, C. IV, Tbilisi, 1973.</p>
-      </div>
-
-      <h2 class="section-title" style="margin-top:28px;">Modern Literatür</h2>
-      <div class="prose">
-        <p>Aytekin, Osman. <em>Ortaçağdan Osmanlı Dönemi Sonuna Kadar Artvin'deki Mimari Eserler,</em> Kültür Bakanlığı Yayınları, Ankara 1999.</p>
-        <p>Baumgartner B., <em>Studien zur historischen Geographie von Tao-Klarjeti</em> (Dissertation), Wien, 1996.</p>
-        <p>Edwards R.W., <em>The Fortifications of Artvin: A Second Preliminary Report on the Marchland of Nordeast Turkey,</em> DOP, 40, 1986.</p>
-        <p>Jobadze V., <em>Adreuli shuasa saukuneebis kartuli monastrebi istoriul Taoshi, Klarjet'sa da Shavsheti,</em> Tbilisi, 2006.</p>
-        <p>Khoshtaria D., <em>Shatberdis (Eni-Rabat'is) eklesia da Klarjetis arkitektur'is mkhatvrul-istoriuli problemebi,</em> disertatsia, Tbilisi, 2004.</p>
-        <p>Khoshtaria D., <em>Shavsheti-Klarjetis eklesiebi,</em> zhurn. "Literatura da Khelovneba", №2, 1998.</p>
-        <p>Khoshtaria, D., <em>Klarjetis Eklesiebi Da Monasterebi,</em> Artanuji, Tbilisi 2005.</p>
-        <p>Koch K., <em>Wanderungen im Orient Während der Jahre 1843 und 1844, II, Reise im pontischen Gebirge und türkischen Armenien,</em> Weimar, 1846–1847.</p>
-        <p>Kudava, Buba ed. <em>Tao Klarjeti - Historical and Cultural Essays.</em> Artanuji, 2018.</p>
-        <p>Silogava, Valeri, Shengelia, Kakha. <em>Tao-Klarceti,</em> Kapkasis Universitetis Gamotsemebi. Tiflis 2006.</p>
-        <p>Thierry M., <em>Topographie et état actuel des monuments géorgiens en Turquie orientale,</em> Revue des études géorgiennes et caucasiennes, 5, 1989.</p>
-        <p>Uvarova P., <em>Kavkaz: Abkhaziya, Adzhariya, Shavshetiya, Poskhovskiy uchastok, Putevye zametki,</em> ch. II, M., 1891.</p>
-        <p>Yıldırım, Sefa. <em>"Artvin İli Şavşat ve Ardanuç İlçelerinde Yer Alan Bazı Önemli Kaleler",</em> Uluslararası Karadeniz İncelemeleri Dergisi, 19–35.</p>
       </div>
     </div>
 
@@ -663,36 +742,7 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
       </div>
     </div>
 
-    <!-- QUICK SUMMARY -->
-    <div class="quick-summary">
-      <div class="summary-title">Hızlı Özet</div>
-      <p class="summary-lead">Ardanuç Çayı vadisini gözetleyen kayalık bir yükselti üzerinde kurulu, 5.–8. yüzyıl Gürcü mirasının nadide bir savunma eseri.</p>
-      <div class="summary-tags">
-        <span class="summary-tag">Savunma Kalesi</span>
-        <span class="summary-tag">Gürcü Mimarisi</span>
-        <span class="summary-tag">Orta Çağ</span>
-        <span class="summary-tag">Tao-Klarceti</span>
-        <span class="summary-tag">UNESCO Değeri</span>
-      </div>
-      <div class="summary-facts">
-        <div class="sf-item">
-          <div class="sf-label">Dönem</div>
-          <div class="sf-value">5–8. Yüzyıl</div>
-        </div>
-        <div class="sf-item">
-          <div class="sf-label">İl / İlçe</div>
-          <div class="sf-value">Artvin / Ardanuç</div>
-        </div>
-        <div class="sf-item">
-          <div class="sf-label">Konum</div>
-          <div class="sf-value">Çoruh Vadisi</div>
-        </div>
-        <div class="sf-item">
-          <div class="sf-label">Durum</div>
-          <div class="sf-value">Kısmen Ayakta</div>
-        </div>
-      </div>
-    </div>
+
 
   </aside>
 </div>

@@ -4,6 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
+    "start": "http-server -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/AlaattinUysal/la-foa.com#readme",
   "dependencies": {
+    "http-server": "^14.1.1",
     "qrcode": "^1.5.4",
     "sharp": "^0.34.5"
   }
