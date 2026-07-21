@@ -5,13 +5,13 @@
 const sharp = require('sharp');
 const path = require('path');
 
-const SOURCE = path.join(__dirname, 'assets', 'etkileşimli.webp');
+const SOURCE = path.join(__dirname, 'assets', 'Yeni-Harita', 'harita.webp');
 const OUT_DIR = path.join(__dirname, 'assets');
 
 const levels = [
-    { name: 'map-low.webp',  width: 2000,  quality: 75 },
-    { name: 'map-mid.webp',  width: 5000,  quality: 80 },
-    { name: 'map-high.webp', width: 10000, quality: 82 },
+    { name: 'map-low.webp',  width: 2000,  quality: 82 },
+    { name: 'map-mid.webp',  width: 5000,  quality: 87 },
+    { name: 'map-high.webp', width: 10000, quality: 90 },
 ];
 
 (async () => {

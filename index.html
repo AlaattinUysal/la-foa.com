@@ -25,9 +25,59 @@
                 </div>
                 <div class="logo-text">
                     <h1>La Foa</h1>
-                    <span class="logo-subtitle">Tarihî Yerleşim Haritası</span>
                 </div>
             </div>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#" onclick="alert('Yakında eklenecek!'); return false;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px; margin-right:6px;">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Hakkında
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="alert('Yakında eklenecek!'); return false;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px; margin-right:6px;">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                        </svg>
+                        Yayınlar
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="alert('Yakında eklenecek!'); return false;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px; margin-right:6px;">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        Çalıştay
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="alert('Yakında eklenecek!'); return false;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px; margin-right:6px;">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                        Teşekkür
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="alert('Yakında eklenecek!'); return false;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px; margin-right:6px;">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                        </svg>
+                        Kaynakça
+                    </a>
+                </li>
+            </ul>
+
             <nav class="header-nav">
                 <span class="settlement-count"><span id="totalCount">0</span> Yerleşim</span>
                 <div class="search-box">
@@ -38,6 +88,14 @@
                     </svg>
                     <input type="text" id="searchInput" placeholder="Yerleşim ara..." autocomplete="off">
                 </div>
+
+                <button class="nav-hamburger" id="navHamburger" aria-label="Menü">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
@@ -47,8 +105,8 @@
         <!-- Map Container -->
         <div class="map-wrapper" id="mapWrapper">
             <div class="map-container" id="mapContainer">
-                <img src="assets/map-low.webp" alt="Tarihî Anadolu ve Ermenistan Haritası" class="map-image" id="mapImage"
-                    draggable="false">
+                <img src="assets/map-low.webp" alt="Tarihî Anadolu ve Ermenistan Haritası" class="map-image"
+                    id="mapImage" draggable="false">
                 <!-- Markers will be injected by JS -->
                 <div class="markers-layer" id="markersLayer"></div>
             </div>
@@ -76,6 +134,23 @@
             </div>
         </div>
 
+        <!-- Detail Panel (proje hakkında kısa bilgi) -->
+        <aside class="detail-panel" id="detailPanel">
+            <div class="detail-panel-inner">
+                <span class="detail-panel-label">Proje Hakkında</span>
+                <h2 class="detail-panel-title">La Foa Nedir?</h2>
+                <p class="detail-panel-text">
+                    La Foa, Anadolu ve Ermenistan coğrafyasındaki tarihî kale, kilise ve manastırları
+                    tek bir interaktif harita üzerinde bir araya getiren bir belgeleme projesidir.
+                </p>
+                <p class="detail-panel-text">
+                    Amacımız, sahada kaybolmaya yüz tutmuş yerleşimleri koordinatları, görselleri
+                    ve kaynaklarıyla birlikte kayıt altına alarak araştırmacılara ve meraklılara
+                    açık bir arşiv oluşturmak.
+                </p>
+            </div>
+        </aside>
+
         <!-- Info Card (popup) -->
         <div class="info-card" id="infoCard">
             <button class="card-close" id="cardClose">
@@ -89,30 +164,27 @@
                 <h2 class="card-title" id="cardTitle"></h2>
             </div>
             <div class="card-body">
-                <div class="card-info-content">
-                    <div class="card-coords">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                            <circle cx="12" cy="10" r="3" />
-                        </svg>
-                        <span id="cardCoords"></span>
-                    </div>
-                    <p class="card-description" id="cardDescription">Bu yerleşim hakkında detaylı bilgiler yakında
-                        eklenecektir.</p>
-                </div>
-                <div class="card-qr-box">
-                    <img id="cardQrCode" src="" alt="QR Kod">
-                    <span class="qr-label">Okut</span>
-                </div>
-            </div>
-            <div class="card-footer">
-                <a href="#" class="card-detail-btn" id="cardDetailBtn">
-                    Detayları Gör
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
+                <div class="card-coords">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
                     </svg>
-                </a>
+                    <span id="cardCoords"></span>
+                </div>
+                <div class="card-action-row">
+                    <a href="#" class="card-detail-btn" id="cardDetailBtn">
+                        Detayları Gör
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                    <div class="card-qr-box">
+                        <img id="cardQrCode" src="" alt="QR Kod">
+                        <span class="qr-label">Okut</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -137,6 +209,11 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        document.getElementById('navHamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('open');
+        });
+    </script>
 </body>
 
 </html>

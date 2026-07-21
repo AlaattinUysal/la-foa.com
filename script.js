@@ -5,11 +5,13 @@
  */
 
 // ── Map Boundaries (decimal degrees) ──
+// QGIS "Harita 1" öğe özellikleri > Dış sınırlar (KRS: EPSG:4326 - WGS 84) değerleriyle eşleşmeli.
+// En küçük X/Y = sol-alt köşe, En büyük X/Y = sağ-üst köşe.
 const MAP_BOUNDS = {
-    topLeftLat: 42.178,
-    topLeftLng: 38.539,
-    bottomRightLat: 36.779,
-    bottomRightLng: 46.168
+    topLeftLat: 43.002,
+    topLeftLng: 36.487,
+    bottomRightLat: 35.998,
+    bottomRightLng: 46.387
 };
 
 // ── Settlement Data (88 settlements) ──
@@ -99,9 +101,11 @@ const settlements = [
     { id: 85, name: "Porta Manastırı Kilisesi", lat: 41.236478, lng: 42.075308 },
     { id: 86, name: "Dolishane/Hamamlı Kilisesi", lat: 41.164824, lng: 41.952758 },
     { id: 87, name: "Şatberdi Kalesi", lat: 41.095420, lng: 41.913382 },
-    { id: 88, name: "Barhal Kilisesi", lat: 40.970148, lng: 41.383511 },
-    { id: 89, name: "Dört Kilise Manastırı", lat: 40.814207, lng: 41.471527 },
-    { id: 90, name: "İşhan Manastırı", lat: 40.785669, lng: 41.747307 }
+    // NOT: 88-90 gerçek GPS değil — bu bölgede haritanın çizimi gerçek koordinattan saptığı için
+    // ikonların tam üstüne denk gelecek şekilde piksel bazlı geri hesaplanmış (kalibre edilmiş) değerler.
+    { id: 88, name: "Barhal Kilisesi", lat: 41.4429, lng: 41.3669 },
+    { id: 89, name: "Dört Kilise Manastırı", lat: 41.2427, lng: 41.4918 },
+    { id: 90, name: "İşhan Manastırı", lat: 41.1749, lng: 41.8645 }
 ];
 
 // ── Categorize settlement type ──
@@ -116,11 +120,6 @@ function getType(name) {
 let scale = 1;
 let translateX = 0;
 let translateY = 0;
-let isDragging = false;
-let dragStartX = 0;
-let dragStartY = 0;
-let lastTranslateX = 0;
-let lastTranslateY = 0;
 let activeMarker = null;
 let imgWidth = 0;
 let imgHeight = 0;
@@ -146,7 +145,6 @@ const cardClose = document.getElementById('cardClose');
 const cardId = document.getElementById('cardId');
 const cardTitle = document.getElementById('cardTitle');
 const cardCoords = document.getElementById('cardCoords');
-const cardDescription = document.getElementById('cardDescription');
 const cardQrCode = document.getElementById('cardQrCode');
 const cardDetailBtn = document.getElementById('cardDetailBtn');
 const searchInput = document.getElementById('searchInput');
@@ -156,13 +154,51 @@ const zoomInBtn = document.getElementById('zoomIn');
 const zoomOutBtn = document.getElementById('zoomOut');
 const resetViewBtn = document.getElementById('resetView');
 
+// ── Map Calibration Offsets ──
+// Yeni haritanın (Yeni-Harita/harita.webp) dört kenarında da eşit kalınlıkta (orijinal
+// 14043px genişlikte ~176px, yani genişliğin ~%1.25'i) turuncu bir cetvel/çerçeve şeridi var.
+// Bu şerit sabit piksel kalınlığında olduğu ve map-low/mid/high aynı oranda ölçeklendiği için
+// burada oran (fraction of imgWidth) olarak tutuluyor — hangi çözünürlük yüklenirse yüklensin
+// doğru ölçekleniyor. Piksel örneklemesiyle ölçüldü (harita.webp kenarlarından tarama).
+const MAP_PADDING_FRACTION = 0.01253; // dört kenar için de aynı (kare piksel varsayımıyla)
+
+
+
+// Projeksiyonu değiştirmek isterseniz bunu true yapın
+const USE_MERCATOR = false;
+
+function latToMercatorY(lat) {
+    const latRad = lat * Math.PI / 180;
+    return Math.log(Math.tan(Math.PI / 4 + latRad / 2));
+}
+
 // ── Convert lat/lng to pixel position on the map image ──
 function latLngToPixel(lat, lng) {
-    const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
-    const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+    // Çerçeve şeridi sabit piksel kalınlığında olduğundan (bkz. MAP_PADDING_FRACTION),
+    // dört kenar için de o anki görüntü genişliğine (imgWidth) göre ölçekleniyor.
+    const pad = imgWidth * MAP_PADDING_FRACTION;
+    const paddingLeft = pad;
+    const paddingRight = pad;
+    const paddingTop = pad;
+    const paddingBottom = pad;
 
-    const x = ((lng - MAP_BOUNDS.topLeftLng) / lngRange) * imgWidth;
-    const y = ((MAP_BOUNDS.topLeftLat - lat) / latRange) * imgHeight;
+    const usableWidth = imgWidth - paddingLeft - paddingRight;
+    const usableHeight = imgHeight - paddingTop - paddingBottom;
+
+    const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+    const x = paddingLeft + ((lng - MAP_BOUNDS.topLeftLng) / lngRange) * usableWidth;
+
+    let y;
+    if (USE_MERCATOR) {
+        const topY = latToMercatorY(MAP_BOUNDS.topLeftLat);
+        const bottomY = latToMercatorY(MAP_BOUNDS.bottomRightLat);
+        const rangeY = topY - bottomY;
+        const currentY = latToMercatorY(lat);
+        y = paddingTop + ((topY - currentY) / rangeY) * usableHeight;
+    } else {
+        const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+        y = paddingTop + ((MAP_BOUNDS.topLeftLat - lat) / latRange) * usableHeight;
+    }
 
     return { x, y };
 }
@@ -208,15 +244,6 @@ function openInfoCard(settlement, markerEl) {
     cardId.textContent = `#${settlement.id}`;
     cardTitle.textContent = settlement.name;
     cardCoords.textContent = `${settlement.lat.toFixed(4)}°N, ${settlement.lng.toFixed(4)}°E`;
-
-    const type = getType(settlement.name);
-    if (type === 'kale') {
-        cardDescription.textContent = `${settlement.name}, tarihî bir kale yapısıdır. Detaylı bilgi yakında eklenecektir.`;
-    } else if (type === 'kilise') {
-        cardDescription.textContent = `${settlement.name}, tarihî bir dinî yapıdır. Detaylı bilgi yakında eklenecektir.`;
-    } else {
-        cardDescription.textContent = `${settlement.name} hakkında detaylı bilgiler yakında eklenecektir.`;
-    }
 
     const safeName = settlement.name.replace(/[^a-z0-9]/gi, '_').replace(/_+/g, '_').toLowerCase();
     cardQrCode.src = `qrcodes/id-${settlement.id}-${safeName}.png`;
@@ -321,8 +348,8 @@ function initMap() {
     mapWrapper.classList.add('loaded');
 
     // Use original dimensions, but fallback if SVG gives 0
-    imgWidth = mapImage.naturalWidth || 4096;
-    imgHeight = mapImage.naturalHeight || 2731;
+    imgWidth = mapImage.naturalWidth || 10000;
+    imgHeight = mapImage.naturalHeight || 7073;
 
     // Apply explicit dimensions to container
     mapContainer.style.width = imgWidth + 'px';
@@ -341,47 +368,12 @@ if (mapImage.complete && mapImage.naturalWidth > 0) {
     mapImage.addEventListener('load', initMap);
 }
 
-// ── Mouse Drag (Pan) — add/remove 'dragging' class to disable CSS transitions ──
-mapWrapper.addEventListener('mousedown', (e) => {
-    if (e.button !== 0) return;
-    isDragging = true;
-    dragStartX = e.clientX;
-    dragStartY = e.clientY;
-    lastTranslateX = translateX;
-    lastTranslateY = translateY;
-    mapWrapper.classList.add('is-dragging');
-});
-
-window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    translateX = lastTranslateX + (e.clientX - dragStartX);
-    translateY = lastTranslateY + (e.clientY - dragStartY);
-    applyTransform();
-});
-
-window.addEventListener('mouseup', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    mapWrapper.classList.remove('is-dragging');
-});
-
-// ── Touch Drag (Pan) ──
-let touchStartX = 0;
-let touchStartY = 0;
+// ── Pinch-to-Zoom (touch) — panning is disabled, only zoom gestures are handled ──
 let initialPinchDist = 0;
 let initialPinchScale = 1;
 
 mapWrapper.addEventListener('touchstart', (e) => {
-    if (e.touches.length === 1) {
-        isDragging = true;
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        lastTranslateX = translateX;
-        lastTranslateY = translateY;
-        mapWrapper.classList.add('is-dragging');
-    } else if (e.touches.length === 2) {
-        // Pinch-to-zoom start
-        isDragging = false;
+    if (e.touches.length === 2) {
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
         initialPinchDist = Math.sqrt(dx * dx + dy * dy);
@@ -390,11 +382,7 @@ mapWrapper.addEventListener('touchstart', (e) => {
 }, { passive: true });
 
 mapWrapper.addEventListener('touchmove', (e) => {
-    if (e.touches.length === 1 && isDragging) {
-        translateX = lastTranslateX + (e.touches[0].clientX - touchStartX);
-        translateY = lastTranslateY + (e.touches[0].clientY - touchStartY);
-        applyTransform();
-    } else if (e.touches.length === 2) {
+    if (e.touches.length === 2) {
         // Pinch-to-zoom move
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
@@ -415,11 +403,6 @@ mapWrapper.addEventListener('touchmove', (e) => {
         applyTransform();
     }
 }, { passive: true });
-
-mapWrapper.addEventListener('touchend', () => {
-    isDragging = false;
-    mapWrapper.classList.remove('is-dragging');
-});
 
 // ── Zoom (Scroll) ──
 mapWrapper.addEventListener('wheel', (e) => {
