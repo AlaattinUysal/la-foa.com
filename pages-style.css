@@ -1,0 +1,121 @@
+/* ===========================
+   La Foa — Bilgi Sayfası Şablonu
+   Hakkında / Yayınlar / Kaynakça / Teşekkür / İletişim sayfaları için ortak stil.
+   =========================== */
+:root {
+  --accent: #8B4513;
+  --accent-light: #D4A574;
+  --bg: #FAF8F5;
+  --surface: #fff;
+  --text: #2C1810;
+  --text-sec: #6B5C4E;
+  --text-muted: #9E8E7E;
+  --border: #E8DDD0;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Noto Serif', serif;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); background: var(--bg); color: var(--text);
+  display: flex; flex-direction: column; min-height: 100vh;
+}
+
+/* HEADER / NAVBAR */
+.site-header {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: linear-gradient(135deg, rgba(31, 74, 94, 0.94) 0%, rgba(139, 69, 19, 0.94) 100%);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
+}
+.header-content {
+  display:grid; grid-template-columns:minmax(360px,1fr) auto minmax(160px,1fr); align-items:center;
+  padding:0 24px; height:80px; max-width:100%;
+}
+.logo-area {
+  display:flex; align-items:center; position:relative;
+  justify-self:start; margin-left:4px; padding-left:110px; min-width:0; height:80px;
+  text-decoration:none;
+}
+.logo-icon {
+  display:flex; align-items:center; justify-content:center;
+  width:120px; height:120px; border-radius:12px; overflow:hidden;
+  position:absolute; left:0; top:-20px; z-index:101;
+}
+.logo-img { width:100%; height:100%; object-fit:contain; filter: brightness(1.2) sepia(0.3) saturate(1.5); }
+.logo-text h1 {
+  font-family:var(--font-serif); font-size:.8rem; font-weight:700;
+  color:#E8D8BE; line-height:1; letter-spacing:-0.005em; white-space:nowrap;
+  overflow:hidden; text-overflow:ellipsis;
+}
+.nav-links {
+  display:flex; align-items:center; gap:12px; list-style:none; justify-self:center;
+}
+.nav-links a {
+  text-decoration:none; color:rgba(255, 255, 255, 0.85);
+  font-size:.95rem; font-weight:500;
+  padding:8px 15px; border-radius:8px;
+  transition:.18s; white-space:nowrap;
+}
+.nav-links a:hover, .nav-links a.active { background:rgba(255, 255, 255, 0.15); color:#FFF; }
+.nav-cta {
+  display:flex; align-items:center; gap:7px; text-decoration:none;
+  background:linear-gradient(135deg, #E8D8BE, #C4925A);
+  color:#2C1810; font-size:.83rem; font-weight:700;
+  padding:10px 22px; border-radius:100px;
+  transition:.2s; white-space:nowrap; justify-self:end;
+  box-shadow:0 2px 14px rgba(0, 0, 0, 0.2);
+}
+.nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 22px rgba(0, 0, 0, 0.3); opacity:.95; }
+.nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:6px; color:#E8D8BE; justify-self:end; }
+
+@media(max-width:900px) {
+  .nav-links { display:none; }
+  .nav-hamburger { display:flex; }
+  .nav-cta { display:none; }
+  .header-content { grid-template-columns:1fr auto; padding:0 20px; }
+}
+
+/* CONTENT */
+.page-content {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 140px 32px 100px;
+}
+.page-label {
+  font-size:.7rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:10px;
+}
+.page-title {
+  font-family:var(--font-serif); font-size:2.2rem; font-weight:700;
+  color:var(--text); margin-bottom:32px; padding-bottom:20px;
+  border-bottom:2px solid var(--border);
+}
+.prose p {
+  font-size:1rem; line-height:1.9; color:var(--text-sec); margin-bottom:18px; text-align:justify;
+}
+.prose p:last-child { margin-bottom:0; }
+
+@media(max-width:768px) {
+  .page-content { padding:120px 20px 60px; }
+  .page-title { font-size:1.6rem; }
+}
+
+/* FOOTER */
+.site-footer {
+  background: linear-gradient(135deg, rgba(31, 74, 94, 0.94) 0%, rgba(139, 69, 19, 0.94) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap:16px;
+}
+.footer-text {
+  font-size: 0.75rem; color: rgba(255, 255, 255, 0.75);
+}
+.footer-text-right { font-weight: 600; flex-shrink:0; }
+@media(max-width:768px) {
+  .footer-text:not(.footer-text-right) { display:none; }
+  .site-footer { justify-content:center; }
+}

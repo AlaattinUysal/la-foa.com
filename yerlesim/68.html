@@ -7,412 +7,7 @@
 <meta name="description" content="Artvin Ardanuç'ta yer alan Akhiza-Ferhatlı Kalesi: 5-8. yüzyıla tarihlenen Gürcü mimarisi eseri, vadinin bekçisi tarihi kale.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-:root {
-  --accent: #8B4513;
-  --accent-light: #D4A574;
-  --bg: #FAF8F5;
-  --surface: #fff;
-  --text: #2C1810;
-  --text-sec: #6B5C4E;
-  --text-muted: #9E8E7E;
-  --border: #E8DDD0;
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Noto Serif', serif;
-}
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-sans); background: var(--bg); color: var(--text); }
-
-/* HEADER / NAVBAR */
-.site-header {
-  position: fixed; top:0; left:0; right:0; z-index:100;
-  background: linear-gradient(135deg, rgba(38, 92, 75, 0.94) 0%, rgba(115, 55, 25, 0.94) 100%);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
-}
-.header-content {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:0 40px; height:74px; max-width:1400px; margin:0 auto;
-}
-/* Logo */
-.logo-area { display:flex; align-items:center; text-decoration:none; flex-shrink:0; position:relative; padding-left: 112px; height: 74px; }
-.logo-icon {
-  position: absolute; left: -13px; top: -26px;
-  display:flex; align-items:center; justify-content:center;
-  width:126px; height:126px;
-}
-.logo-img { width:100%; height:100%; object-fit:contain; filter: brightness(1.2) sepia(0.3) saturate(1.5); }
-.logo-text h1 { font-family:var(--font-serif); font-size:1.4rem; font-weight:700; color:#E8D8BE; line-height:1; letter-spacing:-0.01em; }
-.logo-subtitle { font-size:.65rem; color:rgba(232, 216, 190, 0.7); font-weight:500; text-transform:uppercase; letter-spacing:.08em; margin-top:4px; }
-/* Nav links */
-.nav-links {
-  display:flex; align-items:center; gap:12px;
-  list-style:none;
-}
-.nav-links a {
-  display:flex; align-items:center; gap:7px;
-  text-decoration:none; color:rgba(255, 255, 255, 0.85);
-  font-size:.95rem; font-weight:500;
-  padding:8px 15px; border-radius:8px;
-  transition:.18s; white-space:nowrap;
-}
-.nav-links a svg { opacity:.7; flex-shrink:0; }
-.nav-links a:hover { background:rgba(255, 255, 255, 0.15); color:#FFF; }
-.nav-links a:hover svg { opacity:1; }
-/* CTA button */
-.nav-cta {
-  display:flex; align-items:center; gap:7px; text-decoration:none;
-  background:linear-gradient(135deg, #E8D8BE, #C4925A);
-  color:#2C1810; font-size:.83rem; font-weight:700;
-  padding:10px 22px; border-radius:100px;
-  transition:.2s; flex-shrink:0; white-space:nowrap;
-  box-shadow:0 2px 14px rgba(0, 0, 0, 0.2);
-}
-.nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 22px rgba(0, 0, 0, 0.3); opacity:.95; }
-/* Mobile hamburger */
-.nav-hamburger { display:none; background:none; border:none; cursor:pointer; padding:6px; color:var(--text-sec); }
-@media(max-width:900px) {
-  .nav-links { display:none; }
-  .nav-hamburger { display:flex; }
-  .header-content { padding:0 20px; }
-}
-@media(max-width:600px) {
-  .nav-cta span { display:none; }
-  .nav-cta { padding:10px 13px; border-radius:50%; }
-}
-
-/* HERO */
-.hero {
-  margin-top:74px; position:relative; height:480px; overflow:hidden;
-}
-.hero-main {
-  width:100%; height:100%; position:relative; overflow:hidden;
-  background:#000;
-}
-/* Hero Video */
-.hero-video {
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover;
-}
-.hero-overlay {
-  position:absolute; bottom: 0; left:0; right:0;
-  background:linear-gradient(to top, rgba(20,10,5,0.95) 0%, rgba(20,10,5,0.6) 50%, transparent 100%);
-  padding:100px 32px 76px;
-  pointer-events:none;
-  z-index: 5;
-}
-.hero-badge {
-  display:inline-block; background:var(--accent); color:#fff;
-  font-size:.65rem; font-weight:700; letter-spacing:.08em;
-  padding:4px 12px; border-radius:100px; text-transform:uppercase;
-  margin-bottom:10px;
-}
-.hero-title {
-  font-family:var(--font-serif); font-size:2rem; color:#fff; font-weight:700;
-  line-height:1.2;
-}
-.hero-loc {
-  font-size:.85rem; color:rgba(255,255,255,.75); margin-top:6px;
-  display:flex; align-items:center; gap:6px;
-}
-
-/* Video Controls */
-.video-controls-wrapper {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  display: flex; flex-direction: column; gap: 8px;
-  padding: 0 32px 24px;
-  background: transparent;
-  z-index: 10;
-  transition: opacity 0.4s ease;
-}
-.progress-container {
-  width: 100%; height: 6px; background: rgba(255,255,255,0.3);
-  border-radius: 4px; cursor: pointer; position: relative;
-  transition: 0.2s;
-}
-.progress-container:hover { height: 8px; }
-.progress-filled {
-  height: 100%; background: var(--accent); border-radius: 4px; width: 0%;
-  transition: width 0.1s linear; pointer-events: none;
-}
-.controls-main {
-  display: flex; align-items: center; justify-content: space-between;
-}
-.controls-left, .controls-right {
-  display: flex; align-items: center; gap: 16px;
-}
-.control-btn {
-  background: none; border: none; color: #fff; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: 0.2s; padding: 4px; border-radius: 4px;
-}
-.control-btn:hover { color: var(--accent-light); background: rgba(255,255,255,0.1); }
-.control-text {
-  color: #fff; font-size: 0.8rem; font-weight: 600; cursor: pointer;
-  background: rgba(255,255,255,0.15); padding: 4px 8px; border-radius: 4px;
-  transition: 0.2s; user-select: none;
-}
-.control-text:hover { background: rgba(255,255,255,0.25); }
-
-/* Quality Selector */
-.quality-selector {
-  position: relative;
-}
-.quality-btn {
-  color: #fff; font-size: 0.8rem; font-weight: 600; cursor: pointer;
-  background: rgba(255,255,255,0.15); padding: 4px 8px; border-radius: 4px;
-  transition: 0.2s; user-select: none; border: none;
-  display: flex; align-items: center; gap: 4px;
-}
-.quality-btn:hover { background: rgba(255,255,255,0.28); }
-.quality-dropdown {
-  display: none; position: absolute; bottom: calc(100% + 8px); right: 0;
-  background: rgba(20,14,8,0.92); backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.15); border-radius: 10px;
-  overflow: hidden; min-width: 110px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-}
-.quality-selector.open .quality-dropdown { display: block; }
-.quality-option {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 9px 14px; color: rgba(255,255,255,0.85);
-  font-size: 0.78rem; font-weight: 500; cursor: pointer;
-  transition: 0.15s; gap: 10px;
-}
-.quality-option:hover { background: rgba(255,255,255,0.1); color: #fff; }
-.quality-option.active { color: var(--accent-light); font-weight: 700; }
-.quality-option .q-badge {
-  font-size: 0.65rem; background: rgba(255,255,255,0.1);
-  padding: 1px 5px; border-radius: 4px; color: rgba(255,255,255,0.5);
-}
-.quality-option.active .q-badge { background: rgba(212,165,116,0.2); color: var(--accent-light); }
-
-/* Photos button */
-.hero-photos-btn {
-  position:absolute; top:24px; right:24px;
-  display:flex; align-items:center; gap:8px;
-  background:rgba(0,0,0,.5); border:1.5px solid rgba(255,255,255,.3);
-  color:#fff; padding:10px 18px; border-radius:100px;
-  font-size:.85rem; font-weight:600; cursor:pointer;
-  backdrop-filter:blur(12px); transition:.2s; z-index:10;
-  text-decoration:none;
-}
-.hero-photos-btn:hover { background:rgba(0,0,0,.7); transform: translateY(-2px); }
-
-/* LAYOUT */
-.page-layout {
-  display:grid; grid-template-columns:1fr 360px;
-  gap:32px; max-width:1400px; margin:0 auto;
-  padding:48px 32px 80px;
-}
-
-/* CONTENT */
-.content-section { display:flex; flex-direction:column; gap:36px; }
-.section-block {
-  background:var(--surface); border-radius:16px;
-  border:1px solid var(--border); padding:32px;
-  box-shadow:0 4px 24px rgba(44,24,16,.06);
-  scroll-margin-top:100px;
-}
-.section-label {
-  font-size:.65rem; font-weight:700; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--accent);
-  margin-bottom:8px;
-}
-.section-title {
-  font-family:var(--font-serif); font-size:1.5rem;
-  font-weight:700; color:var(--text); margin-bottom:20px;
-  padding-bottom:16px; border-bottom:2px solid var(--border);
-}
-.section-title::after {
-  content:''; display:block; width:48px; height:3px;
-  background:linear-gradient(90deg,var(--accent),var(--accent-light));
-  border-radius:2px; margin-top:12px;
-}
-.prose p {
-  font-size:.95rem; line-height:1.85; color:var(--text-sec);
-  margin-bottom:16px; text-align:justify;
-}
-.prose p:last-child { margin-bottom:0; }
-#mainText { scroll-margin-top:100px; }
-
-/* GALLERY GRID */
-.gallery-grid {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  gap:12px; margin-top:4px;
-  scroll-margin-top:100px;
-}
-.gallery-img {
-  border-radius:12px; overflow:hidden; aspect-ratio:4/3;
-  cursor:pointer; position:relative;
-}
-.gallery-img img {
-  width:100%; height:100%; object-fit:cover;
-  transition:transform .4s ease;
-}
-.gallery-img:hover img { transform:scale(1.06); }
-.gallery-img::after {
-  content:''; position:absolute; inset:0;
-  background:rgba(44,24,16,0); transition:.3s;
-  border-radius:12px;
-}
-.gallery-img:hover::after { background:rgba(44,24,16,.12); }
-
-/* SIDEBAR */
-.sidebar { display:flex; flex-direction:column; gap:24px; }
-
-/* MINI MAP */
-.minimap-card {
-  background:var(--surface); border-radius:16px;
-  border:1px solid var(--border);
-  box-shadow:0 4px 24px rgba(44,24,16,.08);
-  overflow:hidden; position:sticky; top:96px;
-}
-.minimap-header {
-  padding:16px 20px; border-bottom:1px solid var(--border);
-  display:flex; align-items:center; gap:10px;
-}
-.minimap-header .map-icon {
-  width:32px; height:32px; border-radius:8px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-light));
-  display:flex; align-items:center; justify-content:center;
-  color:#fff;
-}
-.minimap-title {
-  font-size:.9rem; font-weight:700; color:var(--text);
-}
-.minimap-subtitle {
-  font-size:.72rem; color:var(--text-muted);
-}
-.minimap-wrap {
-  position:relative; height:260px; overflow:hidden;
-  background:#E8DDD0;
-}
-#minimapCanvas {
-  width:100%; height:100%;
-  cursor:pointer;
-}
-.minimap-marker {
-  position:absolute; width:16px; height:16px;
-  background:#C0392B; border:2.5px solid #fff;
-  border-radius:50%; transform:translate(-50%,-50%);
-  box-shadow:0 0 0 4px rgba(192,57,43,.3);
-  animation:pulse 2s infinite;
-  pointer-events:none;
-}
-@keyframes pulse {
-  0%{box-shadow:0 0 0 0 rgba(192,57,43,.5)}
-  70%{box-shadow:0 0 0 10px rgba(192,57,43,0)}
-  100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}
-}
-.minimap-footer {
-  padding:12px 20px; background:var(--bg);
-  border-top:1px solid var(--border);
-  display:flex; flex-direction:column; gap:6px;
-}
-.coords-row {
-  display:flex; align-items:center; gap:8px;
-  font-size:.75rem; color:var(--text-muted);
-}
-.open-map-btn {
-  display:flex; align-items:center; justify-content:center; gap:8px;
-  background:linear-gradient(135deg,var(--accent),#A0522D);
-  color:#fff; padding:10px; border-radius:10px;
-  text-decoration:none; font-size:.82rem; font-weight:600;
-  transition:.2s; margin-top:4px;
-}
-.open-map-btn:hover { opacity:.9; transform:translateY(-1px); }
-
-/* QUICK SUMMARY */
-.quick-summary {
-  background: var(--surface); border-radius: 16px;
-  border: 1px solid var(--border); padding: 22px 20px;
-  box-shadow: 0 4px 24px rgba(44,24,16,.06);
-}
-.summary-title {
-  font-size: .75rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .08em; color: var(--accent); margin-bottom: 14px;
-  display: flex; align-items: center; gap: 7px;
-}
-.summary-title::before {
-  content: ''; display: inline-block; width: 14px; height: 3px;
-  background: var(--accent); border-radius: 2px;
-}
-.summary-lead {
-  font-family: var(--font-serif); font-size: .97rem; line-height: 1.65;
-  color: var(--text); font-style: italic; margin-bottom: 14px;
-  padding-left: 12px; border-left: 3px solid var(--accent-light);
-}
-.summary-tags {
-  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;
-}
-.summary-tag {
-  font-size: .7rem; font-weight: 600; padding: 4px 10px;
-  border-radius: 100px; background: rgba(139,69,19,.09);
-  color: var(--accent); border: 1px solid rgba(139,69,19,.18);
-  letter-spacing: .02em;
-}
-.summary-facts {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-}
-.sf-item {
-  background: var(--bg); border-radius: 10px;
-  padding: 10px 12px; border: 1px solid var(--border);
-}
-.sf-label {
-  font-size: .6rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .07em; color: var(--text-muted); margin-bottom: 3px;
-}
-.sf-value {
-  font-size: .82rem; font-weight: 600; color: var(--text); line-height: 1.3;
-}
-
-/* LIGHTBOX */
-.lightbox {
-  display:none; position:fixed; inset:0; z-index:999;
-  background:rgba(0,0,0,.92); align-items:center; justify-content:center;
-}
-.lightbox.open { display:flex; }
-.lightbox img {
-  max-width:85vw; max-height:85vh;
-  border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.5);
-  user-select: none;
-}
-.lightbox-close {
-  position:absolute; top:24px; right:24px;
-  width:44px; height:44px; border-radius:50%;
-  background:rgba(255,255,255,.15); border:none; color:#fff;
-  font-size:1.2rem; cursor:pointer; display:flex;
-  align-items:center; justify-content:center; transition: 0.2s;
-}
-.lightbox-close:hover { background:rgba(255,255,255,.3); }
-.lightbox-prev, .lightbox-next {
-  position:absolute; top:50%; transform:translateY(-50%);
-  background:rgba(255,255,255,.1); border:none; color:#fff;
-  width:56px; height:56px; border-radius:50%;
-  font-size:1.5rem; cursor:pointer; display:flex;
-  align-items:center; justify-content:center;
-  transition:0.2s; backdrop-filter:blur(4px);
-}
-.lightbox-prev:hover, .lightbox-next:hover { background:rgba(255,255,255,.3); transform:translateY(-50%) scale(1.1); }
-.lightbox-prev { left: 24px; }
-.lightbox-next { right: 24px; }
-
-@media(max-width:1024px) {
-  .page-layout { grid-template-columns:1fr; }
-  .minimap-card { position:static; }
-}
-@media(max-width:768px) {
-  .hero { height:320px; }
-  .hero-side { display:none; }
-  .hero-title { font-size:1.4rem; }
-  .gallery-grid { grid-template-columns:1fr 1fr; }
-  .page-layout { padding:24px 16px 60px; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -425,8 +20,7 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
         <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
       </div>
       <div class="logo-text">
-        <h1>La Foa</h1>
-        <span class="logo-subtitle">Tarihî Yerleşim Haritası</span>
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
       </div>
     </a>
 
@@ -443,7 +37,7 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
         </a>
       </li>
       <li>
-        <a href="#sources" onclick="document.querySelector('.section-label').closest('.section-block').scrollIntoView({behavior:'smooth'}); return false;">
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
@@ -472,7 +66,7 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
     </a>
 
     <!-- Mobile hamburger -->
-    <button class="nav-hamburger" onclick="this.nextElementSibling && document.querySelector('.nav-links').style.display === 'flex' ? document.querySelector('.nav-links').style.display='none' : document.querySelector('.nav-links').style.display='flex'" aria-label="Menü">
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"/>
         <line x1="3" y1="12" x2="21" y2="12"/>
@@ -488,22 +82,22 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
   <div class="hero-main">
     <!-- Arka plan videosu -->
     <video class="hero-video" id="heroVideo"
-      src="../assets/akhiza/hero.mp4"
+      src="https://cdn.la-foa.com/akhiza/hero.mp4"
       autoplay muted loop playsinline
-      poster="../assets/akhiza/akhiza (1).png"
+      poster="https://cdn.la-foa.com/akhiza/foto-1.png"
       onclick="togglePlayPause()">
     </video>
 
     <!-- Overlay (Title vs) -->
     <div class="hero-overlay">
       <span class="hero-badge">Kale · #68</span>
-      <div class="hero-title">Akhiza-Ferhatlı Kalesi</div>
+      <div class="hero-title" data-field="baslik">Akhiza-Ferhatlı Kalesi</div>
       <div class="hero-loc">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
           <circle cx="12" cy="10" r="3"/>
         </svg>
-        Ardanuç, Artvin, Türkiye
+        <span data-field="konum">Ardanuç, Artvin</span>, Türkiye
       </div>
     </div>
 
@@ -531,13 +125,13 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
               <span id="qualityLabel">720p HD</span>
             </button>
             <div class="quality-dropdown" id="qualityDropdown">
-              <div class="quality-option active" data-src="../assets/akhiza/hero.mp4" data-label="720p HD" onclick="setQuality(this)">
+              <div class="quality-option active" data-src="https://cdn.la-foa.com/akhiza/hero.mp4" data-label="720p HD" onclick="setQuality(this)">
                 720p HD <span class="q-badge">Yüksek</span>
               </div>
-              <div class="quality-option" data-src="../assets/akhiza/hero_480p.mp4" data-label="480p" onclick="setQuality(this)">
+              <div class="quality-option" data-src="https://cdn.la-foa.com/akhiza/hero_480p.mp4" data-label="480p" onclick="setQuality(this)">
                 480p <span class="q-badge">Orta</span>
               </div>
-              <div class="quality-option" data-src="../assets/akhiza/hero_360p.mp4" data-label="360p" onclick="setQuality(this)">
+              <div class="quality-option" data-src="https://cdn.la-foa.com/akhiza/hero_360p.mp4" data-label="360p" onclick="setQuality(this)">
                 360p <span class="q-badge">Düşük</span>
               </div>
             </div>
@@ -548,16 +142,6 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
         </div>
       </div>
     </div>
-
-    <!-- Fotoğrafları Gör butonu -->
-    <a class="hero-photos-btn" onclick="openLightbox(0); return false;" href="#">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-        <circle cx="8.5" cy="8.5" r="1.5"/>
-        <polyline points="21 15 16 10 5 21"/>
-      </svg>
-      10 Fotoğrafı Gör
-    </a>
   </div>
 </section>
 
@@ -583,16 +167,12 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
     </div>
 
     <!-- KAYNAKLAR -->
-    <div class="section-block">
+    <div class="section-block" id="kaynaklarSection">
       <div class="section-label">Bilimsel Kaynaklar</div>
-      <h2 class="section-title">Ana Kaynaklar</h2>
-      <div class="prose">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
         <p><em>KC. Kartlis Tskhovreba.</em> Vol. I. Edited by Simon Kaukhchishvili. Tbilisi: Sakhelgami, 1955.</p>
         <p>Vakhushti Batonishvili, <em>Aghtsera Samepossa Sakartvelossa, Kartlis Tskhovreba,</em> Teksti Dadgenili Qvela Dziritadi Khelnatseris Mikhedvit S. Qaukhchishvilis Mier, C. IV, Tbilisi, 1973.</p>
-      </div>
-
-      <h2 class="section-title" style="margin-top:28px;">Modern Literatür</h2>
-      <div class="prose">
         <p>Aytekin, Osman. <em>Ortaçağdan Osmanlı Dönemi Sonuna Kadar Artvin'deki Mimari Eserler,</em> Kültür Bakanlığı Yayınları, Ankara 1999.</p>
         <p>Baumgartner B., <em>Studien zur historischen Geographie von Tao-Klarjeti</em> (Dissertation), Wien, 1996.</p>
         <p>Edwards R.W., <em>The Fortifications of Artvin: A Second Preliminary Report on the Marchland of Nordeast Turkey,</em> DOP, 40, 1986.</p>
@@ -614,34 +194,34 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
       <div class="section-label">Fotoğraf Galerisi</div>
       <div class="gallery-grid">
         <div class="gallery-img" onclick="openLightbox(0)">
-          <img src="../assets/akhiza/akhiza (1).png" alt="Akhiza Kalesi - Görünüm 1">
+          <img src="https://cdn.la-foa.com/akhiza/foto-1.png" alt="Akhiza Kalesi - Görünüm 1">
         </div>
         <div class="gallery-img" onclick="openLightbox(1)">
-          <img src="../assets/akhiza/akhiza (2).png" alt="Akhiza Kalesi - Görünüm 2">
+          <img src="https://cdn.la-foa.com/akhiza/foto-2.png" alt="Akhiza Kalesi - Görünüm 2">
         </div>
         <div class="gallery-img" onclick="openLightbox(2)">
-          <img src="../assets/akhiza/akhiza (3).png" alt="Akhiza Kalesi - Görünüm 3">
+          <img src="https://cdn.la-foa.com/akhiza/foto-3.png" alt="Akhiza Kalesi - Görünüm 3">
         </div>
         <div class="gallery-img" onclick="openLightbox(3)">
-          <img src="../assets/akhiza/akhiza (4).png" alt="Akhiza Kalesi - Görünüm 4">
+          <img src="https://cdn.la-foa.com/akhiza/foto-4.png" alt="Akhiza Kalesi - Görünüm 4">
         </div>
         <div class="gallery-img" onclick="openLightbox(4)">
-          <img src="../assets/akhiza/akhiza (5).png" alt="Akhiza Kalesi - Görünüm 5">
+          <img src="https://cdn.la-foa.com/akhiza/foto-5.png" alt="Akhiza Kalesi - Görünüm 5">
         </div>
         <div class="gallery-img" onclick="openLightbox(5)">
-          <img src="../assets/akhiza/akhiza (6).png" alt="Akhiza Kalesi - Görünüm 6">
+          <img src="https://cdn.la-foa.com/akhiza/foto-6.png" alt="Akhiza Kalesi - Görünüm 6">
         </div>
         <div class="gallery-img" onclick="openLightbox(6)">
-          <img src="../assets/akhiza/akhiza (7).png" alt="Akhiza Kalesi - Görünüm 7">
+          <img src="https://cdn.la-foa.com/akhiza/foto-7.png" alt="Akhiza Kalesi - Görünüm 7">
         </div>
         <div class="gallery-img" onclick="openLightbox(7)">
-          <img src="../assets/akhiza/akhiza (8).png" alt="Akhiza Kalesi - Görünüm 8">
+          <img src="https://cdn.la-foa.com/akhiza/foto-8.png" alt="Akhiza Kalesi - Görünüm 8">
         </div>
         <div class="gallery-img" onclick="openLightbox(8)">
-          <img src="../assets/akhiza/akhiza (9).png" alt="Akhiza Kalesi - Görünüm 9">
+          <img src="https://cdn.la-foa.com/akhiza/foto-9.png" alt="Akhiza Kalesi - Görünüm 9">
         </div>
         <div class="gallery-img" onclick="openLightbox(9)">
-          <img src="../assets/akhiza/akhiza (10).png" alt="Akhiza Kalesi - Görünüm 10">
+          <img src="https://cdn.la-foa.com/akhiza/foto-10.png" alt="Akhiza Kalesi - Görünüm 10">
         </div>
       </div>
     </div>
@@ -662,7 +242,7 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
         </div>
         <div>
           <div class="minimap-title">Harita Konumu</div>
-          <div class="minimap-subtitle">Ardanuç, Artvin</div>
+          <div class="minimap-subtitle" data-field="konum">Ardanuç, Artvin</div>
         </div>
       </div>
       <div class="minimap-wrap">
@@ -700,18 +280,7 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
 </div>
 
 <script>
-const images = [
-  '../assets/akhiza/akhiza (1).png',
-  '../assets/akhiza/akhiza (2).png',
-  '../assets/akhiza/akhiza (3).png',
-  '../assets/akhiza/akhiza (4).png',
-  '../assets/akhiza/akhiza (5).png',
-  '../assets/akhiza/akhiza (6).png',
-  '../assets/akhiza/akhiza (7).png',
-  '../assets/akhiza/akhiza (8).png',
-  '../assets/akhiza/akhiza (9).png',
-  '../assets/akhiza/akhiza (10).png'
-];
+const images = Array.from({length: 10}, (_, i) => `https://cdn.la-foa.com/akhiza/foto-${i + 1}.png`);
 
 let currentImageIndex = 0;
 
@@ -838,13 +407,13 @@ document.addEventListener('click', () => {
   document.getElementById('qualitySelector').classList.remove('open');
 });
 
-// Mini-map marker positioning
-// Map bounds: lat 42.178-36.779, lng 38.539-46.168
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
 const LAT = 41.143047, LNG = 42.008760;
-const latRange = 42.178 - 36.779;
-const lngRange = 46.168 - 38.539;
-const mx = ((LNG - 38.539) / lngRange) * 100;
-const my = ((42.178 - LAT) / latRange) * 100;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
 const marker = document.getElementById('minimapMarker');
 marker.style.left = mx + '%';
 marker.style.top = my + '%';
@@ -888,5 +457,7 @@ video.addEventListener('pause', () => {
 video.addEventListener('play', showControls);
 showControls(); // Initialize
 </script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('akhiza');</script>
 </body>
 </html>

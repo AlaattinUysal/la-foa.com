@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liç Kalesi ve Nekropolü — La Foa</title>
+<meta name="description" content="Ağrı Patnos'ta yer alan Liç Kalesi ve Nekropolü: Orta Demir Çağı'na (Urartu) tarihlenen kale ve mezarlık alanı.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <video class="hero-video" id="heroVideo"
+      src="https://cdn.la-foa.com/lic-kalesi/hero.mp4"
+      autoplay muted loop playsinline
+      poster="https://cdn.la-foa.com/lic-kalesi/foto-1.png"
+      onclick="togglePlayPause()">
+    </video>
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #30</span>
+      <div class="hero-title" data-field="baslik">Liç Kalesi ve Nekropolü</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Patnos, Ağrı</span>, Türkiye
+      </div>
+    </div>
+
+    <!-- Video Controls -->
+    <div class="video-controls-wrapper">
+      <div class="progress-container" id="progressContainer" onclick="seekVideo(event)">
+        <div class="progress-filled" id="progressBar"></div>
+      </div>
+      <div class="controls-main">
+        <div class="controls-left">
+          <button class="control-btn" onclick="togglePlayPause()" id="playPauseBtn" title="Oynat/Duraklat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <button class="control-btn" onclick="toggleMute()" id="muteBtn" title="Sesi aç/kapat">
+            <svg id="muteIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          </button>
+          <span style="color:#fff; font-size:0.8rem; font-weight:500; font-variant-numeric: tabular-nums;" id="timeDisplay">0:00 / 0:00</span>
+        </div>
+        <div class="controls-right">
+          <div class="control-text" onclick="toggleSpeed()" id="speedBtn" title="Oynatma Hızı">1x</div>
+          <button class="control-btn" onclick="toggleFullscreen()" title="Tam Ekran">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Patnos ilçe merkezinin 5 km güneyinde, Yalçınkaya Köyü'ne bağlı Liç mezrasının 2 km kuzeydoğusunda yer alan Liç Kalesi, Patnos Ovası'nın doğu sınırında stratejik bir konumda bulunmaktadır. Mezranın 500 metre batısında, Seribendi Çayı'nın batı yakasındaki alçak kayalık bir tepe üzerinde yükselen tahkimatın sitadeli, yaklaşık 50 metre yükseklikteki bu tepenin zirvesine oturmaktadır. Dikdörtgen bir plan şeması gösteren kalenin sitadeli 110x30 metre ölçülerindedir.</p>
+        <p>Savunma sistemini oluşturan sur duvarlarının kalınlığı 1.30-1.40 metre arasında değişmekte olup, inşasında 1.00x0.40-0.50 metre boyutlarında yarı işlenmiş iri taşlar kullanılmıştır. Kalenin iç mekânlarına ait bazı mimari izler yüzeyden seçilebilse de alanda gerçekleştirilen yoğun kaçak kazılar ve oluşan tahribat nedeniyle bu yapıların plan bütünlüğü tam olarak anlaşılamamaktadır. Bununla birlikte, kalenin eteklerinde topografyaya uygun olarak inşa edilmiş teraslama sistemine ait duvar kalıntıları mevcuttur.</p>
+        <p>Kalenin doğu ve batı yönlerinde Urartu dönemine ait mezarlık alanları (nekropol) tespit edilmiştir. Kalenin yaklaşık 300 metre batısında ve 250 metre doğusundaki alçak tepeler üzerinde yoğunlaşan bu nekropol alanları, kaçak kazılar neticesinde büyük ölçüde tahrip edilmiştir. Kaçak kazı çukurlarından ve çevreye saçılan verilerden takip edilebildiği kadarıyla alanda urne (kül) mezarlar, basit toprak mezarlar, taş örgü mezarlar ve yer altına inşa edilmiş oda tipi mezar mimarisi bir arada kullanılmıştır.</p>
+        <p>Ele geçen keramik ve arkeolojik buluntular, hem kalenin hem de nekropol sahasının kesin olmamakla birlikte baskın olarak Orta Demir Çağ (Urartu) döneminde iskân gördüğüne işaret etmektedir.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <div class="section-label">Bilimsel Kaynaklar</div>
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>26. Araştırma Sonuçları Toplantısı 1. Cilt, T.C. Kültür ve Turizm Bakanlığı Kültür Varlıkları ve Müzeler Genel Müdürlüğü, 26-30 Mayıs 2008.</p>
+        <p>Belli, O., Yardımcıel, A. ve Yaşlı, K. Z. A. (2017). "Ağrı-Patnos - Liç (Yalçınkaya) Urartu Bronz ve Gümüş Eşya Definesi". IV. Uluslararası Ağrı Dağı ve Nuh'un Gemisi Sempozyumu (18-20 Ekim 2017 - Ağrı).</p>
+        <p>Burney, C. A. -G.R.J. Lawson, "Measured Plans of Urartian Fortresses", Anatolian Studies X, 177-196.</p>
+        <p>Öğün, B., 1974a, "Patnos: Urartian Tombs, 1973", Anatolian Studies 24: 45.</p>
+        <p>Öğün, B., 1978a, "Die Urartäischen Gräber in der Gegend von Adilcevaz und Patnos", The Procedings of the Xth International Congress of Classical Archaeology (Ankara 23-30 Eylül 1973), 61-67, Ankara: Türk Tarih Kurumu.</p>
+        <p>Öğün, B., 1978b, "Die Urartäischen Bestattungsbräuche", Studien zur Religion und kultur Kleinasiens, Fetschrift für F. K. Dörner zum 65. Geburtstag am 28 Februar 1978, Leiden: 639-678.</p>
+        <p>Öğün, B., 1982, "Die Urartäischen Paläste die Bestattungsbräuche der Urartäer", Palast und Hütte, Mainz: 217-236.</p>
+        <p>Öğün, B., 1984, "Urartu Mezarları", Türk Ansiklopedisi, XXXIII: 58-62.</p>
+        <p>Özfırat, A. "Van Gölü Havzası Yüzey Araştırması: Patnos Ovası Demir Çağı Yerleşimleri", Altan Çilingiroğlu'na Armağan: Yukarı Denizin Kıyısında Urartu Krallığı'na Adanmış Bir Hayat, Arkeoloji ve Sanat Yayınları, İstanbul 2009.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-1.png" alt="Liç Kalesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-2.png" alt="Liç Kalesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-3.png" alt="Liç Kalesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-4.png" alt="Liç Kalesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-5.png" alt="Liç Kalesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-6.png" alt="Liç Kalesi - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-7.png" alt="Liç Kalesi - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-8.png" alt="Liç Kalesi - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-9.png" alt="Liç Kalesi - Görünüm 9"></div>
+        <div class="gallery-img" onclick="openLightbox(9)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-10.png" alt="Liç Kalesi - Görünüm 10"></div>
+        <div class="gallery-img" onclick="openLightbox(10)"><img src="https://cdn.la-foa.com/lic-kalesi/foto-11.png" alt="Liç Kalesi - Görünüm 11"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Patnos, Ağrı</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,64%) var(--my,55%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          39.1793°N, 42.8474°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 11}, (_, i) => `https://cdn.la-foa.com/lic-kalesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Video Controls
+const video = document.getElementById('heroVideo');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
+const timeDisplay = document.getElementById('timeDisplay');
+const speedBtn = document.getElementById('speedBtn');
+const muteIcon = document.getElementById('muteIcon');
+
+function togglePlayPause() {
+  if (video.paused) {
+    video.play();
+    playPauseBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+  } else {
+    video.pause();
+    playPauseBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+  }
+}
+
+function toggleMute() {
+  video.muted = !video.muted;
+  if (video.muted) {
+    muteIcon.innerHTML = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+  } else {
+    muteIcon.innerHTML = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+  }
+}
+
+video.addEventListener('timeupdate', () => {
+  if(!video.duration) return;
+  const percent = (video.currentTime / video.duration) * 100;
+  progressBar.style.width = percent + '%';
+  timeDisplay.innerText = formatTime(video.currentTime) + ' / ' + formatTime(video.duration);
+});
+
+function seekVideo(e) {
+  const container = document.getElementById('progressContainer');
+  const pos = (e.pageX - container.getBoundingClientRect().left) / container.offsetWidth;
+  video.currentTime = pos * video.duration;
+}
+
+function formatTime(seconds) {
+  if (isNaN(seconds)) return "0:00";
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return m + ':' + (s < 10 ? '0' + s : s);
+}
+
+const speeds = [1, 1.25, 1.5, 2, 0.5];
+let speedIndex = 0;
+function toggleSpeed() {
+  speedIndex = (speedIndex + 1) % speeds.length;
+  video.playbackRate = speeds[speedIndex];
+  speedBtn.innerText = speeds[speedIndex] + 'x';
+}
+
+function toggleFullscreen() {
+  const heroMain = document.querySelector('.hero-main');
+  if (!document.fullscreenElement) {
+    heroMain.requestFullscreen().catch(err => console.log(err));
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 39.179327, LNG = 42.847441;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+
+// Auto-hide video controls
+const heroMainElement = document.querySelector('.hero-main');
+const controlsWrapper = document.querySelector('.video-controls-wrapper');
+let controlsTimeout;
+
+function showControls() {
+  controlsWrapper.style.opacity = '1';
+  controlsWrapper.style.pointerEvents = 'auto';
+  heroMainElement.style.cursor = 'default';
+
+  clearTimeout(controlsTimeout);
+  controlsTimeout = setTimeout(() => {
+    if (!video.paused) {
+      controlsWrapper.style.opacity = '0';
+      controlsWrapper.style.pointerEvents = 'none';
+      heroMainElement.style.cursor = 'none';
+    }
+  }, 3500);
+}
+
+heroMainElement.addEventListener('mousemove', showControls);
+heroMainElement.addEventListener('mouseleave', () => {
+  if (!video.paused) {
+    controlsWrapper.style.opacity = '0';
+    controlsWrapper.style.pointerEvents = 'none';
+  }
+});
+
+video.addEventListener('pause', () => {
+  clearTimeout(controlsTimeout);
+  controlsWrapper.style.opacity = '1';
+  controlsWrapper.style.pointerEvents = 'auto';
+  heroMainElement.style.cursor = 'default';
+});
+
+video.addEventListener('play', showControls);
+showControls();
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('lic-kalesi');</script>
+</body>
+</html>
