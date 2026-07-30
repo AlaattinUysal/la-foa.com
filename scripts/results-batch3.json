@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Eruşeti Kilisesi",
+    "id": 82,
+    "x": 9828,
+    "y": 1745,
+    "lat": 41.855,
+    "lng": 43.4664
+  },
+  {
+    "name": "Kvatetrisi Kalesi",
+    "id": 65,
+    "x": 8660,
+    "y": 1881,
+    "lat": 41.7556,
+    "lng": 42.6218
+  },
+  {
+    "name": "Avnik Kalesi",
+    "id": 52,
+    "x": 8020,
+    "y": 4377,
+    "lat": 39.9309,
+    "lng": 42.159
+  },
+  {
+    "name": "Avnik Kalesi",
+    "id": 34,
+    "x": 10892,
+    "y": 4945,
+    "lat": 39.5157,
+    "lng": 44.2358
+  },
+  {
+    "name": "Hışet Kalesi",
+    "id": 15,
+    "x": 9236,
+    "y": 7238,
+    "lat": 37.8395,
+    "lng": 43.0383
+  },
+  {
+    "name": "Hışet Kalesi",
+    "id": 14,
+    "x": 10100,
+    "y": 7190,
+    "lat": 37.8746,
+    "lng": 43.6631
+  },
+  {
+    "name": "Şatberdi Kalesi",
+    "id": 69,
+    "x": 7892,
+    "y": 2097,
+    "lat": 41.5977,
+    "lng": 42.0665
+  },
+  {
+    "name": "Şatberdi Kalesi",
+    "id": 87,
+    "x": 7892,
+    "y": 2097,
+    "lat": 41.5977,
+    "lng": 42.0665
+  },
+  {
+    "name": "Değirmenaltı Yukarı Kilisesi",
+    "id": 76,
+    "x": 8386,
+    "y": 6909,
+    "lat": 38.08,
+    "lng": 42.4237
+  },
+  {
+    "name": "Değirmenaltı Köyiçi Kilisesi",
+    "id": 75,
+    "x": 8450,
+    "y": 6927,
+    "lat": 38.0668,
+    "lng": 42.4699
+  }
+]

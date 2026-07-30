@@ -1,0 +1,506 @@
+[
+  {
+    "name": "Çanlı Kilise (Surb Garabet Kilisesi)",
+    "id": 78,
+    "x": 6569,
+    "y": 5989,
+    "lat": 38.7525,
+    "lng": 41.1098
+  },
+  {
+    "name": "Mercimek Kale",
+    "id": 50,
+    "x": 7176,
+    "y": 5965,
+    "lat": 38.7701,
+    "lng": 41.5487
+  },
+  {
+    "name": "Mongok (Haspet) Kalesi",
+    "id": 19,
+    "x": 7121,
+    "y": 6401,
+    "lat": 38.4513,
+    "lng": 41.5089
+  },
+  {
+    "name": "Arak Manastırı Kilisesi ve Şapeli",
+    "id": 77,
+    "x": 7189,
+    "y": 6494,
+    "lat": 38.3834,
+    "lng": 41.5581
+  },
+  {
+    "name": "Kazancı (Kurt) Kalesi",
+    "id": 51,
+    "x": 7345,
+    "y": 5042,
+    "lat": 39.4448,
+    "lng": 41.6709
+  },
+  {
+    "name": "Şahmiran Kalesi",
+    "id": 20,
+    "x": 7828,
+    "y": 5729,
+    "lat": 38.9426,
+    "lng": 42.0202
+  },
+  {
+    "name": "Pasinler (Hasan) Kalesi",
+    "id": 53,
+    "x": 7476,
+    "y": 4113,
+    "lat": 40.1239,
+    "lng": 41.7656
+  },
+  {
+    "name": "Boğakale Kalesi",
+    "id": 54,
+    "x": 7524,
+    "y": 3704,
+    "lat": 40.4229,
+    "lng": 41.8004
+  },
+  {
+    "name": "Tortum Kalesi",
+    "id": 57,
+    "x": 7076,
+    "y": 3433,
+    "lat": 40.621,
+    "lng": 41.4764
+  },
+  {
+    "name": "Kapıkaya Kalesi",
+    "id": 56,
+    "x": 6868,
+    "y": 3473,
+    "lat": 40.5918,
+    "lng": 41.326
+  },
+  {
+    "name": "Rabat Kalesi",
+    "id": 17,
+    "x": 7596,
+    "y": 6781,
+    "lat": 38.1736,
+    "lng": 41.8524
+  },
+  {
+    "name": "Bitlis Kalesi",
+    "id": 18,
+    "x": 8237,
+    "y": 7011,
+    "lat": 38.0054,
+    "lng": 42.3159
+  },
+  {
+    "name": "Tağ Kalesi",
+    "id": 16,
+    "x": 9132,
+    "y": 7510,
+    "lat": 37.6406,
+    "lng": 42.9631
+  },
+  {
+    "name": "Altınsaç Kilisesi",
+    "id": 74,
+    "x": 9684,
+    "y": 6966,
+    "lat": 38.0383,
+    "lng": 43.3622
+  },
+  {
+    "name": "Çavuştepe Kalesi",
+    "id": 13,
+    "x": 10740,
+    "y": 7086,
+    "lat": 37.9506,
+    "lng": 44.1258
+  },
+  {
+    "name": "Zivistan (Yukarı) Kalesi",
+    "id": 5,
+    "x": 10492,
+    "y": 7022,
+    "lat": 37.9974,
+    "lng": 43.9465
+  },
+  {
+    "name": "Zivistan (Aşağı) Kalesi",
+    "id": 4,
+    "x": 10500,
+    "y": 7006,
+    "lat": 38.0091,
+    "lng": 43.9523
+  },
+  {
+    "name": "Kızkalesi",
+    "id": 3,
+    "x": 10340,
+    "y": 6982,
+    "lat": 38.0266,
+    "lng": 43.8366
+  },
+  {
+    "name": "Surp Vardan Kilisesi",
+    "id": 71,
+    "x": 10524,
+    "y": 6838,
+    "lat": 38.1319,
+    "lng": 43.9697
+  },
+  {
+    "name": "Aşağı Kevenli Kalesi",
+    "id": 8,
+    "x": 10692,
+    "y": 6862,
+    "lat": 38.1143,
+    "lng": 44.0911
+  },
+  {
+    "name": "Yukarı Kevenli Kalesi",
+    "id": 7,
+    "x": 10732,
+    "y": 6902,
+    "lat": 38.0851,
+    "lng": 44.1201
+  },
+  {
+    "name": "Kavuncu (Çoravanis) Kalesi",
+    "id": 9,
+    "x": 10804,
+    "y": 6814,
+    "lat": 38.1494,
+    "lng": 44.1721
+  },
+  {
+    "name": "Aşağı Anzaf Kalesi",
+    "id": 11,
+    "x": 10748,
+    "y": 6702,
+    "lat": 38.2313,
+    "lng": 44.1316
+  },
+  {
+    "name": "Yukarı Anzaf Kalesi",
+    "id": 10,
+    "x": 10796,
+    "y": 6774,
+    "lat": 38.1787,
+    "lng": 44.1663
+  },
+  {
+    "name": "Hoşap Kalesi",
+    "id": 12,
+    "x": 11372,
+    "y": 7134,
+    "lat": 37.9155,
+    "lng": 44.5828
+  },
+  {
+    "name": "Yanal Kilisesi (Soreder Kilisesi)",
+    "id": 72,
+    "x": 12204,
+    "y": 7238,
+    "lat": 37.8395,
+    "lng": 45.1845
+  },
+  {
+    "name": "St. Bartholomeus Kilisesi",
+    "id": 73,
+    "x": 12140,
+    "y": 7478,
+    "lat": 37.664,
+    "lng": 45.1382
+  },
+  {
+    "name": "Ayanis Kalesi",
+    "id": 6,
+    "x": 10276,
+    "y": 6433,
+    "lat": 38.428,
+    "lng": 43.7903
+  },
+  {
+    "name": "Surp Stephanos Manastırı",
+    "id": 79,
+    "x": 11316,
+    "y": 6363,
+    "lat": 38.4791,
+    "lng": 44.5423
+  },
+  {
+    "name": "Erciş Urartu Yazıtları",
+    "id": 28,
+    "x": 10652,
+    "y": 5785,
+    "lat": 38.9017,
+    "lng": 44.0622
+  },
+  {
+    "name": "Kef Kalesi",
+    "id": 25,
+    "x": 9396,
+    "y": 6210,
+    "lat": 38.591,
+    "lng": 43.154
+  },
+  {
+    "name": "Eski Ahlat Kalesi",
+    "id": 24,
+    "x": 8884,
+    "y": 6370,
+    "lat": 38.474,
+    "lng": 42.7838
+  },
+  {
+    "name": "Dağalan Köyü Kalesi ve Nekropolü",
+    "id": 29,
+    "x": 9748,
+    "y": 5882,
+    "lat": 38.8307,
+    "lng": 43.4085
+  },
+  {
+    "name": "Liç Kalesi ve Nekropolü",
+    "id": 30,
+    "x": 9620,
+    "y": 5553,
+    "lat": 39.0713,
+    "lng": 43.316
+  },
+  {
+    "name": "Karagöz Kilisesi",
+    "id": 80,
+    "x": 9108,
+    "y": 5033,
+    "lat": 39.4514,
+    "lng": 42.9457
+  },
+  {
+    "name": "Tıkızlı Kalesi",
+    "id": 26,
+    "x": 8828,
+    "y": 5081,
+    "lat": 39.4163,
+    "lng": 42.7433
+  },
+  {
+    "name": "Hamur Kalesi",
+    "id": 31,
+    "x": 9868,
+    "y": 4761,
+    "lat": 39.6502,
+    "lng": 43.4953
+  },
+  {
+    "name": "Kocadağ Kalesi",
+    "id": 32,
+    "x": 10556,
+    "y": 4745,
+    "lat": 39.6619,
+    "lng": 43.9928
+  },
+  {
+    "name": "Bagavan Yerleşmesi",
+    "id": 33,
+    "x": 10828,
+    "y": 4785,
+    "lat": 39.6327,
+    "lng": 44.1895
+  },
+  {
+    "name": "Belle Burç- Eski Doğubayazıt Kalesi",
+    "id": 35,
+    "x": 11972,
+    "y": 4945,
+    "lat": 39.5157,
+    "lng": 45.0167
+  },
+  {
+    "name": "Zivin Kalesi",
+    "id": 40,
+    "x": 8508,
+    "y": 3657,
+    "lat": 40.4573,
+    "lng": 42.5119
+  },
+  {
+    "name": "Micingert Kalesi",
+    "id": 41,
+    "x": 8748,
+    "y": 3721,
+    "lat": 40.4105,
+    "lng": 42.6854
+  },
+  {
+    "name": "Keçivan Kalesi",
+    "id": 38,
+    "x": 9668,
+    "y": 3553,
+    "lat": 40.5333,
+    "lng": 43.3507
+  },
+  {
+    "name": "Kars Kalesi",
+    "id": 39,
+    "x": 10060,
+    "y": 2931,
+    "lat": 40.988,
+    "lng": 43.6341
+  },
+  {
+    "name": "Sosgert Kalesi",
+    "id": 37,
+    "x": 10980,
+    "y": 2499,
+    "lat": 41.3038,
+    "lng": 44.2994
+  },
+  {
+    "name": "Tzkarostavi Kilisesi",
+    "id": 81,
+    "x": 10204,
+    "y": 1787,
+    "lat": 41.8243,
+    "lng": 43.7383
+  },
+  {
+    "name": "Şeytan Kalesi",
+    "id": 61,
+    "x": 10132,
+    "y": 1947,
+    "lat": 41.7073,
+    "lng": 43.6862
+  },
+  {
+    "name": "Altaş (Ur) Kalesi",
+    "id": 63,
+    "x": 9660,
+    "y": 1931,
+    "lat": 41.719,
+    "lng": 43.3449
+  },
+  {
+    "name": "Ardahan Kalesi",
+    "id": 64,
+    "x": 9340,
+    "y": 2019,
+    "lat": 41.6547,
+    "lng": 43.1135
+  },
+  {
+    "name": "Kol Kalesi",
+    "id": 62,
+    "x": 9204,
+    "y": 1419,
+    "lat": 42.0933,
+    "lng": 43.0152
+  },
+  {
+    "name": "Tibeti Kilisesi",
+    "id": 83,
+    "x": 8788,
+    "y": 1635,
+    "lat": 41.9354,
+    "lng": 42.7144
+  },
+  {
+    "name": "Kvatetrisi Kalesi",
+    "id": 65,
+    "x": 9660,
+    "y": 1889,
+    "lat": 41.7497,
+    "lng": 43.3449
+  },
+  {
+    "name": "Satleli Kalesi",
+    "id": 66,
+    "x": 8636,
+    "y": 1731,
+    "lat": 41.8652,
+    "lng": 42.6044
+  },
+  {
+    "name": "Oltu Kalesi",
+    "id": 55,
+    "x": 8044,
+    "y": 3057,
+    "lat": 40.8959,
+    "lng": 42.1764
+  },
+  {
+    "name": "İşhan Manastırı",
+    "id": 90,
+    "x": 7612,
+    "y": 2635,
+    "lat": 41.2044,
+    "lng": 41.864
+  },
+  {
+    "name": "Dört Kilise Manastırı",
+    "id": 89,
+    "x": 7092,
+    "y": 2555,
+    "lat": 41.2629,
+    "lng": 41.488
+  },
+  {
+    "name": "Barhal Kilisesi",
+    "id": 88,
+    "x": 6932,
+    "y": 2251,
+    "lat": 41.4851,
+    "lng": 41.3723
+  },
+  {
+    "name": "Melo Kalesi",
+    "id": 70,
+    "x": 7624,
+    "y": 2077,
+    "lat": 41.6123,
+    "lng": 41.8727
+  },
+  {
+    "name": "Ferhatlı Kalesi",
+    "id": 68,
+    "x": 8076,
+    "y": 1993,
+    "lat": 41.6737,
+    "lng": 42.1995
+  },
+  {
+    "name": "Ardanuç (Gevhernik) Kalesi",
+    "id": 67,
+    "x": 8168,
+    "y": 2021,
+    "lat": 41.6532,
+    "lng": 42.266
+  },
+  {
+    "name": "Porta Manastırı Kilisesi",
+    "id": 85,
+    "x": 8232,
+    "y": 1773,
+    "lat": 41.8345,
+    "lng": 42.3123
+  },
+  {
+    "name": "Dolishane/Hamamlı Kilisesi",
+    "id": 86,
+    "x": 7968,
+    "y": 1921,
+    "lat": 41.7263,
+    "lng": 42.1214
+  },
+  {
+    "name": "Opiza Manastırı",
+    "id": 84,
+    "x": 8104,
+    "y": 1817,
+    "lat": 41.8024,
+    "lng": 42.2198
+  }
+]

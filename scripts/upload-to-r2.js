@@ -49,32 +49,44 @@ async function main() {
             accessKeyId: R2_ACCESS_KEY_ID,
             secretAccessKey: R2_SECRET_ACCESS_KEY,
         },
+        maxAttempts: 8,
     });
 
-    const upload = new Upload({
-        client,
-        params: {
-            Bucket: R2_BUCKET,
-            Key: destKey,
-            Body: fs.createReadStream(localPath),
-            ContentType: contentType,
-        },
-        queueSize: 4,
-        partSize: 64 * 1024 * 1024, // 64MB parts
-    });
+    const MAX_RETRIES = 5;
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        const upload = new Upload({
+            client,
+            params: {
+                Bucket: R2_BUCKET,
+                Key: destKey,
+                Body: fs.createReadStream(localPath),
+                ContentType: contentType,
+            },
+            queueSize: 2,
+            partSize: 10 * 1024 * 1024, // 10MB parts — smaller chunks retry faster on flaky connections
+        });
 
-    upload.on('httpUploadProgress', (p) => {
-        if (p.loaded && p.total) {
-            const pct = ((p.loaded / p.total) * 100).toFixed(1);
-            process.stdout.write(`\r  ${pct}% (${(p.loaded / 1024 / 1024).toFixed(1)} / ${sizeMB} MB)`);
+        upload.on('httpUploadProgress', (p) => {
+            if (p.loaded && p.total) {
+                const pct = ((p.loaded / p.total) * 100).toFixed(1);
+                process.stdout.write(`\r  ${pct}% (${(p.loaded / 1024 / 1024).toFixed(1)} / ${sizeMB} MB)`);
+            }
+        });
+
+        try {
+            await upload.done();
+            console.log('\nDone.');
+            return;
+        } catch (err) {
+            console.error(`\nAttempt ${attempt}/${MAX_RETRIES} failed:`, err.message || err);
+            if (attempt === MAX_RETRIES) throw err;
+            console.log('Retrying...');
+            await new Promise(r => setTimeout(r, 3000));
         }
-    });
-
-    await upload.done();
-    console.log('\nDone.');
+    }
 }
 
 main().catch((err) => {
-    console.error('\nUpload failed:', err.message || err);
+    console.error('\nUpload ultimately failed:', err.message || err);
     process.exit(1);
 });
