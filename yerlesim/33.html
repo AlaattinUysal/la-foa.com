@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bagavan Yerleşmesi — La Foa</title>
+<meta name="description" content="Ağrı Taşlıçay'da yer alan Bagavan Yerleşmesi: 4. yüzyılda Kral III. Tiridates'in vaftiziyle Hristiyanlığın kabulüne sahne olan, Orta Çağ Ermeni mimarisinin en anıtsal örneklerinden biri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <img class="hero-video" src="https://cdn.la-foa.com/bagavan-yerlesmesi/hero.jpg" alt="Bagavan Yerleşmesi" style="object-position:center 85%;">
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Yerleşim · #33</span>
+      <div class="hero-title" data-field="baslik">Bagavan Yerleşmesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Taşlıçay, Ağrı</span>, Türkiye
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">4. Yüzyıl – 7. Yüzyıl</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Ermeni Mimarisi</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Ermeni / Roma / Bizans / Sasani</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Harap</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Ağrı / Taşlıçay, Taşteker Köyü</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">39.6327°N, 44.1895°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Ağrı ilinin Taşlıçay ilçesine bağlı Taşteker Köyü sınırları içerisinde yer alan Bagavan, antik dönemden modern çağa kadar stratejik, dini ve ticari bir kavşak noktası olmuştur. Fırat'ın bir kolu üzerinde, Npat Dağı eteklerinde kurulu olan bu yerleşim, isminin etimolojik kökeninden de (Eski Farsça Bagastāna) anlaşılacağı üzere bir "tapınak kent" kimliğine sahiptir. Baş tanrı Aramazd'ın (Ahura Mazda) ibadet merkezi olan Bagavan, aynı zamanda yeni yıl kutlamaları olan Navasard şenliklerinin de ev sahibiydi. Kraliyet ailesinin katılımıyla gerçekleşen bu kutlamalarda, bölgede 'sonsuz bir alevin' yandığı kaydedilmektedir.</p>
+        <p>4. yüzyılın başında Kral III. Tiridates'in Aziz Krikor Lusavoriç tarafından burada vaftiz edilmesiyle, pagan tapınakları yerini Hristiyan yapılarına bırakmıştır. Bagavan Manastırı (Üç Kilise), Orta Çağ Ermeni mimarisinin en anıtsal örneklerinden biri olarak kabul edilir. 46x27 metre zemin alanına sahip, 20 metre yüksekliğinde devasa bir bazilika olan yapının inşasında Ayasofya'dan esinlenildiği ifade edilir. 600'lü yıllarda tamamlanan bu yapı, bölgedeki en büyük dini komplekslerden biriydi. Evliya Çelebi'nin notlarında da geçen bu isim, bölgedeki üç ayrı tepede konumlanan üç farklı manastır/kilise binasından gelmektedir. Yerel anlatılara göre bu tepeler arasında süt akışını sağlayan gelişmiş bir kanal sistemi bulunmaktaydı.</p>
+        <p>Bagavan, sadece dini değil, aynı zamanda Roma, Bizans ve Sasani imparatorlukları arasındaki mücadelelerin tam merkezinde yer alan askeri bir karargâhtı. 371 yılındaki Sasani-Roma karşılaşması gibi kritik tarihi olaylara sahne olmuştur. Ayrıca kervan yolları üzerinde bulunması, bölgeye ticari bir canlılık katmıştır.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Agatʿangełos. Patmutʿiwn Hayocʿ, CHAMA, (Trans. Victor Langlois), Vol. I, Paris: Firmin Didot Frères, Fils et Cie, (1867):109-193.</p>
+        <p>Claudii Ptolemæi. Geographia I-III, (Ed. Carl Müller), Paris: Alfredo Firmin Didot 1883.</p>
+        <p>Evliya Çelebi. Evliya Çelebi Seyahatnâmesi, (Haz. Seyit A. Kahraman ve Yücel Dağlı), Kitap 3, İstanbul: Yapı Kredi Yayınları 1996.</p>
+        <p>Moses Khorenatsʿi. History of the Armenians, (Trans. Robert W. Thomson), Cambridge; MA; London: Harvard University Press 1978.</p>
+        <p>Alaca, İsmet. "Asırlık Bir Kentin Kimlik Erozyonu: Ağrı Örneği", The Journal of Social Sciences 71, (2024): 135-156.</p>
+        <p>Lenski, Noel. Failure of Empire Valens and the Roman State in the Fourth Century A.D., London: University of California Press 2002.</p>
+        <p>Seyfeli, Canan. "Erken Ermeni Kaynaklarına Göre Hıristiyanlık Öncesi Ermeni Tanrılar Panteonu", Ondokuz Mayıs Üniversitesi İlahiyat Fakültesi Dergisi 30/30 (2011): 139-183.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/bagavan-yerlesmesi/foto-1.png" alt="Bagavan Yerleşmesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/bagavan-yerlesmesi/foto-2.png" alt="Bagavan Yerleşmesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/bagavan-yerlesmesi/foto-3.png" alt="Bagavan Yerleşmesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/bagavan-yerlesmesi/foto-4.png" alt="Bagavan Yerleşmesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/bagavan-yerlesmesi/foto-5.png" alt="Bagavan Yerleşmesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/bagavan-yerlesmesi/foto-6.png" alt="Bagavan Yerleşmesi - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/bagavan-yerlesmesi/foto-7.png" alt="Bagavan Yerleşmesi - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/bagavan-yerlesmesi/foto-8.png" alt="Bagavan Yerleşmesi - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/bagavan-yerlesmesi/foto-9.png" alt="Bagavan Yerleşmesi - Görünüm 9"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Taşlıçay, Ağrı</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,77.80%) var(--my,48.11%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          39.6327°N, 44.1895°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 9}, (_, i) => `https://cdn.la-foa.com/bagavan-yerlesmesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 39.6327, LNG = 44.1895;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('bagavan-yerlesmesi');</script>
+</body>
+</html>

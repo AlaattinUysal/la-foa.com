@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tzkarostavi Kilisesi — La Foa</title>
+<meta name="description" content="Ardahan Çıldır'da yer alan Tzkarostavi Kilisesi: Gürcü Kilisesi hiyerarşisinde yedinci sırada yer alan, 6. yüzyıla uzanan piskoposluk merkezi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <img class="hero-video" src="https://cdn.la-foa.com/tzkarostavi-kilisesi/hero.jpg" alt="Tzkarostavi Kilisesi">
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kilise · #81</span>
+      <div class="hero-title" data-field="baslik">Tzkarostavi Kilisesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Çıldır, Ardahan</span>, Türkiye
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">6. Yüzyıl (Yeniden inşa: 10-12. yy)</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Gürcü Mimarisi</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Gürcü</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Harap</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Ardahan / Çıldır, Öncül Köyü</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">41.8243°N, 43.7383°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Gürcüce "pınar" (წყარო - tskaro) ve "baş" (თავი - tavi) sözcüklerinin birleşmesinden oluşan Tskarostavi, etimolojik olarak "pınar başı" anlamına gelen köklü bir yerleşim adıdır. Günümüz Gürcistan'ında da aynı ismi taşıyan yerleşmeler bulunmaktadır. Nitekim ünlü Gürcü tarihçi ve arkeolog Ekvtime Takaişvili, adıyla müsemma biçimde Tskarostavi Kilisesi'nin alt kısmından gür bir pınarın doğduğunu ve bu suyun bir vadi boyunca süzülerek Kura Nehri'ne karıştığını aktarmaktadır.</p>
+        <p>Tskarostavi, tarihsel süreçte son derece stratejik ve dinsel bir merkez olarak öne çıkmıştır. Erken Orta Çağ'da Gürcü Kralı Vahtang Gorgasali döneminden itibaren Gürcü Krallığı'nın sınırları içerisinde kalan yerleşim, Geç Orta Çağ'da birleşik Gürcü Krallığı'nın dağılmasıyla kurulan Samtshe-Saatabago Prensliği (1268-1625) hâkimiyetine girmiştir. 16. yüzyılın ikinci yarısında gerçekleşen Osmanlı fethi sonrasında bölge, Osmanlı idari taksimatında Çıldır eyaletine/livasına bağlanmış ve Kenarbel nahiyesine tabi "Zğarostav" adıyla kaydedilmiştir.</p>
+        <p>Yerleşimin en dikkat çekici özelliği, Gürcü Kilisesi hiyerarşisinde yedinci sırada yer alan önemli bir piskoposluk merkezi olmasıdır. Tskarostavi'deki ilk piskoposluk kilisesi henüz 6. yüzyılda inşa edilmiş, bu durum yerleşimin Erken Hristiyanlık dönemindeki önemini kanıtlamıştır. 10. yüzyılda kubbeli bir mimari yapıyla yeniden inşa edilen bu anıtsal kilise, 20. yüzyılın başlarına kadar büyük oranda sağlamlığını korumuştur. Yapıyı 20. yüzyılın başında ilk kez inceleyen E. Takaişvili; batı kolu uzatılmış, yarı serbest haç planlı olan bu dini yapıyı 11-12. yüzyıllara tarihlendirmiştir. Ancak ne yazık ki bu tarihî piskoposluk kilisesi 1970'li yıllarda yıkılmış ve malzeme kaybına uğrayarak yerine bir cami yaptırılmıştır.</p>
+        <p>Köydeki diğer tarihsel kalıntılar arasında, piskoposluk kilisesinin kuzey yönünde konumlanan ve günümüze yalnızca kalıntıları ulaşabilen tek nefli küçük bir köy kilisesi bulunmaktadır. Ayrıca köy merkezinin yaklaşık 1,7 km güneyindeki bir tepe yamacında yer alan 43 × 40 metre boyutlarındaki kare planlı kale de tamamen tahrip olmuş durumdadır.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Metreveli, R., ve Jones, S. (Eds.). (2014). Kartlis Tskhovreba: A history of Georgia (S. Jones, İng. Ed.; R. Metreveli, Gürc. ve Rus. Ed.). Artanuji Publishing.</p>
+        <p>Bayram, F. (2022, 4 Aralık). Ardahan'ın Gürcü dini mimarisi içerisindeki yeri. Gürcü Haber.</p>
+        <p>Bayram, F., ve Yazar, T. (2007). 2005 yılı Orta Çağ Gürcü mimarisi yüzey araştırması. 24. Araştırma Sonuçları Toplantısı içinde (Cilt 1, ss. 483–500). T.C. Kültür ve Turizm Bakanlığı Yayınları.</p>
+        <p>Bayram, F., ve Yazar, T. (2008). Artvin, Erzurum, Ardahan ili ve ilçelerinde Gürcü mimarisi yüzey araştırması 2006. 25. Araştırma Sonuçları Toplantısı içinde (Cilt 1, ss. 257-270). T.C. Kültür ve Turizm Bakanlığı Yayınları.</p>
+        <p>Bayram, F., ve Yazar, T. (2011). Artvin, Erzurum, Ardahan ili ve ilçelerinde Orta Çağ Gürcü mimarisi yüzey araştırması-2009. 28. Araştırma Sonuçları Toplantısı içinde (Cilt 2, ss. 211-226). T.C. Kültür ve Turizm Bakanlığı Yayınları.</p>
+        <p>Bayram, F., ve Yazar, T. (2013). Artvin, Erzurum, Ardahan ili ve ilçelerinde Orta Çağ Gürcü mimarisi yüzey araştırması-2011. 30. Araştırma Sonuçları Toplantısı içinde (Cilt 1, ss. 289-302). T.C. Kültür ve Turizm Bakanlığı Yayınları.</p>
+        <p>Beridze, V. (1981). Mesto pamjatnikov Tao-Klardzheti v istorii Gruzinskoj arhitektury. Metsniereba.</p>
+        <p>Gündoğdu, H. (2000). Kaleler ve kuleler kenti Ardahan (Yayın No: 4). T.C. Ardahan Valiliği Kültür Yayınları.</p>
+        <p>Kadiroğlu-Leube, M., Yazar, T., & Karaca, Z. (1997). 1995 yılı Tao-Klarjeti yüzey araştırması. XIV. Araştırma Sonuçları Toplantısı içinde (Cilt 1, ss. 397-421). T.C. Kültür Bakanlığı Yayınları.</p>
+        <p>Kadiroğlu-Leube, M., Karaca, Z., & Yazar, T. (2001). Orta Çağ Gürcü mimarisi 2000 yılı yüzey araştırması. 19. Araştırma Sonuçları Toplantısı içinde (Cilt 2, ss. 1-12). T.C. Kültür Bakanlığı Yayınları.</p>
+        <p>Takaishvili, E. (1909). Христианские памятники (Экскурсия 1902 года). Материалы по археологии Кавказа, 12.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-1.png" alt="Tzkarostavi Kilisesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-2.png" alt="Tzkarostavi Kilisesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-3.png" alt="Tzkarostavi Kilisesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-4.png" alt="Tzkarostavi Kilisesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-5.png" alt="Tzkarostavi Kilisesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-6.png" alt="Tzkarostavi Kilisesi - Görünüm 6"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Çıldır, Ardahan</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,73.25%) var(--my,16.81%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          41.8243°N, 43.7383°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = [
+  'https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-1.png',
+  'https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-2.png',
+  'https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-3.png',
+  'https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-4.png',
+  'https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-5.png',
+  'https://cdn.la-foa.com/tzkarostavi-kilisesi/foto-6.png',
+];
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 41.8243, LNG = 43.7383;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('tzkarostavi-kilisesi');</script>
+</body>
+</html>
