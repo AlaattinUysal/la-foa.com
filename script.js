@@ -82,7 +82,6 @@ const settlements = [
     { id: 66, name: "Satleli Kalesi", lat: 41.8652, lng: 42.6044 },
     { id: 67, name: "Ardanuç (Gevhernik) Kalesi", lat: 41.6532, lng: 42.266 },
     { id: 68, name: "Ferhatlı Kalesi", lat: 41.6737, lng: 42.1995 },
-    { id: 69, name: "Şatberdi Kalesi", lat: 41.5977, lng: 42.0665 },
     { id: 70, name: "Melo Kalesi", lat: 41.6123, lng: 41.8727 },
     { id: 71, name: "Surp Vardan Kilisesi", lat: 38.1319, lng: 43.9697 },
     { id: 72, name: "Yanal Kilisesi (Soreder Kilisesi)", lat: 37.8395, lng: 45.1845 },
