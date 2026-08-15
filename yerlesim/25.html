@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kef Kalesi — La Foa</title>
+<meta name="description" content="Bitlis Adilcevaz'da yer alan Kef Kalesi: Urartu Kralı II. Rusa döneminde inşa edilen, anıtsal saray kompleksiyle Urartu arkeolojisinde seçkin bir yere sahip kale kenti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <video class="hero-video" id="heroVideo"
+      src="https://cdn.la-foa.com/kef-kalesi/hero.mp4"
+      autoplay muted loop playsinline
+      poster="https://cdn.la-foa.com/kef-kalesi/foto-1.png"
+      onclick="togglePlayPause()">
+    </video>
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #25</span>
+      <div class="hero-title" data-field="baslik">Kef Kalesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Adilcevaz, Bitlis</span>, Türkiye
+      </div>
+    </div>
+
+    <!-- Video Controls -->
+    <div class="video-controls-wrapper">
+      <div class="progress-container" id="progressContainer" onclick="seekVideo(event)">
+        <div class="progress-filled" id="progressBar"></div>
+      </div>
+      <div class="controls-main">
+        <div class="controls-left">
+          <button class="control-btn" onclick="togglePlayPause()" id="playPauseBtn" title="Oynat/Duraklat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <button class="control-btn" onclick="toggleMute()" id="muteBtn" title="Sesi aç/kapat">
+            <svg id="muteIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          </button>
+          <span style="color:#fff; font-size:0.8rem; font-weight:500; font-variant-numeric: tabular-nums;" id="timeDisplay">0:00 / 0:00</span>
+        </div>
+        <div class="controls-right">
+          <div class="control-text" onclick="toggleSpeed()" id="speedBtn" title="Oynatma Hızı">1x</div>
+          <button class="control-btn" onclick="toggleFullscreen()" title="Tam Ekran">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">MÖ 8. Yüzyıl</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Çok Katmanlı Yapı</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Urartu / Roma</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Kısmen Ayakta</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Bitlis / Adilcevaz</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">38.5910°N, 43.1540°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Urartu Krallığı'nın en görkemli savunma ve yerleşim merkezlerinden biri olan Kef Kalesi, Bitlis ili Adilcevaz ilçe merkezinin yaklaşık 5-6 km kuzeyinde konumlanmaktadır. Deniz seviyesinden 2270-2300 metre, mevcut şehir merkezinden ise 550 metre yükseklikte bulunan kale, Süphan Dağı'nın volkanik faaliyetleri sonucunda biçimlenmiş, sarp ve dik bir tepe üzerinde yükselmektedir. Sarp topoğrafyası sayesinde doğal bir koruma kalkanına sahip olan kale; güney yönünde Adilcevaz'ın verimli tarım bahçelerine ve hayvancılık faaliyetleri açısından hayati önem taşıyan yaylalara hâkim bir konumdadır. Çevredeki tepelerden Malazgirt Ovası'nın da izlenebildiği bu stratejik nokta, Van Gölü havzası ile Erciş-Bitlis arasındaki ana ulaşım hatlarını bütünüyle kontrol altında tutmaktadır.</p>
+        <p>Urartu çiviyazılı metinlerinde "Haldiei URUKUR" yani Haldi'nin Şehri olarak anılan Kef Kalesi; anıtsal ölçekleri, topoğrafik yapısı ve mimari bileşenleri bakımından Urartu arkeolojisinde seçkin bir yere sahiptir. Yerleşim şeması; idari ve dini mekanları barındıran, etrafı müstakil savunma hatlarıyla çevrili Yukarı Şehir yani sitadel ile daha geniş bir alana yayılan Aşağı Şehir olmak üzere iki ana bölümden oluşmaktadır. Toplam uzunluğu 2 kilometreyi bulan dış surlarla birlikte kentin toplam yayılım alanı en az 16 hektarlık bir sahayı kapsamaktadır. MÖ 8. yüzyılda, özellikle krallığın güneybatı sınır hattını tahkim etmek üzere inşa edilen kale, Urartu devletinin çöküşünün ardından da stratejik önemini yitirmemiş ve sonraki yüzyıllarda Romalılar tarafından da askeri gayelerle yeniden kullanılmıştır.</p>
+        <p>Kef Kalesi'ndeki sistemli arkeolojik kazılar, 1964-1972 yılları arasında B. Öğün ve E. Bilgiç başkanlığındaki heyetler tarafından yürütülmüştür. Bu araştırmalar, özellikle kuzeydeki en yüksek teras üzerinde yükselen anıtsal saray yapısına odaklanmıştır. Doğu-batı aksında yaklaşık 2.8 hektarlık bir alana yayılan saray kompleksi, toplamda 140 odadan oluştuğu tahmin edilmekte olup günümüze kadar 30 odası tamamen açığa çıkarılmıştır. Aşağı salondaki kazılarda ele geçen mavi, kırmızı, sarı ve beyaz renkli duvar resmi parçaları, iç mekân duvarlarının zengin fresklerle bezendiğini göstermektedir.</p>
+        <p>Kef Kalesi, askeri işlevinin yanı sıra bölgenin en önemli ekonomik ve tarımsal depolama üssü olarak tasarlanmıştır. Sarayın güney bölümünde yoğunlaşan depolama birimlerinde yapılan kazılarda, üç farklı oda içerisinde toplam 170 adet devasa depolama küpü yani pitos ele geçirilmiştir. Yapının idari niteliğini ve inşa sürecini aydınlatan en önemli veri ise saraydaki kabartmalı bazalt blokların üst kısımlarına kazınmış olan çiviyazılı metindir. Bu yazıt, kalenin doğrudan Urartu Kralı II. Rusa'nın hükümdarlık döneminde, baş tanrı Haldi'nin emir ve arzusu doğrultusunda inşa ettirildiğini açıkça belgelemektedir.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Ayman, İ. (2013). Urartu Krallığı'nın Yayılım Alanı İçerisinde Yer Alan Yerleşim Tipleri.</p>
+        <p>Belli, O. (1982). "Alniunu Kenti ve Taş Atölyesinin Keşfi". Anadolu Araştırmaları, (5), s. 115-150.</p>
+        <p>Bilgiç, E. ve Öğün, B. (1964). "1964 Adîlcevaz Kef Kalesî Kazıları". Anadolu (Anatolia), (8), s. 65-92.</p>
+        <p>Bilgiç, E. ve Öğün, B. (1965). "Adilcevaz Kef Kalesi Kazıları 1965". Anadolu (Anatolia), (9), s. 1-20.</p>
+        <p>Bilgiç, E. ve Öğün, B. (1967). "1964 Adilcevaz Kazıları Hakkında". Tarih Araştırmaları Dergisi, (132), s. 102-105.</p>
+        <p>Burney, C. A. (1957). "Urartian Fortresses and Towns in the Van Region". Anatolian Studies, (7), s. 37-53.</p>
+        <p>Coşkun, İ., Varol, O. ve Polat, E. (2023). "Adilcevaz Kef Kalesi Kazısı: Yeni Bulgular ve Değerlendirmeler". OANNES- Uluslararası Eskiçağ Tarihi Araştırmaları Dergisi, 5(1), s. 253-274.</p>
+        <p>Coşkun, İ., Varol, O., Keleş Eriçok, A., Kararlı, E., Kızılban, C. ve Balkan, M. (2024). "Adilcevaz Kef Kalesi kazısı 2022". 43. Kazı Sonuçları Toplantısı, Cilt 5, s. 377-387.</p>
+        <p>Çoşkun, İ. ve Özbulut, Z. (2026). "Kef Kalesi Yukarı Salon ve Orta Salon, Aşihusi Yapıları Mı?". Van Yüzüncü Yıl Üniversitesi Sosyal Bilimler Enstitüsü Dergisi, Van Gölü Havzası Özel Sayısı (2), s. 205-212.</p>
+        <p>Çizmeli Öğün, Z. (2012). "Adilcevaz Kef Kalesi (1964 - 1974)". Ankara Üniversitesi Dil ve Tarih-Coğrafya Fakültesi Arkeoloji Bölümü Dergisi, EK III.2 Anı, Armağan Serisi, s. 288.</p>
+        <p>Danışmaz, H. (2018). Arkeolojik Veriler Çerçevesinde Urartu Krallığı'nın Eyalet Sistemi. Doktora Tezi, İstanbul Üniversitesi, İstanbul.</p>
+        <p>Danışmaz, H. (2020). Urartu Krallığı: Yönetim ve Organizasyon. Ankara: Türk Tarih Kurumu Yayınları.</p>
+        <p>Erdoğan, S. (2017). "Kefkalesi Urartu Yerleşiminin Tarihsel Arka Planı". Türk Arkeoloji Dergisi, C. 36, S. 62, s. 31-58.</p>
+        <p>Öğün, B. (1974). "Urartu Halk Mezarları". Ankara Üniversitesi Dil ve Tarih Coğrafya Fakültesi Dergisi, Yayın No: 239, s. 445-468.</p>
+        <p>Öğün, B. (1982). "Die urartáischen Paläste und die Bestattungsbräuche der Urartäer". Palast und Hütte: Beiträge zum Bauen und Wohnen im Altertum, Verlag Philipp von Zabern, s. 217-236.</p>
+        <p>Payne, M. R. (2006). Urartu Çiviyazılı Belgeler Kataloğu. İstanbul: Arkeoloji ve Sanat Yayınları.</p>
+        <p>Piotrovskii, B. B. (1950). Karmir-Blur I. Yerevan: Akademiyi Nauk Armyanskoy SSR.</p>
+        <p>Salvini, M. (1998). "The inscription of the Urartian king Rusa II at Kefkalesi (Adilcevaz)". Studi Micenei ed Egeo-Anatolici, 40(1), s. 123-129.</p>
+        <p>Yücel, Ç., Kaçar, B. ve Çerioğlu, B. (2023). "Bitlis ve Çevresinde Yer Alan Urartu Dönemine Ait Kale ve Kaya Mezarları". Eren Dergisi, Cilt 2, Sayı 3, s. 10-22.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-1.png" alt="Kef Kalesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-2.png" alt="Kef Kalesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-3.png" alt="Kef Kalesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-4.png" alt="Kef Kalesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-5.png" alt="Kef Kalesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-6.png" alt="Kef Kalesi - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-7.png" alt="Kef Kalesi - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-8.png" alt="Kef Kalesi - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-9.png" alt="Kef Kalesi - Görünüm 9"></div>
+        <div class="gallery-img" onclick="openLightbox(9)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-10.png" alt="Kef Kalesi - Görünüm 10"></div>
+        <div class="gallery-img" onclick="openLightbox(10)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-11.png" alt="Kef Kalesi - Görünüm 11"></div>
+        <div class="gallery-img" onclick="openLightbox(11)"><img src="https://cdn.la-foa.com/kef-kalesi/foto-12.png" alt="Kef Kalesi - Görünüm 12"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Adilcevaz, Bitlis</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,67.34%) var(--my,62.98%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          38.5910°N, 43.1540°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 12}, (_, i) => `https://cdn.la-foa.com/kef-kalesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Video Controls
+const video = document.getElementById('heroVideo');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
+const timeDisplay = document.getElementById('timeDisplay');
+const speedBtn = document.getElementById('speedBtn');
+const muteIcon = document.getElementById('muteIcon');
+
+function togglePlayPause() {
+  if (video.paused) {
+    video.play();
+    playPauseBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+  } else {
+    video.pause();
+    playPauseBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+  }
+}
+
+function toggleMute() {
+  video.muted = !video.muted;
+  if (video.muted) {
+    muteIcon.innerHTML = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+  } else {
+    muteIcon.innerHTML = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+  }
+}
+
+video.addEventListener('timeupdate', () => {
+  if(!video.duration) return;
+  const percent = (video.currentTime / video.duration) * 100;
+  progressBar.style.width = percent + '%';
+  timeDisplay.innerText = formatTime(video.currentTime) + ' / ' + formatTime(video.duration);
+});
+
+function seekVideo(e) {
+  const container = document.getElementById('progressContainer');
+  const pos = (e.pageX - container.getBoundingClientRect().left) / container.offsetWidth;
+  video.currentTime = pos * video.duration;
+}
+
+function formatTime(seconds) {
+  if (isNaN(seconds)) return "0:00";
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return m + ':' + (s < 10 ? '0' + s : s);
+}
+
+const speeds = [1, 1.25, 1.5, 2, 0.5];
+let speedIndex = 0;
+function toggleSpeed() {
+  speedIndex = (speedIndex + 1) % speeds.length;
+  video.playbackRate = speeds[speedIndex];
+  speedBtn.innerText = speeds[speedIndex] + 'x';
+}
+
+function toggleFullscreen() {
+  const heroMain = document.querySelector('.hero-main');
+  if (!document.fullscreenElement) {
+    heroMain.requestFullscreen().catch(err => console.log(err));
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 38.591, LNG = 43.154;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+
+// Auto-hide video controls
+const heroMainElement = document.querySelector('.hero-main');
+const controlsWrapper = document.querySelector('.video-controls-wrapper');
+let controlsTimeout;
+
+function showControls() {
+  controlsWrapper.style.opacity = '1';
+  controlsWrapper.style.pointerEvents = 'auto';
+  heroMainElement.style.cursor = 'default';
+
+  clearTimeout(controlsTimeout);
+  controlsTimeout = setTimeout(() => {
+    if (!video.paused) {
+      controlsWrapper.style.opacity = '0';
+      controlsWrapper.style.pointerEvents = 'none';
+      heroMainElement.style.cursor = 'none';
+    }
+  }, 3500);
+}
+
+heroMainElement.addEventListener('mousemove', showControls);
+heroMainElement.addEventListener('mouseleave', () => {
+  if (!video.paused) {
+    controlsWrapper.style.opacity = '0';
+    controlsWrapper.style.pointerEvents = 'none';
+  }
+});
+
+video.addEventListener('pause', () => {
+  clearTimeout(controlsTimeout);
+  controlsWrapper.style.opacity = '1';
+  controlsWrapper.style.pointerEvents = 'auto';
+  heroMainElement.style.cursor = 'default';
+});
+
+video.addEventListener('play', showControls);
+showControls();
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('kef-kalesi');</script>
+</body>
+</html>
