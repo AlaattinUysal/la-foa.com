@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eski Ahlat Kalesi — La Foa</title>
+<meta name="description" content="Bitlis Ahlat'ta, Van Gölü'ne hâkim bir konumda yer alan Eski Ahlat Kalesi (Harabeşehir Kalesi): MÖ 8. yüzyılda Urartu Krallığı tarafından inşa edilmiş, Bizans ve Selçuklu dönemlerinde de kullanılmış bir tahkimat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <img class="hero-video" src="https://cdn.la-foa.com/eski-ahlat-kalesi/hero.jpg" alt="Eski Ahlat Kalesi">
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #24</span>
+      <div class="hero-title" data-field="baslik">Eski Ahlat Kalesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Ahlat, Bitlis</span>, Türkiye
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">MÖ 8. yy</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Çok Katmanlı Yapı</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Urartu</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Harap</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Bitlis / Ahlat</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">38.474°N, 42.7838°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Tarih boyunca çok sayıda medeniyete ev sahipliği yapan ve kültürel katmanlarıyla öne çıkan Ahlat, kentin kadim yerlileri olan Urartularca "Halads", daha sonra Ermeniler tarafından "Şaleat", Süryanilerce "Kelath", Araplar tarafından "Hil'at", Farslar ve Türkler tarafından ise "Ahlat" olarak adlandırılmıştır. Türkiye'de tarihi eserleri açısından müstesna bir konumda bulunan yerleşimin tarih sahnesindeki varlığı MÖ 1500 yılına kadar uzanmaktadır. Deniz seviyesinden yaklaşık 1800 metre yükseklikte, stratejik bir noktada yer alan ve Van Gölü'ne hâkim coğrafi üstünlüğüyle dikkat çeken bölge, tarihsel süreçte pek çok medeniyetin iskân alanı olmuştur. Bu iskân modelinin en önemli merkezlerinden birini, Taht-ı Süleyman Deresi'nin doğusunda, kuzey-güney istikametinde uzanan ve çevre bölgedeki çukurlukta adeta bir ada gibi yükselen bir kayalık üzerine inşa edilmiş olan Harabeşehir Kalesi (Urartu Kalesi) oluşturmaktadır. Kesin inşa tarihi tam olarak bilinmemekle birlikte, bu kalenin en azından MÖ 8. yy'da yapılmış olması mümkündür. Zamanla meydana gelen depremler, istilalar ve doğal coğrafi şartlar nedeniyle günümüzde harabeye dönen tahkimatın, kurulduğu kayalığın doğu yamacında az da olsa mimari izleri fark edilebilmekteyken, eteklerinde ise yalnızca kaya sığınakları ve ev kalıntıları mevcuttur.</p>
+        <p>Kale sahasında yürütülen arkeolojik kazılar sonucunda bazı duvar sıraları yüzeye çıkarılmış olsa da genel olarak sur duvarları bütüncül olarak izlenememekte ve büyük oranda toprak altında bulunarak yer yer burç ve sur bakiyeleri şeklinde kendini göstermektedir. Tahkimatın kesme taş kaplamaları zamanla tamamen yok olmuş, geriye yalnızca moloz taş çekirdeği kalmıştır. Kaynaklarda, ana yapıyı çevreleyen büyük surun Bizans döneminde inşa edilip geliştirildiği, sonraki yüzyıllarda ise Selçuklular tarafından tamir edilerek kullanıldığı belirtilmektedir. Nitekim kalenin çevresinde Selçuklu dönemine ait sivil ve dini mimari kalıntılara da rastlanmaktadır. Ahlat'taki ilk imar faaliyetlerinin odağını oluşturan ve 1224 yılında yıkılan iç kale ise Van Gölü'ne paralel, kuzey-güney istikametinde ve batıya doğru üçgen oluşturacak bir formda tasarlanmıştır.</p>
+        <p>Esasen Ahlat şehri Urartular döneminde kurulmuş olup, Asurluların MÖ 1274 yılında Urartu (Uriadri) ülkesine düzenlediği saldırı sırasında 51 kenti yakıp yıktıklarını ve bunların arasında Ahlat'ın da yer aldığını yazılı kaynaklar doğrulamaktadır. Urartu döneminde Adilcevaz yöresiyle birlikte "Ziukuni Ülkesi" olarak bilinen bu havzada Ahlat, MÖ 9. ile 6. yüzyıllar arasında Urartu hâkimiyetinde kalmıştır. Tarih boyunca önemli bir stratejik nokta olan Ahlat Kalesi de bu hâkimiyet döneminde, MÖ 8. yüzyılda Urartu Krallığı tarafından krallığın batı sınırlarını korumak amacıyla inşa edilmiştir. Genel hatlarıyla Ahlat'ta iki ana kale yapısı öne çıkmaktadır: Bunlar, Osmanlılar döneminde inşa edilen Osmanlı Kalesi ile iç kısımda bulunan ve Urartular tarafından inşa edilen Ahlat Eski Kalesi'dir.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Evliyâ Çelebi. Evliyâ Çelebi Seyahatnâmesi. (Haz. Yücel Dağlı- Seyit Ali Kahraman). C. IV. YKY, İstanbul, 2001.</p>
+        <p>Arslan, Celil, "2017 Yılı Eski Ahlat Şehri Kazısı", 40. Kazı Sonuçları Toplantısı, Cilt: 1, T.C. Kültür ve Turizm Bakanlığı Kültür Varlıkları ve Müzeler Genel Müdürlüğü Yayınları, Ankara 2019, s. 471-486.</p>
+        <p>Arslan, Celil, "Ahlat Kazılarının Dünü-Bugünü", Akdeniz Sanat Dergisi, c.3, Özel Ek Sayı, 2019, ss. 199-214.</p>
+        <p>Beygu, Abdurrahim Şerif, Ahlat Kitabeleri, Hamit Matbaası, İstanbul 1932.</p>
+        <p>Bixio, Roberto, "Ahlat 2007: Preliminary Survey On Rocky Structures", IV. Uluslararası Van Gölü Havzası Sempozyumu 17-21 Haziran 2008-Ahlat, Ed. Oktay Belli, Ahlat Kültür ve Çevre Vakfı Yayını, Ankara, 2011, ss. 117-135.</p>
+        <p>Elmastaş, Necmettin. (2001). "Ahlat Yöresi'nin Turizm Potansiyeli". Marmara Coğrafya Dergisi, S.3(1).</p>
+        <p>Ercek, M. - Kulaz, M. - Kılıç, S., "2019-2020 Yılları Eski Ahlat Şehri Kazıları", 2019-2020 Yılı Kazı Çalışmaları, ed. A. Özmen, T.C. Kültür ve Turizm Bakanlığı Yayınları, Ankara 2022, s. 73-86.</p>
+        <p>Karahan, Recai - Güzel, Eylem, "Eski Ahlat Şehri Kazıları (2011-2012)", 35. Kazı Sonuçları Toplantısı 1. Cilt, Kütür ve Turizm Bakanlığı Kültür Varlıkları ve Müzeler Genel Müdürlüğü Yayınları, Muğla, 2014, ss. 339-348.</p>
+        <p>Karamağaralı, Beyhan, Ahlat Mezartaşları, Güven Matbaası, Ankara 1972.</p>
+        <p>Karamağaralı, Haluk, "Eski Ahlat Kazıları", Höyük, s.1, 1988, s. 143-144.</p>
+        <p>Karamağaralı, Nakış, "Eski Ahlat Şehir Kazısı 2008-2009 Çalışmaları", Selçuk Üniversitesi Edebiyat Fakültesi Sanat Tarihi Bölümü XIV. Ortaçağ ve Türk Dönemi Kazıları ve Sanat Tarihi Araştırmaları Sempozyumu 20-22 Ekim 2010 Konya, Kömen Yayınları, Konya, 2011, ss. 361-384.</p>
+        <p>Karamağaralı, Nakış, "Eski Ahlat Şehir Kazısı 2010 Yılı Çalışmaları", Uluslararası Katılımlı XV. Ortaçağ ve Türk Dönemi Kazıları ve Sanat Tarihi Araştırmaları Sempozyumu Anadolu Üniversitesi-Eskişehir 19-21 Ekim 2011 Cilt 2, Eskişehir, 2012, ss. 461-470.</p>
+        <p>Kılıç, Sinan - Zirekbilek, Dilek - Tayfur Aslan, Enisa, "Bitlis-Eski Ahlat Şehri Kalesi İlk Tunç Çağı Çanak Çömleği", TÜBA-AR, Sayı: 33, 2023, s. 51-60.</p>
+        <p>Meriç, Sağbetullah; Bozkurt Öznur. (2016). "İslam Dünyasının En Büyük Tarihi-Anıt Mezarlığının (Selçuklu Mezarlığı) Kültür ve İnanç Turizmi Kapsamında Değerlendirilmesi". Nişantaşı Üniversitesi Sosyal Bilimler Dergisi. S. 4(1).</p>
+        <p>Nalbantoğlu, İlhami, Ahlat Ve Kültürel Mirasımızın Korunması, Ahlat Kültür Vakfı Yayınları, Ankara 1992.</p>
+        <p>Nalbantoğlu, İlhami, Anadolu'da Türk Mührü: Ahlat, Ahlat Kültür Vakfı Yayınları, Ankara 1993.</p>
+        <p>Nalbantoğlu, İlhami, Anadolu'nun Kapısı, Türkiye'nin Tapusu: Ahlat, Ahlat Kültür Vakfı Yayınları, Ankara 1994.</p>
+        <p>Nalbantoğlu, İlhami, Gap Ve Dap Projeleri Kapsamında Van Gölü Havzası, Ahlat Kültür Vakfı Yayınları, Ankara 1994.</p>
+        <p>Tekin, H., Türk Tarihinde Ahlat, Gece Kitaplığı, Ankara 2018.</p>
+        <p>Yücel, Çağatay - Kaçar, Bayram - Çerioğlu Eren, Bahar, "Bitlis ve Çevresinde Yer Alan Urartu Dönemine Ait Kale ve Kaya Mezarları", Er Dergisi, Cilt: 2, Sayı: 3, Aralık 2023, s. 10-22.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/eski-ahlat-kalesi/foto-1.png" alt="Eski Ahlat Kalesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/eski-ahlat-kalesi/foto-2.png" alt="Eski Ahlat Kalesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/eski-ahlat-kalesi/foto-3.png" alt="Eski Ahlat Kalesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/eski-ahlat-kalesi/foto-4.png" alt="Eski Ahlat Kalesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/eski-ahlat-kalesi/foto-5.png" alt="Eski Ahlat Kalesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/eski-ahlat-kalesi/foto-6.png" alt="Eski Ahlat Kalesi - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/eski-ahlat-kalesi/foto-7.png" alt="Eski Ahlat Kalesi - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/eski-ahlat-kalesi/foto-8.png" alt="Eski Ahlat Kalesi - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/eski-ahlat-kalesi/foto-9.png" alt="Eski Ahlat Kalesi - Görünüm 9"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Ahlat, Bitlis</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,65.42%) var(--my,76.55%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          38.474°N, 42.7838°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 9}, (_, i) => `https://cdn.la-foa.com/eski-ahlat-kalesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 38.474, LNG = 42.7838;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('eski-ahlat-kalesi');</script>
+</body>
+</html>

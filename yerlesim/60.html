@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Altıntepe Kalesi ve Höyüğü — La Foa</title>
+<meta name="description" content="Erzincan Merkez'de, volkanik bir tepe üzerinde kurulu Altıntepe Kalesi ve Höyüğü: Urartu Krallığı'nın kuzeybatı sınırındaki idari ve askeri merkezi, tapınak-saray kompleksi ve apadanasıyla ünlü.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <video class="hero-video" id="heroVideo"
+      src="https://cdn.la-foa.com/altintepe-kalesi/drone.mp4"
+      autoplay muted loop playsinline
+      poster="https://cdn.la-foa.com/altintepe-kalesi/foto-1.png"
+      onclick="togglePlayPause()">
+    </video>
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #60</span>
+      <div class="hero-title" data-field="baslik">Altıntepe Kalesi ve Höyüğü</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Erzincan, Merkez</span>, Türkiye
+      </div>
+    </div>
+
+    <!-- Video Controls -->
+    <div class="video-controls-wrapper">
+      <div class="progress-container" id="progressContainer" onclick="seekVideo(event)">
+        <div class="progress-filled" id="progressBar"></div>
+      </div>
+      <div class="controls-main">
+        <div class="controls-left">
+          <button class="control-btn" onclick="togglePlayPause()" id="playPauseBtn" title="Oynat/Duraklat">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <button class="control-btn" onclick="toggleMute()" id="muteBtn" title="Sesi aç/kapat">
+            <svg id="muteIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          </button>
+          <span style="color:#fff; font-size:0.8rem; font-weight:500; font-variant-numeric: tabular-nums;" id="timeDisplay">0:00 / 0:00</span>
+        </div>
+        <div class="controls-right">
+          <div class="control-text" onclick="toggleSpeed()" id="speedBtn" title="Oynatma Hızı">1x</div>
+          <button class="control-btn" onclick="toggleFullscreen()" title="Tam Ekran">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">MÖ 8. yy</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Çok Katmanlı Yerleşim</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Urartu</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Kısmen Korunmuş</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Erzincan / Merkez</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">39.7204°N, 39.054°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Altıntepe, Erzincan şehir merkezinin yaklaşık 15 km doğusunda, Erzincan-Erzurum karayolunun hemen kuzeyinde yer alan ve Erzincan Ovası'na hâkim konumuyla dikkat çeken önemli bir arkeolojik yerleşimdir. Yaklaşık 60 metre yüksekliğinde ve 200 metre çapında volkanik bir tepe üzerinde kurulu olan bu merkez, stratejik konumu sayesinde özellikle doğu-batı yönlü ticaret ve ulaşım yollarının denetiminde önemli bir rol üstlenmiştir. Yapılan arkeolojik araştırmalar, Altıntepe'nin İlk Tunç Çağı'ndan başlayarak Orta Çağ'a, hatta 15. yüzyıla kadar kesintili de olsa iskân gördüğünü ortaya koymaktadır. Ancak yerleşimin en parlak evresi Urartu Krallığı dönemine, özellikle MÖ 8. yüzyıla tarihlenmektedir. Bu dönemde Altıntepe, Urartu Devleti'nin kuzeybatı sınırında yer alan önemli bir idari ve askeri merkez niteliği kazanmıştır.</p>
+        <p>1959-1968 yılları arasında Prof. Dr. Tahsin Özgüç başkanlığında gerçekleştirilen kazılar, tepenin üzerinde oldukça iyi korunmuş bir Urartu yerleşimini gün ışığına çıkarmıştır. Bu çalışmalar sonucunda iç içe iki sur sistemiyle çevrili bir kale düzeni içerisinde tapınak-saray kompleksi, sütunlu kabul salonu (apadana), depo yapıları, çeşitli mekânlar, açık hava tapınağı ve tepenin güney yamacında yer alan üç adet yer altı oda mezarı tespit edilmiştir. Yapıların büyük ölçüde taş temel üzerine kerpiç duvar tekniğiyle inşa edildiği ve planlı bir mimari anlayışın ürünü olduğu anlaşılmaktadır. Nitekim kale içerisindeki kanalizasyon sisteminin yapıların altından düzenli biçimde geçirilmiş olması, bu planlı yerleşim düzeninin önemli bir göstergesidir.</p>
+        <p>Altıntepe'de ele geçirilen arkeolojik buluntular arasında fildişi objeler, metal eserler, miğfer ve kalkanlar, seramikler ile duvar resimleri dikkat çekmektedir. Ayrıca çivi yazılı tunç eserler üzerinde Urartu krallarına ait isimlerin bulunması, yerleşimin siyasal ve idari önemini ortaya koymaktadır. Tanrı, insan ve hayvan figürleriyle zenginleşen bu buluntular, Urartu sanatının gelişmiş estetik anlayışını yansıtmaktadır. Bu eserlerin önemli bir bölümü günümüzde Ankara Anadolu Medeniyetleri Müzesi'nde sergilenmektedir. Yerleşim, Urartu döneminin ardından Pers, Bizans ve Anadolu Selçuklu dönemlerinde de kullanılmaya devam etmiştir. Özellikle Bizans dönemine ait kilise kalıntıları ve sur izleri, Altıntepe'nin sonraki evrelerde de stratejik önemini koruduğunu göstermektedir. Ancak bu geç dönem yerleşimleri, Urartu katmanlarının kısmen tahrip olmasına da yol açmıştır.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Procopius. Buildings (De Aedificiis). Translated by H. B. Dewing. Loeb Classical Library 343. Cambridge, MA: Harvard University Press; London: William Heinemann, 1940.</p>
+        <p>Burney, C. A., ve D. M. Lang. The People of the Hills: Ancient Ararat and Caucasus. London, 1971.</p>
+        <p>Can, Birol. "Altıntepe Mozaikli Kilise 2005 Yılı Onarım ve Restorasyon Çalışmaları." İçinde III. Uluslararası Türkiye Mozaik Korpusu Sempozyumu Bildirileri, ed. M. Şahin, 2007.</p>
+        <p>Ceylan, Alpaslan, Üngör, İbrahim. Eskiçağ'da Erzincan Kaleleri, Atatürk Üniversitesi Yayınları, Erzurum 2018.</p>
+        <p>Çiner, Refakat. "Altıntepe (Urartu) İskeletlerine Ait Kalıntıların Tetkiki." Belleten 29, no. 114 (1965): 225-235.</p>
+        <p>Işıklı, Mehmet, ve E. Katipoğlu. "Erzincan Altıntepe Yüzey Araştırması 2007 Çalışmaları." Türk Eskiçağ Bilimleri Enstitüsü Haberler Dergisi 26 (2008).</p>
+        <p>Işıklı, Mehmet. "Erzincan Altıntepe Yüzey Araştırmaları 2006-2007 Çalışmalarının Genel Bir Değerlendirmesi." İçinde 26. Araştırma Sonuçları Toplantısı, Cilt 1, 253-266. Ankara, 2008.</p>
+        <p>Işıklı, Mehmet. "The Results of Surveys in the Environs of the Urartian Fortress of Altıntepe in Erzincan, Eastern Anatolia." İçinde Proceedings of the 6th International Congress on the Archaeology of the Ancient Near East, ed. Paolo Matthiae, Frances Pinnock, Lorenzo Nigro ve Nicolò Marchetti, Vol. 2, 265-272. Wiesbaden, 2010.</p>
+        <p>Karaosmanoğlu, Mehmet, Birol Can ve Halim Korucu. "Altıntepe Urartu Kalesi 2004 Yılı Kazı ve Onarım Çalışmaları." İçinde 27. Kazı Sonuçları Toplantısı, Cilt 1, 183-190. Ankara, 2006.</p>
+        <p>Karaosmanoğlu, Mehmet, Birol Can ve Halim Korucu. "Altıntepe Urartu Kalesi 2006 Yılı Kazı ve Onarım Çalışmaları." İçinde 29. Kazı Sonuçları Toplantısı, Cilt 1, 497-514. Ankara: Kültür ve Turizm Bakanlığı Döner Sermaye İşletmesi, 2008.</p>
+        <p>Karaosmanoğlu, Mehmet, Halim Korucu ve Mehmet Ali Yılmaz. "Altıntepe Urartu Kalesi 2007 Yılı Kazı ve Onarım Çalışmaları: Tapınak ve Batı Odalarındaki Çalışmalar." İçinde 30. Kazı Sonuçları Toplantısı, Cilt 1, 120-122. Ankara: Kültür ve Turizm Bakanlığı Döner Sermaye İşletmesi, 2009.</p>
+        <p>Karaosmanoğlu, Mehmet, Halim Korucu ve Mehmet Ali Yılmaz. Altıntepe Kazı ve Onarım Çalışmaları Tanıtım El Kitapçığı. Erzincan, 2010.</p>
+        <p>Karaosmanoğlu, Mehmet, ve H. Özkan. "Altıntepe Kazısı 2003." İçinde 26. Kazı Sonuçları Toplantısı, Cilt 1, 128-136. Ankara, 2005.</p>
+        <p>Karaosmanoğlu, Mehmet, ve Halim Korucu. "The Apadana of Altıntepe in the Light of the Second Season of Excavations." İçinde Anatolian Iron Ages 7, ed. A. Çilingiroğlu ve Antonio Sagona, 131-148. Leuven-Paris-Walpole, MA: Peeters, 2012.</p>
+        <p>Karaosmanoğlu, Mehmet. "Altıntepe Kalesi İkinci Dönem Kazıları." İçinde Doğudan Yükselen Işık: Arkeoloji Yazıları, ed. B. Can ve M. Işıklı. Erzurum, 2007.</p>
+        <p>Karaosmanoğlu, Mehmet. "Erzincan Altıntepe Kalesi / Erzincan Altıntepe Fortress." İçinde Urartu: Doğu'da Değişim / Transformation in the East, ed. Kemalettin Köroğlu ve Erkan Konyar, 366-373. İstanbul: Yapı Kredi Yayınları, 2011.</p>
+        <p>Korucu, Halim. Erzincan Altıntepe Urartu Kalesi ile Yakın Çevre Yerleşimleri: Tunç ve Demir Çağlar Seramiği. Yayımlanmamış Doktora Tezi, Atatürk Üniversitesi Sosyal Bilimler Enstitüsü, Erzurum, 2012.</p>
+        <p>Özgüç, Tahsin. Altıntepe: Mimarlık Anıtları ve Duvar Resimleri / Architectural Monuments and Wall Paintings. Ankara, 1966.</p>
+        <p>Summers, David. "Archaeological Evidence for the Achaemenid Period in Eastern Anatolia." Anatolian Studies 43 (1993).</p>
+        <p>Toprak, Hüseyin. Altıntepe Urartu Tapınağı. Yüksek Lisans Tezi, Atatürk Üniversitesi Sosyal Bilimler Enstitüsü, Erzurum, 2009.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-1.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-2.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-3.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-4.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-5.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-6.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-7.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-8.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-9.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 9"></div>
+        <div class="gallery-img" onclick="openLightbox(9)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-10.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 10"></div>
+        <div class="gallery-img" onclick="openLightbox(10)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-11.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 11"></div>
+        <div class="gallery-img" onclick="openLightbox(11)"><img src="https://cdn.la-foa.com/altintepe-kalesi/foto-12.png" alt="Altıntepe Kalesi ve Höyüğü - Görünüm 12"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Erzincan, Merkez</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,65.42%) var(--my,76.55%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          39.7204°N, 39.054°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 12}, (_, i) => `https://cdn.la-foa.com/altintepe-kalesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Video Controls
+const video = document.getElementById('heroVideo');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
+const timeDisplay = document.getElementById('timeDisplay');
+const speedBtn = document.getElementById('speedBtn');
+const muteIcon = document.getElementById('muteIcon');
+
+function togglePlayPause() {
+  if (video.paused) {
+    video.play();
+    playPauseBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+  } else {
+    video.pause();
+    playPauseBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+  }
+}
+
+function toggleMute() {
+  video.muted = !video.muted;
+  if (video.muted) {
+    muteIcon.innerHTML = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+  } else {
+    muteIcon.innerHTML = '<path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+  }
+}
+
+video.addEventListener('timeupdate', () => {
+  if(!video.duration) return;
+  const percent = (video.currentTime / video.duration) * 100;
+  progressBar.style.width = percent + '%';
+  timeDisplay.innerText = formatTime(video.currentTime) + ' / ' + formatTime(video.duration);
+});
+
+function seekVideo(e) {
+  const container = document.getElementById('progressContainer');
+  const pos = (e.pageX - container.getBoundingClientRect().left) / container.offsetWidth;
+  video.currentTime = pos * video.duration;
+}
+
+function formatTime(seconds) {
+  if (isNaN(seconds)) return "0:00";
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return m + ':' + (s < 10 ? '0' + s : s);
+}
+
+const speeds = [1, 1.25, 1.5, 2, 0.5];
+let speedIndex = 0;
+function toggleSpeed() {
+  speedIndex = (speedIndex + 1) % speeds.length;
+  video.playbackRate = speeds[speedIndex];
+  speedBtn.innerText = speeds[speedIndex] + 'x';
+}
+
+function toggleFullscreen() {
+  const heroMain = document.querySelector('.hero-main');
+  if (!document.fullscreenElement) {
+    heroMain.requestFullscreen().catch(err => console.log(err));
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 39.7204, LNG = 39.054;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+
+// Auto-hide video controls
+const heroMainElement = document.querySelector('.hero-main');
+const controlsWrapper = document.querySelector('.video-controls-wrapper');
+let controlsTimeout;
+
+function showControls() {
+  controlsWrapper.style.opacity = '1';
+  controlsWrapper.style.pointerEvents = 'auto';
+  heroMainElement.style.cursor = 'default';
+
+  clearTimeout(controlsTimeout);
+  controlsTimeout = setTimeout(() => {
+    if (!video.paused) {
+      controlsWrapper.style.opacity = '0';
+      controlsWrapper.style.pointerEvents = 'none';
+      heroMainElement.style.cursor = 'none';
+    }
+  }, 3500);
+}
+
+heroMainElement.addEventListener('mousemove', showControls);
+heroMainElement.addEventListener('mouseleave', () => {
+  if (!video.paused) {
+    controlsWrapper.style.opacity = '0';
+    controlsWrapper.style.pointerEvents = 'none';
+  }
+});
+
+video.addEventListener('pause', () => {
+  clearTimeout(controlsTimeout);
+  controlsWrapper.style.opacity = '1';
+  controlsWrapper.style.pointerEvents = 'auto';
+  heroMainElement.style.cursor = 'default';
+});
+
+video.addEventListener('play', showControls);
+showControls();
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('altintepe-kalesi');</script>
+</body>
+</html>

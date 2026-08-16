@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitlis Kalesi — La Foa</title>
+<meta name="description" content="Bitlis Merkez'de, Büyük İskender dönemine dayanan bir kuruluş efsanesiyle anılan Bitlis Kalesi: 670 savunma mazgalıyla tahkim edilmiş, antik dönemden Osmanlı'nın geç evrelerine kadar kesintisiz kullanılmış görkemli bir kale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <img class="hero-video" src="https://cdn.la-foa.com/bitlis-kalesi/hero.jpg" alt="Bitlis Kalesi">
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #18</span>
+      <div class="hero-title" data-field="baslik">Bitlis Kalesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Merkez, Bitlis</span>, Türkiye
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">MÖ 4. yy</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Çok Katmanlı Yapı</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Helenistik / Osmanlı</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Sağlam / Kısmen Ayakta</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Bitlis / Merkez</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">38.0054°N, 42.3159°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Asurluların "Liz'in Yurdu/Kalesi" manasına gelen Bit-Liz veya Bet-Lis olarak isimlendirdiği; süreç içerisinde Pers, Yunan ve Arap kayıtlarında Bad-Lis, Bizans kaynaklarında Baleş (Ballais-on), Ermeni literatüründe ise Pageş (Pagişi) olarak anılan Bitlis'in kökeni ve kalesinin inşası, Büyük İskender dönemine dayanan meşhur bir anlatıya dayanır. MÖ 336'da Makedonya tahtına oturan, Babil'i ele geçirip Hindistan seferine hazırlanan Büyük İskender'in alnında boynuz benzeri urlar çıkması üzerine, hekimlerin tavsiyesiyle şifalı su arayışı başlar ve Dicle'nin kollarını izleyerek Bitlis önlerine gelen hükümdar, Duav yaylasındaki Kösür çayının kaynağında (günümüzdeki İskender Çeşmesi) konaklayıp sağlığına kavuşur. Bu mucize üzerine MÖ 331'de komutanı (kimi kaynaklarda kölesi) Bedlis'i görevlendirerek kendisinin bile kuşatıp alamayacağı güçte bir kale yapmasını emreder; Bedlis de Rabat ve Kösür sularının kesiştiği, sarp yapısı nedeniyle savunma hendeğine dahi ihtiyaç duyulmayan 56 metre yüksekliğindeki devasa bir kaya bloğu üzerinde istihkamı bir yılda tamamlar. Sefer dönüşü İskender'in teslim talebine karşı kapıları kapatıp direnerek kalenin aşılmazlığını ve hükümdarın emrine sadakatini kanıtlayan Bedlis, kuşatmayı kaldırıp Rahva ovasına çekilen İskender'in huzuruna çıkıp kalenin anahtarlarını teslim ederek durumu açıklayınca, bu zekice stratejiden etkilenen İskender şehrin yönetimini ona bırakır ve kente onun adından mülhem Bedleis ismini verir ki bu ad zamanla Bitlis'e evrilir.</p>
+        <p>Jeopolitik önemi sebebiyle antik dönemden Osmanlı'nın geç evrelerine kadar kesintisiz kullanılan ve 670 savunma mazgalıyla tahkim edilen bu görkemli kale, dağlık mahallelere hakim Dideban Tepesi'ndeki gözetleme kulesiyle desteklenmiş; tarihi süreçte içinde görkemli bir han sarayı, 300 konut, bir cami ve nehir tarafında üç kat demir kapılı bir çarşı ile bedesten barındıran muazzam bir idari ve askeri merkeze dönüşmüştür. Kalenin ve çevresindeki sivil mimarinin erken dönem dokusuna dair en kritik görsel belge, Kanuni Sultan Süleyman'ın Irakeyn Seferi (1533-1535) esnasında bölgeyi resmeden Matrakçı Nasuh'un 16. yüzyıla ait ünlü minyatürüdür; bu minyatürde kale içi ve etrafındaki yoğun yapılaşma açıkça görülse de tasvir edilen cami, han, hamam ve saray gibi mimari unsurların hiçbiri yazık ki günümüze ulaşamamıştır. Kalenin etrafını saran ve "Aşağı Şehir" (varoş) olarak adlandırılan asıl yerleşimin yapısal detayları ise 17. yüzyılda bölgeyi ziyaret eden Evliya Çelebi'nin Seyahatname'deki titiz kayıtlarıyla aydınlanmaktadır; Evliya, sivil yerleşimi çevreleyen bu "aşağı kale" surlarının yukarıdaki esas kale kadar mukavim olmadığını, sade bir mimariye sahip olduğunu ve doğu ile batı yönlerine açılan iki büyük kapısının bulunduğunu aktararak günümüze ulaşamayan dış sur sisteminin ve kayıp kültür varlıklarının varlığını tarihsel olarak tescillemektedir.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Anania Širakacʿi, The Geography of Ananias of Širak, (Trans. Robert H. Hewsen), Wiesbaden: Ludwig Reichert Verlag, 1992.</p>
+        <p>Ebü'l-Fidâ, Ebü'l-Fidâ Coğrafyası (Takvîmü'l-Büldân), (Çev. Ramazan Şeşen), İstanbul: Yeditepe Yayınları, 2017.</p>
+        <p>El-Belâzurî, Fütûhü'l-Büldân, (Çev. Mustafa Fayda), Ankara: Kültür Bakanlığı Yayınları, 1987.</p>
+        <p>Evliya Çelebi Seyahatnamesi, C. IV, (Çev. Ahmet Cevdet), İstanbul: Üçdal Neşriyat, 1970.</p>
+        <p>Matrakçı Nasuh, Nasûhü's-Silâhî (Matrâkçî): Beyân-ı Menāzil-i Sefer-i 'Irākeyn-i Sultān Süleymān Hān, (Haz. Hüseyin G. Yurdaydın), Ankara: Türk Tarih Kurumu Yayınları, 1976.</p>
+        <p>Matthew of Edessa, Chronicle, (Trans. Robert Bedrosian), New Jersey: Long Branch, 2017.</p>
+        <p>Moses Khorenatsʿi, History of the Armenians, (Trans. Robert W. Thomson), London: Harvard University Press, 1978.</p>
+        <p>Müverrih Vardan, "Türk Fütühatı Tarihi (889-1169)", (Çev. Hrand D. Andreasyan), İstanbul Üniversitesi Edebiyat Fakültesi Tarih Semineri Dergisi, C. I, S. 2, İstanbul, 1937.</p>
+        <p>Pʿawstos Buzand, The Epic Histories Attributed to Pʿawstos Buzand (Buzandaran Patmutʿiwnkʿ), (Trans. Nina G. Garsoïan), Cambridge: Harvard University Press, 1989.</p>
+        <p>Prokopios, The Wars of Justinian, (Trans. Henry Bronson Dewing, Rev. Anthony Kaldellis), Cambridge: Hackett Publishing Company, 2014.</p>
+        <p>Sebēos, The Armenian History Attributed to Sebēos, (Trans. Robert W. Thomson, Comm. James Howard-Johnston), Liverpool: Liverpool University Press, 1999.</p>
+        <p>Smbat Sparapet, Smbat Sparapet's Chronicle, (Trans. Robert Bedrosian), New Jersey: Long Branch, 2005.</p>
+        <p>Şerefhan-ı Bitlisî, Şerefname, (Çev. Mehmet Emin Bozarslan), İstanbul: Hasat Yayınları, 1990.</p>
+        <p>Tavernier Seyahatnamesi, (Çev. Teoman Tunçdoğan), İstanbul: Kitap Yayınevi, 2010.</p>
+        <p>Aylar, Mustafa, "Ortaçağ İslam Coğrafyacılarına Göre Bitlis-Ahlat ve Çevresi", Tarihi ve Kültürel Yönleriyle Bitlis, C. I, (Ed. Mehmet İnbaşı - Mehmet Demirtaş), Ankara: Kalkan Matbaacılık, 2019, s. 81-95.</p>
+        <p>Baş, Gülsen, "Gelenek ve Gelecek Arasında Sıkışan Bir Tarihi Kent: Bitlis", History Studies, 2/2, 2010, s. 377-399.</p>
+        <p>Besim, Darkot, "Bitlis", İslam Ansiklopedisi, C. II, İstanbul: Millî Eğitim Basımevi, 1993, s. 657-661.</p>
+        <p>Erken, Sabih, Türkiye'de Vakıf Abideler ve Eski Eserler, C. II, Ankara: Vakıflar Genel Müdürlüğü Yayınları, 1984, s. 119-300.</p>
+        <p>Demir, Muzaffer, "Ksenophon'un Anabasis (Onbinlerin Yürüyüşü) Adlı Eserinde Bitlis Ve Çevresi", Tarihi ve Kültürel Yönleriyle Bitlis, C. I, (Ed. Mehmet İnbaşı - Mehmet Demirtaş), Ankara: Kalkan Matbaacılık, 2019, s. 21-31.</p>
+        <p>Lehmann-Haupt, Carl Friedrich, Armenien einst und jetzt, Berlin: B. Behr's Verlag, 1910.</p>
+        <p>Lehmann-Haupt, Carl Friedrich, Materialien zur älteren Geschichte Armeniens und Mesopotamiens, Berlin: Weidmannsche Buchhandlung, 1907.</p>
+        <p>Pektaş, Kadir - Baş, Gülsen, "Bitlis Çevresi Yüzey Araştırması", 22. Araştırma Sonuçları Toplantısı (24-28 Mayıs 2004 Konya), C. II, Ankara, 2005, s. 173-182.</p>
+        <p>Pektaş, Kadir, "2004-2005 Yılları Bitlis Kalesi Kazısı", 28. Uluslararası Kazı, Araştırma ve Arkeometri Sempozyumu, C. II, Ankara, 2007, s. 501-519.</p>
+        <p>Pektaş, Kadir, "Bitlis Kalesi Kazısı-2006 Yılı Çalışmaları", 29. Uluslararası Kazı, Araştırma ve Arkeometri Sempozyumu, C. I, Ankara, 2008, s. 245-263.</p>
+        <p>Tezcan, Mehmet, "Bagagîş / Bałałîş Adından Badlîs / Bidlis Adına: Ermeni ve Bizans Kaynaklarında Bitlis Adının İlk Görünümleri", Tarihi ve Kültürel Yönleriyle Bitlis, C. I, (Ed. Mehmet İnbaşı - Mehmet Demirtaş), Ankara: Kalkan Matbaacılık, 2019.</p>
+        <p>Yalçın, Osman, Siirt-Bitlis, İstanbul: Sıralar Matbaası, 1961.</p>
+        <p>Yaşa, Recep, Bitlis'te Türk İskânı (XII-XIII. yy), Ankara: Türk Kültürünü Araştırma Enstitüsü Yayınları, 1992.</p>
+        <p>Yınanç, Mükrimin Halil, "Bitlis (Tarih)", İslam Ansiklopedisi, C. II, İstanbul: Millî Eğitim Basımevi, 1993, s. 661-664.</p>
+        <p>Yurdaydın, Hüseyin G., Nasûhü's-Silâhî (Matrakçı): Beyān-ı Menāzil-i Sefer-i 'Irākeyn-i Sultān Süleymān Hān, Ankara: Türk Tarih Kurumu Yayınları, 1976.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/bitlis-kalesi/foto-1.png" alt="Bitlis Kalesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/bitlis-kalesi/foto-2.png" alt="Bitlis Kalesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/bitlis-kalesi/foto-3.png" alt="Bitlis Kalesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/bitlis-kalesi/foto-4.png" alt="Bitlis Kalesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/bitlis-kalesi/foto-5.png" alt="Bitlis Kalesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/bitlis-kalesi/foto-6.png" alt="Bitlis Kalesi - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/bitlis-kalesi/foto-7.png" alt="Bitlis Kalesi - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/bitlis-kalesi/foto-8.png" alt="Bitlis Kalesi - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/bitlis-kalesi/foto-9.png" alt="Bitlis Kalesi - Görünüm 9"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Merkez, Bitlis</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,65.42%) var(--my,76.55%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          38.0054°N, 42.3159°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 9}, (_, i) => `https://cdn.la-foa.com/bitlis-kalesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 38.0054, LNG = 42.3159;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('bitlis-kalesi');</script>
+</body>
+</html>
