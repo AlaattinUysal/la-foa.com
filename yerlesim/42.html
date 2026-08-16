@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kemah Kalesi — La Foa</title>
+<meta name="description" content="Erzincan Kemah'ta, 4000 yıla uzanan yerleşim geçmişiyle Doğu Anadolu'nun en önemli savunma ve kültür merkezlerinden biri olan Kemah Kalesi: Hititlerden Osmanlılara uzanan çok katmanlı bir tahkimat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <img class="hero-video" src="https://cdn.la-foa.com/kemah-kalesi/hero.jpg" alt="Kemah Kalesi">
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #42</span>
+      <div class="hero-title" data-field="baslik">Kemah Kalesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Kemah, Erzincan</span>, Türkiye
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">MÖ yaklaşık II. Bin</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Çok Katmanlı Yerleşim</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Hitit / Bizans / Osmanlı</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Kısmen Korunmuş</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Erzincan / Kemah</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">39.6086°N, 38.2384°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Erzincan'ın Kemah ilçesinde, yaklaşık 100 metre yükseklikteki doğal bir kaya kütlesi üzerine inşa edilen Kemah Kalesi, 23 hektarlık alanı ve 4000 yıla uzanan yerleşim geçmişiyle Doğu Anadolu'nun en önemli savunma ve kültür merkezlerinden biridir. Tarih boyunca Hititlerden Osmanlılara kadar pek çok medeniyetin stratejik kilidi olan kale, aynı zamanda Aršakid Hanedanı mensuplarının kutsal bir nekropol alanı olma özelliğini taşır. Kemah'ın yerleşim tarihi M.Ö. 2000'li yıllara, Hitit ve Hayaşa krallıkları dönemine kadar uzanmaktadır. Hitit kaynaklarında Kumaha adıyla geçen kale, Hitit krallarının Hayaşalar üzerine düzenlediği seferlerin ana hedefi olmuştur. Roma ve Bizans kaynaklarında Camacha olarak anılan kalede Armenia krallarının hazinelerinin burada saklandığı bilinmektedir. "Gamackh" kelimesinin Ermenice'de "ceset/naaş" anlamına gelmesi, kalenin bir kraliyet nekropolü olma işlevini pekiştirir. Hristiyanlık öncesinde kalede, baş tanrı Aramazd (Zeus) adına inşa edilmiş muhteşem bir tapınak bulunmaktaydı. Bu tapınak, daha sonra Aziz Krikor Lusavoriç'in emriyle yıkılmıştır.</p>
+        <p>Kemah Kalesi, doğal topografyanın sunduğu avantajları askeri mimariyle birleştiren devasa bir komplekstir. Yaklaşık 360x310 metre ölçülerindeki İç Kale, büyük blok kesme taşlardan yapılmış burç ve bedenlerle çevrilidir. Beşgen planlı burçlar, yapıyı kuşatmalara karşı dayanıklı hale getirmiştir. Kalede, kuşatmalar sırasında nehre ulaşımı sağlayan veya stratejik kaçış rotaları oluşturan çok sayıda gizli yol, dehliz ve su tüneli bulunmaktadır. Sondaj çalışmaları, bu su tünellerinin bir kısmının Roma döneminde inşa edildiğini göstermektedir. Evliya Çelebi'nin 17. yüzyıl notlarına göre kalede o dönemde 600 civarında konut, 3 cami, 8 mescit, buğday ambarları ve sarnıçlar bulunmaktaydı. Günümüzde ise bu yapılardan hamam ve gözetleme kulesi kalıntıları ile Mengücekli ve Osmanlı dönemine ait izler seçilebilmektedir.</p>
+        <p>Kemah, Karasu vadisine hakim konumuyla Roma, Bizans, Sasani ve İslam devletleri arasında bir "tampon bölge" görevi görmüştür. Bizanslılar, imparatorluğun doğu sınırlarını korumak için burada güçlü bir garnizon bulundurmuş; kale Arap kaynaklarında Kamah adıyla anılmıştır. 11. yüzyılda Mengücekliler ile başlayan Türk hakimiyeti, Anadolu Selçuklu ve Osmanlı dönemlerinde de devam etmiştir. Yavuz Burcu üzerindeki kitabe, kalenin Osmanlı dönemindeki ilk yazılı kaydı olarak kabul edilir.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Constantine Porphyrogenitus. De Administrando Imperio, (Eds. Gyula T. Moravcsik and Romilly J. H. Jenkins), London: Athlone Press 1962.</p>
+        <p>Evliya Çelebi. Evliya Çelebi Seyahatnâmesi, (Haz. Seyit A. Kahraman ve Yücel Dağlı), Kitap 3, İstanbul: Yapı Kredi Yayınları 1996.</p>
+        <p>Moses Khorenatsʿi. History of the Armenians, (Trans. Robert W. Thomson), Cambridge; MA; London: Harvard University Press 1978.</p>
+        <p>Başıbüyük, Adem. "Doğal Süreçlerin Ortaya Çıkardığı Tarihin Önemli Bir Stratejik Noktası: Kemah (Erzincan) Kalesi", Doğu Coğrafya Dergisi 9/11, (2011): 353-368.</p>
+        <p>Brant, James. "Journey a part of Armenia and Asia Minor, in the year 1835", Journal of the Royal Geographical Society of London 6, (1836): 341-434.</p>
+        <p>Ceylan, Alpaslan, Üngör, İbrahim. Eskiçağ'da Erzincan Kaleleri, Atatürk Üniversitesi Yayınları, Erzurum 2018.</p>
+        <p>Chaumont, Marie-Louise. "Armenia and Iran, ii. The pre-Islamic Period", EnIr, (Ed. Ehsan Yarshater), Vol. II, London; New York: Routledge & Kegan Paul, (1987): 418-438.</p>
+        <p>Chesney, Lieut.-colonel. The Expedition for the Survey of the Rivers Euphrates and Tigris, London: Longman 1850.</p>
+        <p>Cinemre, İlhami Tekin. Geç Antik Çağda Romalılar ve Sâsânîler Arasında Armenia (224-451), İstanbul Medeniyet Üniversitesi, Doktora Tezi, 2018.</p>
+        <p>Hübschmann, Heinrich. Die Altarmenischen Ortsnamen, Reprint, Amsterdam: Oriental Press 1969.</p>
+        <p>Yurttaş, Hüseyin, Özkan, Haldun, Köşklü, Zerrin, Kındığılı, Muhammet Lütfü. "Kemah ve Kemah Kalesi Kazıları", Güzel Sanatlar Enstitüsü Dergisi 31, (2014): 223-248.</p>
+        <p>Çiğdem, Süleyman, Topaloğlu, Yasin, Kılıç, Murat. "Kemah'ın Tarihi Coğrafyası ve Tarihi", Erzincan Kemah Kalesi Kazıları, (Ed. Muhammet Lütfü Kındığılı), Erzincan: Erzincan Valiliği Kültür Yayınları 2020, 1-76.</p>
+        <p>Kındığılı, Muhammet Lütfü. Ortaçağdan Günümüze Kemah ve Köylerindeki Kültür Varlıkları, Atatürk Üniversitesi Sosyal Bilimler Enstitüsü, Doktora Tezi, Erzurum 2015.</p>
+        <p>Saint-Martin, M. J. Mémoires historiques et géographiques sur l'Arménie, Paris: De l'imprimerie royale 1818-1819.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-1.png" alt="Kemah Kalesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-2.png" alt="Kemah Kalesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-3.png" alt="Kemah Kalesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-4.png" alt="Kemah Kalesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-5.png" alt="Kemah Kalesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-6.png" alt="Kemah Kalesi - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-7.png" alt="Kemah Kalesi - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-8.png" alt="Kemah Kalesi - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-9.png" alt="Kemah Kalesi - Görünüm 9"></div>
+        <div class="gallery-img" onclick="openLightbox(9)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-10.png" alt="Kemah Kalesi - Görünüm 10"></div>
+        <div class="gallery-img" onclick="openLightbox(10)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-11.png" alt="Kemah Kalesi - Görünüm 11"></div>
+        <div class="gallery-img" onclick="openLightbox(11)"><img src="https://cdn.la-foa.com/kemah-kalesi/foto-12.png" alt="Kemah Kalesi - Görünüm 12"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Kemah, Erzincan</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,65.42%) var(--my,76.55%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          39.6086°N, 38.2384°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 12}, (_, i) => `https://cdn.la-foa.com/kemah-kalesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 39.6086, LNG = 38.2384;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('kemah-kalesi');</script>
+</body>
+</html>
