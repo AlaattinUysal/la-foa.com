@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasinler (Hasan) Kalesi — La Foa</title>
+<meta name="description" content="Erzurum Pasinler'de, Hasanbaba Dağı'nın Pasin Ovası'na hâkim noktasında yükselen Pasinler (Hasankale) Kalesi: Urartu Kralı Menua'nın çivi yazılı yazıtından Osmanlı dönemine uzanan çok katmanlı bir tahkimat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <img class="hero-video" src="https://cdn.la-foa.com/pasinler-kalesi/hero.jpg" alt="Pasinler (Hasan) Kalesi">
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #53</span>
+      <div class="hero-title" data-field="baslik">Pasinler (Hasan) Kalesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Pasinler, Erzurum</span>, Türkiye
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">MÖ I. Bin Yıl</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Çok Katmanlı Yerleşim</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Urartu / Selçuklu / Osmanlı</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Kısmen Korunmuş</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Erzurum / Pasinler</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">40.1239°N, 41.7656°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Erzurum'un 39 kilometre doğusunda yükselen, Hasanbaba Dağı'nın Pasin Ovası'na tamamen hâkim bir noktasında ve deniz seviyesinden 1740 metre yükseklikte konumlanan Pasinler (Hasankale) Kalesi, doğu kapısını kontrol altında tutan stratejik topoğrafyasıyla tarih boyunca orduların ilk hedefi olmuş, uçurumların zayıf kaldığı kısımlara sur duvarları örülerek müstahkem hale getirilmiştir. Modern Pasinler isminin klasik Ermenice bir isim olan Basiane/Phasiane'den türetildiği ve o zamanlar bu bölgede bulunan Aras Nehri'nin Phasis adını taşıdığı bilinmektedir. Pasinler ismi Gürcüce'de de Basiani olarak anılmaktadır.</p>
+        <p>İç ve dış kale olmak üzere iki ana bölümden oluşan ve dış surları büyük oranda tahrip olarak günümüze ulaşamayan yapının, kesme ve moloz taş işçiliğiyle yükselen iç kalesi varlığını korumayı başarmıştır; geometrik olarak ikizkenar bir üçgeni andıran, kısa kenarı 80 metre, uzun kenarı ise 280 metre olan bu iç kaleye, batı cephesinde yer alan ve iki yanında mazgal pencereli muhafız odalarının bulunduğu ana kapıdan (Erzurum Kapısı) girilmekle birlikte, kale savunmasında kritik rol oynayan "demir kapı" ve "gizli kapı" adında iki alternatif giriş daha mevcuttur. Kuşatma zamanlarında kale halkının susuz kalmasını önlemek adına iç kaleden başlayıp güneydeki Hasankale Çayı'na kadar uzanan gizli bir su yolunun tasarlanması mimari dehasını gösterirken, iç kalenin kökenleri, arkeolojik veriler ve 2001 yılında Erzurum Müze Müdürlüğü başkanlığında yürütülen kazılarda rastlanan "kiklopik" teknikli duvar izleri ile yapım kitabesi doğrultusunda M.Ö. I. binde bölgede mutlak bir egemenlik kuran Urartu Krallığı'na dayanmaktadır.</p>
+        <p>Urartu Kralı Menua (M.Ö. 810-786) dönemine ait olan çivi yazılı bazalt yazıt, keşfedilmeden önce yöre halkı tarafından bir süre mezar taşı ve Güzelhisar köy camisinin dış duvarında malzeme olarak kullanılmış olup, günümüzde İstanbul Arkeoloji Müzesi deposunda muhafaza edilmektedir. M.Ö. 580'lerde Urartu Krallığı'nın çöküşünün ardından kale, asırlar boyunca doğu ile batı arasında bir köprü görevi görerek sırasıyla Akamenid (Pers), Part, Roma ve Bizans İmparatorlukları ile Gürcü Krallığı'nın kontrolü altına girmiş; Malazgirt öncesi ve sonrası dönemde Saltuklular, Büyük Selçuklular ve Anadolu Selçuklu Devleti'nin idaresine geçtikten sonra Moğol istilasıyla birlikte İlhanlı devletinin eline geçmiştir.</p>
+        <p>Kalenin sonraki dönemlerde anıldığı "Hasankale" isminin kökeni hakkında tarihi kaynaklarda farklı görüşler ileri sürülmüş; Şemseddin Sami eserin Cenevizlilerden kaldığını savunurken, ünlü Osmanlı tarihçisi Naima, kaleyi Akkoyunlu Hükümdarı Uzun Hasan'ın yaptırdığını iddia etmiş, ancak Erzurum Tarihi yazarı İbrahim Hakkı Konyalı, kalenin İlhanlı soyundan gelen Emir Hacı Togay'ın oğlu Hasan Bey tarafından 1336-1339 yılları arasında inşa ettirildiğini aktarmıştır. Kanuni Sultan Süleyman'ın Doğu Seferleri ile kesin olarak Osmanlı topraklarına katılarak baştan aşağı tamir edilmiş ve bu dönemde içerisine bir cami eklenmiştir. Daha sonra Sultan IV. Murat'ın 1635 yılındaki Revan Seferi sırasında kale içerisinde konaklayarak bir köşk yapısı inşa ettirdiği bilinmekle birlikte, bu cami ve köşk yapıları günümüze ulaşamamıştır.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Aristakes Lastivertc'i. Aristakes Lastivertc'i's History. (İng. Çev. Robert Bedrosian). New York: Sophene Books, 2020.</p>
+        <p>Evliyâ Çelebi. Seyahatnâme. c. II. Hazırlayan: Zuhuri Danışman. İstanbul: Danışman Yayınevi, 1971.</p>
+        <p>Ksenophon, Anabasis, Onbinlerin Dönüşü (Çev. T. Gökçöl), İstanbul: Hürriyet Yayınları, 1974.</p>
+        <p>KC. Kartlis Tskhovreba. Vol. I-II. Edited by Simon Kaukhchishvili. Tbilisi: Sakhelgami, 1955-1957.</p>
+        <p>Belli, Oktay. "Urartular". Anadolu Uygarlıkları Ansiklopedisi I. İstanbul: Görsel Yayınlar, 1982: 139-208.</p>
+        <p>Ceylan, Alpaslan. "2001 Yılı Erzincan, Erzurum ve Kars İlleri Yüzey Araştırmaları". 20. Araştırma Sonuçları Toplantısı, 2. Cilt. Ankara: Kültür Varlıkları ve Müzeler Genel Müdürlüğü Yayınları, 2003: 311-324.</p>
+        <p>Ceylan, Alpaslan. Doğu Anadolu Araştırmaları: Erzurum-Erzincan-Kars-Iğdır (1998-2008). Erzurum: Güneş Vakfı Yayınları, 2008.</p>
+        <p>Ceylan, Alpaslan ve Yavuz Günaşdı. Erzurum'un Eskiçağ Kaleleri. Erzurum: Atatürk Üniversitesi Yayınları, 2018.</p>
+        <p>Ceylan, Nesrin. "Pasin Ovasının Kuzeye Açılan İki Tarihi Yolu". Uluslararası Sosyal Araştırmalar Dergisi, c. 9, sa. 43 (2016): 656-671.</p>
+        <p>Çilingiroğlu, Altan. Urartu Tarihi. İzmir: Ege Üniversitesi Edebiyat Fakültesi Yayınları, 1994.</p>
+        <p>Erkmen, Mustafa ve Alper Ceylan. "Pasinler Kalesi Kazısı 2001". 13. Müze Çalışmaları ve Kurtarma Kazıları Sempozyumu (24-26 Nisan 2002 Denizli). Ankara: Kültür Bakanlığı Millî Kütüphane Basımevi, 2003: 17-28.</p>
+        <p>Eyice, Semavi. Malazgirt Savaşını Kaybeden IV. Romanos Diogenes (1068-1071). Ankara: Türk Tarih Kurumu Yayınları, 1971.</p>
+        <p>Kafesoğlu, İbrahim. Selçuklu Tarihi. İstanbul: Millî Eğitim Basımevi, 1972.</p>
+        <p>Konyalı, İbrahim Hakkı. Abideleri ve Kitabeleri ile Erzurum Tarihi. İstanbul: Murat Matbaası, 1960.</p>
+        <p>Konukçu, Enver. Selçuklulardan Cumhuriyete Erzurum. Ankara: Yükseköğretim Kurulu Matbaası Yayınları, 1992.</p>
+        <p>Topaloğlu, Yasin. "Eskiçağ'da Pasin Ovası". Atatürk Üniversitesi Sosyal Bilimler Enstitüsü Dergisi, sa. 3 (2009): 245-266.</p>
+        <p>Üngör, İbrahim. "Urartu Kale Kazıları (Pasinler Kalesi)". Uluslararası Doğu Anadolu - Güney Kafkasya Kültürleri Sempozyumu Bildirileri, 2. Cilt. Newcastle upon Tyne: Cambridge Scholars Publishing, 2015: 432-442.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-1.png" alt="Pasinler Kalesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-2.png" alt="Pasinler Kalesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-3.png" alt="Pasinler Kalesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-4.png" alt="Pasinler Kalesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-5.png" alt="Pasinler Kalesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-6.png" alt="Pasinler Kalesi - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-7.png" alt="Pasinler Kalesi - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-8.png" alt="Pasinler Kalesi - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-9.png" alt="Pasinler Kalesi - Görünüm 9"></div>
+        <div class="gallery-img" onclick="openLightbox(9)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-10.png" alt="Pasinler Kalesi - Görünüm 10"></div>
+        <div class="gallery-img" onclick="openLightbox(10)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-11.png" alt="Pasinler Kalesi - Görünüm 11"></div>
+        <div class="gallery-img" onclick="openLightbox(11)"><img src="https://cdn.la-foa.com/pasinler-kalesi/foto-12.png" alt="Pasinler Kalesi - Görünüm 12"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Pasinler, Erzurum</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,65.42%) var(--my,76.55%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          40.1239°N, 41.7656°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 12}, (_, i) => `https://cdn.la-foa.com/pasinler-kalesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 40.1239, LNG = 41.7656;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('pasinler-kalesi');</script>
+</body>
+</html>
