@@ -231,39 +231,8 @@
                 if (!paragraphs.length) return;
                 const container = document.getElementById('lafoaNedirText');
                 container.innerHTML = paragraphs.map(p => `<p class="detail-panel-text">${p.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>`).join('');
-                fitDetailPanelText();
             })
             .catch(err => console.error('La Foa Nedir metni yüklenemedi:', err));
-
-        // Metin, panele taşmayacak en büyük punto ile otomatik sığdırılır
-        // (font-size .detail-panel-inner üzerinde em tabanı olarak ayarlanır).
-        function fitDetailPanelText() {
-            const panel = document.getElementById('detailPanel');
-            const inner = panel.querySelector('.detail-panel-inner');
-            if (!panel || !inner) return;
-
-            const MIN = 11, MAX = 22;
-            inner.style.fontSize = MAX + 'px';
-            if (inner.scrollHeight <= panel.clientHeight) {
-                inner.style.fontSize = MAX + 'px';
-                return;
-            }
-            let lo = MIN, hi = MAX;
-            inner.style.fontSize = MIN + 'px';
-            if (inner.scrollHeight > panel.clientHeight) { return; } // en küçük puntoda bile sığmıyorsa dokunma
-            for (let i = 0; i < 10; i++) {
-                const mid = (lo + hi) / 2;
-                inner.style.fontSize = mid + 'px';
-                if (inner.scrollHeight <= panel.clientHeight) lo = mid; else hi = mid;
-            }
-            inner.style.fontSize = lo + 'px';
-        }
-
-        let fitResizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(fitResizeTimeout);
-            fitResizeTimeout = setTimeout(fitDetailPanelText, 150);
-        });
     </script>
 </body>
 

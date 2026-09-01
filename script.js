@@ -152,6 +152,7 @@ const totalCount = document.getElementById('totalCount');
 const zoomInBtn = document.getElementById('zoomIn');
 const zoomOutBtn = document.getElementById('zoomOut');
 const resetViewBtn = document.getElementById('resetView');
+const mapControls = document.querySelector('.map-controls');
 
 // ── Map Calibration Offsets ──
 // Yeni haritanın (Yeni-Harita/harita.webp) dört kenarında da eşit kalınlıkta (orijinal
@@ -339,6 +340,29 @@ function fitMapToView() {
     translateY = (wrapperRect.height - imgHeight * scale) / 2;
 
     applyTransform();
+    positionMapControls(wrapperRect);
+}
+
+// Haritanın kenarlarında (yakınlaştırma oranına ve pencere en/boy oranına göre değişen)
+// boş bir alan (letterbox) olabiliyor. Butonları bu boşluğa göre değil, haritanın gerçek
+// kenarına göre (biraz boşlukla) konumlandırıyoruz ki her ekran boyutunda haritanın hemen
+// dışında dursun.
+const MAP_CONTROLS_GAP = 14;
+const MAP_CONTROLS_MIN_INSET = 8;
+function positionMapControls(wrapperRect) {
+    if (!mapControls) return;
+    const imgRight = translateX + imgWidth * scale;
+    const imgBottom = translateY + imgHeight * scale;
+    const rightGap = wrapperRect.width - imgRight;   // boş alan: haritanın sağı ile wrapper'ın sağı arası
+    const bottomGap = wrapperRect.height - imgBottom; // boş alan: haritanın altı ile wrapper'ın altı arası
+    const controlsWidth = mapControls.offsetWidth || 40;
+    const controlsHeight = mapControls.offsetHeight || 128;
+
+    // Butonun kenarını haritanın gerçek kenarının GAP kadar dışına (sağına/altına) koy.
+    const right = Math.max(MAP_CONTROLS_MIN_INSET, rightGap - MAP_CONTROLS_GAP - controlsWidth);
+    const bottom = Math.max(MAP_CONTROLS_MIN_INSET, bottomGap - MAP_CONTROLS_GAP - controlsHeight);
+    mapControls.style.right = right + 'px';
+    mapControls.style.bottom = bottom + 'px';
 }
 
 // ── Initialize Map ──
