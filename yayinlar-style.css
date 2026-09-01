@@ -9,7 +9,6 @@
   margin: 0 auto;
   padding: 140px 32px 0;
 }
-.yy-intro .page-label { margin-bottom: 10px; }
 .yy-intro .page-title {
   margin-bottom: 28px;
   padding-bottom: 28px;
@@ -132,7 +131,10 @@
   max-height: 320px;
   border-radius: 4px;
   box-shadow: 0 10px 28px rgba(44, 24, 16, 0.22);
+  cursor: zoom-in;
+  transition: transform .15s;
 }
+.yy-book-frame img:hover { transform: scale(1.02); }
 
 /* Bilimsel Yayınlar — künye listesi */
 .yy-citation-list {

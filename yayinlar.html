@@ -87,7 +87,6 @@
 
 <main>
   <div class="yy-intro">
-    <div class="page-label">La Foa</div>
     <h1 class="page-title">Yayınlar</h1>
   </div>
 
@@ -159,6 +158,14 @@
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
   </button>
   <div class="yy-lightbox-counter" id="mapLightboxCounter"></div>
+</div>
+
+<!-- Kitap Kapağı Lightbox -->
+<div class="yy-lightbox" id="bookLightbox">
+  <button class="yy-lightbox-close" id="bookLightboxClose" aria-label="Kapat">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <img id="bookLightboxImg" src="" alt="Kitap kapağı">
 </div>
 
 <footer class="site-footer">
@@ -269,6 +276,16 @@ function probeSingleImage(url) {
   if (url) {
     frame.innerHTML = `<img src="${url}" alt="Kitap kapağı">`;
     frame.style.display = 'flex';
+
+    const bookLightbox = document.getElementById('bookLightbox');
+    const bookLightboxImg = document.getElementById('bookLightboxImg');
+    frame.querySelector('img').addEventListener('click', () => {
+      bookLightboxImg.src = url;
+      bookLightbox.classList.add('open');
+    });
+    document.getElementById('bookLightboxClose').addEventListener('click', () => bookLightbox.classList.remove('open'));
+    bookLightbox.addEventListener('click', e => { if (e.target === bookLightbox) bookLightbox.classList.remove('open'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') bookLightbox.classList.remove('open'); });
   }
 })();
 

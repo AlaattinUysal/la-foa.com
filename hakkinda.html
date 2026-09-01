@@ -87,7 +87,6 @@
 
 <main>
   <div class="hk-intro">
-    <div class="page-label">La Foa</div>
     <h1 class="page-title">Hakkında</h1>
   </div>
 
@@ -158,12 +157,10 @@ async function loadHakkinda() {
     const id = slugify(s.title);
     tocHtml += `<a href="#${id}" data-target="${id}">${escapeHtml(s.title)}</a>`;
 
-    const num = String(i + 1).padStart(2, '0');
     const isTeam = s.title === 'Proje Ekibi';
 
     contentHtml += `<section class="hk-section" id="${id}">
       <div class="hk-section-head">
-        <span class="hk-section-num">${num}</span>
         <h2 class="hk-section-title">${escapeHtml(s.title)}</h2>
       </div>`;
 

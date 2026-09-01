@@ -80,7 +80,6 @@ ${navLinks}
 </header>
 
 <main class="page-content">
-  <div class="page-label">La Foa</div>
   <h1 class="page-title" data-field="baslik">${page.title}</h1>
   <div class="prose" id="mainText">
     <p>Bu bölümün içeriği yakında eklenecektir.</p>

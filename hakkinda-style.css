@@ -10,7 +10,6 @@
   margin: 0 auto;
   padding: 140px 32px 0;
 }
-.hk-intro .page-label { margin-bottom: 10px; }
 .hk-intro .page-title {
   margin-bottom: 28px;
   padding-bottom: 28px;
@@ -68,13 +67,6 @@
   gap: 12px;
   margin-bottom: 18px;
 }
-.hk-section-num {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--accent-light);
-  font-variant-numeric: tabular-nums;
-}
 .hk-section-title {
   font-family: var(--font-serif);
   font-size: 1.45rem;
@@ -84,7 +76,7 @@
 
 .hk-section .prose p {
   font-family: var(--font-serif);
-  text-align: left;
+  text-align: justify;
 }
 
 /* Proje Ekibi — kolofon */
