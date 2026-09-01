@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaynakça — La Foa</title>
-<meta name="description" content="La Foa projesinin genel kaynakçası.">
+<meta name="description" content="La Foa projesinin genel ve bölgesel kaynakçası.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="pages-style.css">
+<link rel="stylesheet" href="kaynakca-style.css">
 </head>
 <body>
 
@@ -84,20 +85,273 @@
   </div>
 </header>
 
-<main class="page-content">
-  <div class="page-label">La Foa</div>
-  <h1 class="page-title" data-field="baslik">Kaynakça</h1>
-  <div class="prose" id="mainText">
-    <p>Bu bölümün içeriği yakında eklenecektir.</p>
+<div class="kynk-shell">
+
+  <div class="kynk-intro">
+    <div class="page-label">La Foa</div>
+    <h1 class="page-title">Kaynakça</h1>
   </div>
-</main>
+
+  <div class="kynk-panes">
+
+    <!-- SOL: Genel Kaynakça -->
+    <section class="kynk-pane">
+      <div class="kynk-pane-head">
+        <span class="kynk-eyebrow">Genel</span>
+        <div class="kynk-title-row">
+          <h2 class="kynk-title">Genel Kaynakça</h2>
+          <span class="kynk-count" id="genelCount"></span>
+        </div>
+        <div class="kynk-search" id="genelSearchField">
+          <svg class="kynk-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="genelSearch" placeholder="Yazar veya eser ara...">
+          <button class="kynk-clear" id="genelClear" aria-label="Aramayı temizle">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="kynk-body-row">
+        <nav class="kynk-az-rail" id="azRail" aria-label="Harfe atla"></nav>
+        <div class="kynk-list" id="genelList">
+          <div class="kynk-loading">Yükleniyor...</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="kynk-spine"></div>
+
+    <!-- SAĞ: Bölgesel Kaynakça -->
+    <section class="kynk-pane">
+      <div class="kynk-pane-head">
+        <span class="kynk-eyebrow">Bölgesel</span>
+        <div class="kynk-title-row">
+          <h2 class="kynk-title">Bölgesel Kaynakça</h2>
+          <span class="kynk-count" id="bolgeselCount"></span>
+        </div>
+        <div class="kynk-search" id="bolgeselSearchField">
+          <svg class="kynk-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="bolgeselSearch" placeholder="Yazar, eser veya il ara...">
+          <button class="kynk-clear" id="bolgeselClear" aria-label="Aramayı temizle">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <div class="kynk-region-row" id="regionRow"></div>
+      </div>
+      <div class="kynk-body-row">
+        <div class="kynk-list no-rail" id="bolgeselList">
+          <div class="kynk-loading">Yükleniyor...</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
 
 <footer class="site-footer">
   <span class="footer-text">© 2026 La Foa — Late Antique Feudal Opposition in Armenia projesi kapsamında hazırlanmıştır.</span>
-  <span class="footer-text footer-text-right">Bu bir TÜBİTAK projesidir.</span>
 </footer>
 
-<script src="yerlesim/content-loader.js"></script>
-<script>loadSettlementContent('pages/kaynakca');</script>
+<script>
+const CDN = 'https://cdn.la-foa.com';
+
+function escapeHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escapeAttr(s) { return escapeHtml(s).replace(/"/g,'&quot;'); }
+
+// Bir metin dosyasını boş satırlara göre bloklara ayırır; her blok içindeki
+// satır sonlarını tek boşluğa indirger (Word/Not Defteri'nde satır kaydırma
+// olsa bile tek bir kaynak kaydı olarak kalır).
+function parseBlocks(text) {
+  return text.replace(/\r\n/g, '\n')
+    .split(/\n\s*\n/)
+    .map(b => b.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+}
+
+function normLetter(ch) {
+  const map = { 'Ç':'C','Ğ':'G','İ':'I','Ö':'O','Ş':'S','Ü':'U','Č':'C','Š':'S','Ž':'Z' };
+  ch = (ch || '').toUpperCase();
+  if (map[ch]) return map[ch];
+  if (/^[A-Z]$/.test(ch)) return ch;
+  return '#';
+}
+
+// ---------- SOL PANEL: Genel Kaynakça ----------
+async function loadGenel() {
+  const listEl = document.getElementById('genelList');
+  const railEl = document.getElementById('azRail');
+  const countEl = document.getElementById('genelCount');
+  const searchEl = document.getElementById('genelSearch');
+  const searchField = document.getElementById('genelSearchField');
+  const clearBtn = document.getElementById('genelClear');
+
+  let items;
+  try {
+    const res = await fetch(`${CDN}/pages/kaynakca-genel/metin.txt`, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('fetch failed: ' + res.status);
+    items = parseBlocks(await res.text());
+  } catch (err) {
+    console.error('Genel kaynakça yüklenemedi:', err);
+    listEl.innerHTML = '<div class="kynk-empty">İçerik şu anda yüklenemedi.</div>';
+    return;
+  }
+
+  const groups = [];
+  let curLetter = null, curGroup = null;
+  items.forEach((t, i) => {
+    const l = normLetter(t[0]);
+    if (l !== curLetter) { curLetter = l; curGroup = { letter: l, items: [] }; groups.push(curGroup); }
+    curGroup.items.push({ t, idx: i + 1 });
+  });
+  const lettersPresent = new Set(groups.map(g => g.letter));
+
+  let html = '';
+  groups.forEach(g => {
+    html += `<div class="kynk-group-head" data-letter="${g.letter}">${g.letter}<span class="n">${g.items.length}</span></div>`;
+    g.items.forEach(it => {
+      html += `<div class="kynk-entry" data-text="${escapeAttr(it.t.toLocaleLowerCase('tr'))}"><span class="idx">${it.idx}</span><span class="txt">${escapeHtml(it.t)}</span></div>`;
+    });
+  });
+  listEl.innerHTML = html + '<div class="kynk-empty hidden" id="genelEmpty">Eşleşen kayıt bulunamadı.</div>';
+  countEl.textContent = items.length + ' kayıt';
+
+  const AZ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('');
+  railEl.innerHTML = AZ.map(l => {
+    const enabled = lettersPresent.has(l);
+    return `<button class="kynk-az-btn${enabled ? ' enabled' : ''}" data-letter="${l}" ${enabled ? '' : 'disabled tabindex="-1"'}>${l}</button>`;
+  }).join('');
+
+  railEl.addEventListener('click', e => {
+    const btn = e.target.closest('.kynk-az-btn');
+    if (!btn || btn.disabled) return;
+    const head = listEl.querySelector(`.kynk-group-head[data-letter="${btn.dataset.letter}"]`);
+    if (head) head.scrollIntoView({ block: 'start' });
+  });
+
+  listEl.addEventListener('scroll', () => {
+    const top = listEl.scrollTop + 4;
+    let active = null;
+    for (const h of listEl.querySelectorAll('.kynk-group-head')) {
+      if (h.offsetTop <= top) active = h.dataset.letter; else break;
+    }
+    railEl.querySelectorAll('.kynk-az-btn').forEach(b => b.classList.toggle('current', b.dataset.letter === active));
+  });
+
+  function doSearch() {
+    const q = searchEl.value.trim().toLocaleLowerCase('tr');
+    searchField.classList.toggle('has-value', q.length > 0);
+    let anyVisible = false;
+    listEl.querySelectorAll('.kynk-entry').forEach(en => {
+      const match = !q || en.dataset.text.includes(q);
+      en.classList.toggle('dim', !match);
+      if (match) anyVisible = true;
+    });
+    listEl.querySelectorAll('.kynk-group-head').forEach(h => {
+      let sib = h.nextElementSibling, has = false;
+      while (sib && !sib.classList.contains('kynk-group-head')) {
+        if (sib.classList.contains('kynk-entry') && !sib.classList.contains('dim')) { has = true; break; }
+        sib = sib.nextElementSibling;
+      }
+      h.style.display = has ? '' : 'none';
+    });
+    document.getElementById('genelEmpty').classList.toggle('hidden', anyVisible || !q);
+  }
+  searchEl.addEventListener('input', doSearch);
+  clearBtn.addEventListener('click', () => { searchEl.value = ''; doSearch(); searchEl.focus(); });
+
+  return items.length;
+}
+
+// ---------- SAĞ PANEL: Bölgesel Kaynakça ----------
+async function loadBolgesel() {
+  const listEl = document.getElementById('bolgeselList');
+  const rowEl = document.getElementById('regionRow');
+  const countEl = document.getElementById('bolgeselCount');
+  const searchEl = document.getElementById('bolgeselSearch');
+  const searchField = document.getElementById('bolgeselSearchField');
+  const clearBtn = document.getElementById('bolgeselClear');
+
+  let blocks;
+  try {
+    const res = await fetch(`${CDN}/pages/kaynakca-bolgesel/metin.txt`, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('fetch failed: ' + res.status);
+    blocks = parseBlocks(await res.text());
+  } catch (err) {
+    console.error('Bölgesel kaynakça yüklenemedi:', err);
+    listEl.innerHTML = '<div class="kynk-empty">İçerik şu anda yüklenemedi.</div>';
+    return;
+  }
+
+  // Tamamı büyük harf ve kısa olan bloklar bölge başlığıdır (örn. "KARS").
+  function isRegionHeader(b) {
+    return b.length <= 40 && b === b.toLocaleUpperCase('tr') && /[A-ZÇĞİÖŞÜ]/.test(b) && !/\d/.test(b);
+  }
+
+  const regions = [];
+  let current = null;
+  blocks.forEach(b => {
+    if (isRegionHeader(b)) { current = { region: b, items: [] }; regions.push(current); return; }
+    if (current) current.items.push(b);
+  });
+
+  let idx = 0, html = '';
+  regions.forEach(r => {
+    html += `<div class="kynk-group-head" data-region="${escapeAttr(r.region)}" id="region-${escapeAttr(r.region)}">${escapeHtml(r.region)}<span class="n">${r.items.length}</span></div>`;
+    r.items.forEach(t => {
+      idx++;
+      const searchable = (t.toLocaleLowerCase('tr') + ' ' + r.region.toLocaleLowerCase('tr'));
+      html += `<div class="kynk-entry" data-region="${escapeAttr(r.region)}" data-text="${escapeAttr(searchable)}"><span class="idx">${idx}</span><span class="txt">${escapeHtml(t)}</span></div>`;
+    });
+  });
+  listEl.innerHTML = html + '<div class="kynk-empty hidden" id="bolgeselEmpty">Eşleşen kayıt bulunamadı.</div>';
+  countEl.textContent = idx + ' kayıt';
+
+  rowEl.innerHTML = regions.map((r, i) =>
+    `<button class="kynk-region-pill${i === 0 ? ' active' : ''}" data-region="${escapeAttr(r.region)}">${escapeHtml(r.region)}<span class="n">${r.items.length}</span></button>`
+  ).join('');
+
+  rowEl.addEventListener('click', e => {
+    const btn = e.target.closest('.kynk-region-pill');
+    if (!btn) return;
+    const head = document.getElementById('region-' + btn.dataset.region);
+    if (head) head.scrollIntoView({ block: 'start' });
+  });
+
+  listEl.addEventListener('scroll', () => {
+    const top = listEl.scrollTop + 4;
+    let active = null;
+    for (const h of listEl.querySelectorAll('.kynk-group-head')) {
+      if (h.offsetTop <= top) active = h.dataset.region; else break;
+    }
+    rowEl.querySelectorAll('.kynk-region-pill').forEach(b => b.classList.toggle('active', b.dataset.region === active));
+  });
+
+  function doSearch() {
+    const q = searchEl.value.trim().toLocaleLowerCase('tr');
+    searchField.classList.toggle('has-value', q.length > 0);
+    let anyVisible = false;
+    listEl.querySelectorAll('.kynk-entry').forEach(en => {
+      const match = !q || en.dataset.text.includes(q);
+      en.classList.toggle('dim', !match);
+      if (match) anyVisible = true;
+    });
+    listEl.querySelectorAll('.kynk-group-head').forEach(h => {
+      let sib = h.nextElementSibling, has = false;
+      while (sib && !sib.classList.contains('kynk-group-head')) {
+        if (sib.classList.contains('kynk-entry') && !sib.classList.contains('dim')) { has = true; break; }
+        sib = sib.nextElementSibling;
+      }
+      h.style.display = has ? '' : 'none';
+    });
+    document.getElementById('bolgeselEmpty').classList.toggle('hidden', anyVisible || !q);
+  }
+  searchEl.addEventListener('input', doSearch);
+  clearBtn.addEventListener('click', () => { searchEl.value = ''; doSearch(); searchEl.focus(); });
+
+  return idx;
+}
+
+loadGenel();
+loadBolgesel();
+</script>
 </body>
 </html>

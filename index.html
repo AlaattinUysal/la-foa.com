@@ -135,17 +135,24 @@
         <!-- Detail Panel (proje hakkında kısa bilgi) -->
         <aside class="detail-panel" id="detailPanel">
             <div class="detail-panel-inner">
-                <span class="detail-panel-label">Proje Hakkında</span>
                 <h2 class="detail-panel-title">La Foa Nedir?</h2>
+                <div id="lafoaNedirText">
                 <p class="detail-panel-text">
-                    La Foa, Anadolu ve Ermenistan coğrafyasındaki tarihî kale, kilise ve manastırları
-                    tek bir interaktif harita üzerinde bir araya getiren bir belgeleme projesidir.
+                    Geç Antik Çağ Armenia'sında feodal gücün nasıl şekillendiğini ve bu gücün
+                    coğrafyaya nasıl yansıdığını araştıran, farklı disiplinleri bir araya getiren
+                    bir bilimsel projedir. Proje, Geç Antik Çağ'da bölgeyi yöneten soyluların
+                    (naxarar) kurduğu düzeni; kalelerle kiliseler arasındaki yakın ilişkiyi;
+                    kralların, soyluların ve din adamlarının bıraktığı izleri ele alır.
                 </p>
                 <p class="detail-panel-text">
-                    Amacımız, sahada kaybolmaya yüz tutmuş yerleşimleri koordinatları, görselleri
-                    ve kaynaklarıyla birlikte kayıt altına alarak araştırmacılara ve meraklılara
-                    açık bir arşiv oluşturmak.
+                    Bu izleri açığa çıkarmak için hem yerinde yapılan saha çalışmalarından hem de
+                    dönemin tarihsel kaynaklarından yararlanır ve elde edilen bilgileri dijital
+                    haritalarla görünür kılar. TÜBİTAK'ın desteğiyle yürütülen LAFOA; Doğu Anadolu
+                    ile Kafkasya'nın zengin feodal mirasını uluslararası düzeyde belgelemeyi ve bu
+                    birikimi herkesin kolayca ulaşabileceği kalıcı bir dijital veri tabanında
+                    toplamayı amaçlamaktadır.
                 </p>
+                </div>
             </div>
         </aside>
 
@@ -209,13 +216,53 @@
     <!-- Footer -->
     <footer class="site-footer">
         <span class="footer-text">© 2026 La Foa — Late Antique Feudal Opposition in Armenia projesi kapsamında hazırlanmıştır.</span>
-        <span class="footer-text footer-text-right">Bu bir TÜBİTAK projesidir.</span>
     </footer>
 
     <script src="script.js"></script>
     <script>
         document.getElementById('navHamburger').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('open');
+        });
+
+        fetch('https://cdn.la-foa.com/pages/lafoa-nedir/metin.txt', { cache: 'no-cache' })
+            .then(res => res.ok ? res.text() : Promise.reject(res.status))
+            .then(text => {
+                const paragraphs = text.replace(/\r\n/g, '\n').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+                if (!paragraphs.length) return;
+                const container = document.getElementById('lafoaNedirText');
+                container.innerHTML = paragraphs.map(p => `<p class="detail-panel-text">${p.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>`).join('');
+                fitDetailPanelText();
+            })
+            .catch(err => console.error('La Foa Nedir metni yüklenemedi:', err));
+
+        // Metin, panele taşmayacak en büyük punto ile otomatik sığdırılır
+        // (font-size .detail-panel-inner üzerinde em tabanı olarak ayarlanır).
+        function fitDetailPanelText() {
+            const panel = document.getElementById('detailPanel');
+            const inner = panel.querySelector('.detail-panel-inner');
+            if (!panel || !inner) return;
+
+            const MIN = 11, MAX = 22;
+            inner.style.fontSize = MAX + 'px';
+            if (inner.scrollHeight <= panel.clientHeight) {
+                inner.style.fontSize = MAX + 'px';
+                return;
+            }
+            let lo = MIN, hi = MAX;
+            inner.style.fontSize = MIN + 'px';
+            if (inner.scrollHeight > panel.clientHeight) { return; } // en küçük puntoda bile sığmıyorsa dokunma
+            for (let i = 0; i < 10; i++) {
+                const mid = (lo + hi) / 2;
+                inner.style.fontSize = mid + 'px';
+                if (inner.scrollHeight <= panel.clientHeight) lo = mid; else hi = mid;
+            }
+            inner.style.fontSize = lo + 'px';
+        }
+
+        let fitResizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(fitResizeTimeout);
+            fitResizeTimeout = setTimeout(fitDetailPanelText, 150);
         });
     </script>
 </body>

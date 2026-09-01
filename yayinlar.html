@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="pages-style.css">
+<link rel="stylesheet" href="yayinlar-style.css">
 </head>
 <body>
 
@@ -84,20 +85,211 @@
   </div>
 </header>
 
-<main class="page-content">
-  <div class="page-label">La Foa</div>
-  <h1 class="page-title" data-field="baslik">Yayınlar</h1>
-  <div class="prose" id="mainText">
-    <p>Bu bölümün içeriği yakında eklenecektir.</p>
+<main>
+  <div class="yy-intro">
+    <div class="page-label">La Foa</div>
+    <h1 class="page-title">Yayınlar</h1>
+  </div>
+
+  <div class="yy-grid">
+
+    <!-- HARİTALAR -->
+    <section class="yy-card">
+      <div class="yy-card-head">
+        <div class="yy-card-title">
+          Haritalar
+          <span class="yy-badge" id="mapCountBadge" style="display:none;"></span>
+        </div>
+      </div>
+      <div class="yy-card-body" id="mapText">
+        <p>Yükleniyor...</p>
+      </div>
+      <div class="yy-card-preview">
+        <div class="yy-map-strip-wrap" id="mapStripWrap" style="display:none;">
+          <button class="yy-strip-arrow yy-strip-arrow-left" id="mapArrowLeft" aria-label="Önceki haritalar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="yy-map-strip" id="mapGrid"></div>
+          <button class="yy-strip-arrow yy-strip-arrow-right" id="mapArrowRight" aria-label="Sonraki haritalar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- KİTAP -->
+    <section class="yy-card">
+      <div class="yy-card-head">
+        <div class="yy-card-title">Kitap</div>
+      </div>
+      <div class="yy-card-body" id="bookText">
+        <p>Yükleniyor...</p>
+      </div>
+      <div class="yy-card-preview">
+        <div class="yy-book-frame" id="bookFrame" style="display:none;"></div>
+      </div>
+    </section>
+
+    <!-- BİLİMSEL YAYINLAR -->
+    <section class="yy-card">
+      <div class="yy-card-head">
+        <div class="yy-card-title">
+          Bilimsel Yayınlar
+          <span class="yy-badge" id="sciCountBadge" style="display:none;"></span>
+        </div>
+      </div>
+      <div class="yy-card-preview" style="margin-top:0; padding-top:20px;">
+        <div class="yy-citation-list" id="sciList" style="display:none;"></div>
+      </div>
+    </section>
+
   </div>
 </main>
 
+<!-- Harita Lightbox -->
+<div class="yy-lightbox" id="mapLightbox">
+  <button class="yy-lightbox-close" id="mapLightboxClose" aria-label="Kapat">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="yy-lightbox-nav yy-lightbox-prev" id="mapLightboxPrev" aria-label="Önceki harita">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <img id="mapLightboxImg" src="" alt="">
+  <button class="yy-lightbox-nav yy-lightbox-next" id="mapLightboxNext" aria-label="Sonraki harita">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="yy-lightbox-counter" id="mapLightboxCounter"></div>
+</div>
+
 <footer class="site-footer">
   <span class="footer-text">© 2026 La Foa — Late Antique Feudal Opposition in Armenia projesi kapsamında hazırlanmıştır.</span>
-  <span class="footer-text footer-text-right">Bu bir TÜBİTAK projesidir.</span>
 </footer>
 
-<script src="yerlesim/content-loader.js"></script>
-<script>loadSettlementContent('pages/yayinlar');</script>
+<script>
+const CDN = 'https://cdn.la-foa.com';
+function escapeHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+async function loadText(slug, targetEl) {
+  try {
+    const res = await fetch(`${CDN}/pages/${slug}/metin.txt`, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(res.status);
+    const text = (await res.text()).trim();
+    const paragraphs = text.replace(/\r\n/g, '\n').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+    targetEl.innerHTML = paragraphs.map(p => `<p>${escapeHtml(p).replace(/\n/g, ' ')}</p>`).join('');
+    return true;
+  } catch (err) {
+    targetEl.innerHTML = '';
+    return false;
+  }
+}
+
+// Belirtilen slug altında foto-1..foto-N deneyip başarıyla yüklenenleri döndürür.
+function probeImages(slug, max) {
+  return Promise.all(Array.from({ length: max }, (_, i) => new Promise(resolve => {
+    const n = i + 1;
+    const url = `${CDN}/${slug}/foto-${n}.png`;
+    const img = new Image();
+    img.onload = () => resolve(url);
+    img.onerror = () => resolve(null);
+    img.src = url;
+  }))).then(results => results.filter(Boolean));
+}
+
+function probeSingleImage(url) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(url);
+    img.onerror = () => resolve(null);
+    img.src = url;
+  });
+}
+
+// ---- Haritalar ----
+(async function initMaps() {
+  await loadText('yayinlar-haritalar', document.getElementById('mapText'));
+  const images = await probeImages('pages/yayinlar-haritalar', 40);
+  const stripWrap = document.getElementById('mapStripWrap');
+  const grid = document.getElementById('mapGrid');
+  const badge = document.getElementById('mapCountBadge');
+  if (images.length) {
+    grid.innerHTML = images.map((url, i) => `<img src="${url}" alt="Harita ${i + 1}" loading="lazy" data-idx="${i}">`).join('');
+    stripWrap.style.display = 'flex';
+    badge.textContent = images.length + ' harita';
+    badge.style.display = 'inline-block';
+
+    const lightbox = document.getElementById('mapLightbox');
+    const lightboxImg = document.getElementById('mapLightboxImg');
+    const lightboxCounter = document.getElementById('mapLightboxCounter');
+    const prevBtn = document.getElementById('mapLightboxPrev');
+    const nextBtn = document.getElementById('mapLightboxNext');
+    let currentIdx = 0;
+
+    function showLightbox(idx) {
+      currentIdx = idx;
+      lightboxImg.src = images[currentIdx];
+      lightboxCounter.textContent = (currentIdx + 1) + ' / ' + images.length;
+      prevBtn.disabled = currentIdx === 0;
+      nextBtn.disabled = currentIdx === images.length - 1;
+      lightbox.classList.add('open');
+    }
+    grid.addEventListener('click', e => {
+      const img = e.target.closest('img');
+      if (!img) return;
+      showLightbox(Number(img.dataset.idx));
+    });
+    const closeLb = () => lightbox.classList.remove('open');
+    const showPrev = () => { if (currentIdx > 0) showLightbox(currentIdx - 1); };
+    const showNext = () => { if (currentIdx < images.length - 1) showLightbox(currentIdx + 1); };
+    document.getElementById('mapLightboxClose').addEventListener('click', closeLb);
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+
+    const scrollAmount = () => grid.clientWidth;
+    document.getElementById('mapArrowLeft').addEventListener('click', () => {
+      grid.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+    });
+    document.getElementById('mapArrowRight').addEventListener('click', () => {
+      grid.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+    });
+  }
+})();
+
+// ---- Kitap ----
+(async function initBook() {
+  await loadText('yayinlar-kitap', document.getElementById('bookText'));
+  const frame = document.getElementById('bookFrame');
+  const url = await probeSingleImage(`${CDN}/pages/yayinlar-kitap/kapak.jpg`);
+  if (url) {
+    frame.innerHTML = `<img src="${url}" alt="Kitap kapağı">`;
+    frame.style.display = 'flex';
+  }
+})();
+
+// ---- Bilimsel Yayınlar ----
+(async function initSci() {
+  const listEl = document.getElementById('sciList');
+  const badge = document.getElementById('sciCountBadge');
+  try {
+    const res = await fetch(`${CDN}/pages/yayinlar-bilimsel/metin.txt`, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(res.status);
+    const text = (await res.text()).trim();
+    const entries = text.replace(/\r\n/g, '\n').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+    if (!entries.length) throw new Error('empty');
+    listEl.innerHTML = entries.map(e => `<p>${escapeHtml(e).replace(/\n/g, ' ')}</p>`).join('');
+    listEl.style.display = 'flex';
+    badge.textContent = entries.length + ' künye';
+    badge.style.display = 'inline-block';
+  } catch (err) {
+    // içerik henüz yok
+  }
+})();
+</script>
 </body>
 </html>

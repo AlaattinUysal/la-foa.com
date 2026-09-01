@@ -11,7 +11,9 @@ const ICONS = {
 const PAGES = [
   { file: 'hakkinda.html', slug: 'pages/hakkinda', title: 'Hakkında', icon: 'info', desc: 'La Foa projesi hakkında bilgi.' },
   { file: 'yayinlar.html', slug: 'pages/yayinlar', title: 'Yayınlar', icon: 'book', desc: 'La Foa projesi kapsamındaki yayınlar.' },
-  { file: 'kaynakca.html', slug: 'pages/kaynakca', title: 'Kaynakça', icon: 'book', desc: 'La Foa projesinin genel kaynakçası.' },
+  // kaynakca.html artık bu genel şablonun parçası değil — özel iki panelli tasarımı var
+  // (kaynakca-style.css + kendi fetch/render mantığı). Bu listeye geri eklenirse
+  // script tekrar çalıştırıldığında o tasarımın üzerine yazar.
   { file: 'tesekkur.html', slug: 'pages/tesekkur', title: 'Teşekkür', icon: 'heart', desc: 'La Foa projesine katkı sağlayanlara teşekkür.' },
   { file: 'iletisim.html', slug: 'pages/iletisim', title: 'İletişim', icon: 'mail', desc: 'La Foa projesi ile iletişim bilgileri.' },
 ];
@@ -87,7 +89,6 @@ ${navLinks}
 
 <footer class="site-footer">
   <span class="footer-text">© 2026 La Foa — Late Antique Feudal Opposition in Armenia projesi kapsamında hazırlanmıştır.</span>
-  <span class="footer-text footer-text-right">Bu bir TÜBİTAK projesidir.</span>
 </footer>
 
 <script src="yerlesim/content-loader.js"></script>

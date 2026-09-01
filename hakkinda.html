@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="pages-style.css">
+<link rel="stylesheet" href="hakkinda-style.css">
 </head>
 <body>
 
@@ -84,20 +85,139 @@
   </div>
 </header>
 
-<main class="page-content">
-  <div class="page-label">La Foa</div>
-  <h1 class="page-title" data-field="baslik">Hakkında</h1>
-  <div class="prose" id="mainText">
-    <p>Bu bölümün içeriği yakında eklenecektir.</p>
+<main>
+  <div class="hk-intro">
+    <div class="page-label">La Foa</div>
+    <h1 class="page-title">Hakkında</h1>
+  </div>
+
+  <div class="hk-layout">
+    <nav class="hk-toc" id="hkToc">
+      <span class="hk-toc-label">İçindekiler</span>
+    </nav>
+    <div class="hk-content" id="hkContent">
+      <div class="hk-loading">Yükleniyor...</div>
+    </div>
   </div>
 </main>
 
 <footer class="site-footer">
   <span class="footer-text">© 2026 La Foa — Late Antique Feudal Opposition in Armenia projesi kapsamında hazırlanmıştır.</span>
-  <span class="footer-text footer-text-right">Bu bir TÜBİTAK projesidir.</span>
 </footer>
 
-<script src="yerlesim/content-loader.js"></script>
-<script>loadSettlementContent('pages/hakkinda');</script>
+<script>
+const CDN = 'https://cdn.la-foa.com';
+
+function escapeHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function slugify(s) {
+  const map = { 'ç':'c','ğ':'g','ı':'i','ö':'o','ş':'s','ü':'u','İ':'i' };
+  return s.toLocaleLowerCase('tr').split('').map(c => map[c] || c).join('')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+async function loadHakkinda() {
+  const tocEl = document.getElementById('hkToc');
+  const contentEl = document.getElementById('hkContent');
+
+  let text;
+  try {
+    const res = await fetch(`${CDN}/pages/hakkinda/metin.txt`, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('fetch failed: ' + res.status);
+    text = await res.text();
+  } catch (err) {
+    console.error('Hakkında metni yüklenemedi:', err);
+    contentEl.innerHTML = '<div class="hk-loading">İçerik şu anda yüklenemedi.</div>';
+    return;
+  }
+
+  text = text.replace(/\r\n/g, '\n');
+  const lines = text.split('\n');
+
+  const sections = [];
+  let current = null;
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (line.startsWith('## ')) {
+      current = { title: line.slice(3).trim(), blocks: [] };
+      sections.push(current);
+      continue;
+    }
+    if (!current) continue;
+    if (!line) { current.blocks.push(''); continue; }
+    const last = current.blocks[current.blocks.length - 1];
+    if (last === undefined || last === '') current.blocks.push(line);
+    else current.blocks[current.blocks.length - 1] += '\n' + line;
+  }
+  sections.forEach(s => { s.blocks = s.blocks.filter(b => b.trim()); });
+
+  let tocHtml = '<span class="hk-toc-label">İçindekiler</span>';
+  let contentHtml = '';
+
+  sections.forEach((s, i) => {
+    const id = slugify(s.title);
+    tocHtml += `<a href="#${id}" data-target="${id}">${escapeHtml(s.title)}</a>`;
+
+    const num = String(i + 1).padStart(2, '0');
+    const isTeam = s.title === 'Proje Ekibi';
+
+    contentHtml += `<section class="hk-section" id="${id}">
+      <div class="hk-section-head">
+        <span class="hk-section-num">${num}</span>
+        <h2 class="hk-section-title">${escapeHtml(s.title)}</h2>
+      </div>`;
+
+    if (isTeam) {
+      contentHtml += '<div class="hk-team-list">';
+      s.blocks.forEach(b => {
+        const idx = b.indexOf(':');
+        if (idx === -1) return;
+        const role = b.slice(0, idx).trim();
+        const name = b.slice(idx + 1).trim();
+        contentHtml += `<div class="hk-team-item"><span class="hk-team-role">${escapeHtml(role)}</span><span class="hk-team-name">${escapeHtml(name)}</span></div>`;
+      });
+      contentHtml += '</div>';
+    } else {
+      contentHtml += '<div class="prose">' + s.blocks.map(b => `<p>${escapeHtml(b).replace(/\n/g, ' ')}</p>`).join('') + '</div>';
+    }
+    contentHtml += '</section>';
+  });
+
+  tocEl.innerHTML = tocHtml;
+  contentEl.innerHTML = contentHtml || '<div class="hk-loading">İçerik bulunamadı.</div>';
+
+  // Aktif bölümü izleyip İçindekiler'de vurgula
+  const tocLinks = [...tocEl.querySelectorAll('a')];
+  const secEls = [...contentEl.querySelectorAll('.hk-section')];
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        tocLinks.forEach(a => a.classList.toggle('active', a.dataset.target === en.target.id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -55% 0px' });
+  secEls.forEach(el => obs.observe(el));
+
+  // Son bölüm, sayfanın en altında olduğu için üst gözlem bandına hiç
+  // girmeyebilir (sayfa yeterince aşağı kaymaz) — sayfa sonuna gelindiğinde
+  // son bağlantıyı doğrudan aktif işaretle.
+  window.addEventListener('scroll', () => {
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    if (atBottom && tocLinks.length) {
+      tocLinks.forEach(a => a.classList.remove('active'));
+      tocLinks[tocLinks.length - 1].classList.add('active');
+    }
+  }, { passive: true });
+
+  tocEl.addEventListener('click', e => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    e.preventDefault();
+    document.getElementById(a.dataset.target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+loadHakkinda();
+</script>
 </body>
 </html>

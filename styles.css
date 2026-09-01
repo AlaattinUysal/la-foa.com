@@ -365,11 +365,16 @@ body {
     background: var(--color-surface);
     border-left: 1px solid var(--color-border);
     box-shadow: -2px 0 16px rgba(44, 24, 16, 0.05);
-    overflow-y: auto;
+    overflow: hidden;
+    display: flex;
 }
 
 .detail-panel-inner {
-    padding: 32px 28px;
+    padding: 44px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px; /* taban büyüklük — JS tarafından taşmayacak şekilde otomatik ayarlanır (bkz. fitDetailPanelText) */
 }
 
 .detail-panel-label {
@@ -383,21 +388,26 @@ body {
 }
 
 .detail-panel-title {
+    flex-shrink: 0;
     font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-size: 1.65em;
     font-weight: 700;
     color: var(--color-text);
-    line-height: 1.3;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
+    line-height: 1.25;
+    margin-bottom: 0.85em;
+    padding-bottom: 0.85em;
     border-bottom: 2px solid var(--color-border);
 }
 
+#lafoaNedirText {
+    flex-shrink: 0;
+}
+
 .detail-panel-text {
-    font-size: 0.88rem;
-    line-height: 1.75;
+    font-size: 1em;
+    line-height: 1.6;
     color: var(--color-text-secondary);
-    margin-bottom: 16px;
+    margin-bottom: 0.9em;
 }
 
 .detail-panel-text:last-child {
