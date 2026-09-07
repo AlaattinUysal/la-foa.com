@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arak Manastırı Kilisesi ve Şapeli — La Foa</title>
+<meta name="description" content="Muş Ovası'na hakim Kızıl Ziyaret Dağı yamaçlarında yer alan Surp Arakelots (Arak) Manastırı: Ermeni edebiyatının en büyük el yazmalarından Mışo Carındir'in korunduğu, Tarkmançats Manastırı olarak da bilinen kadim bir eğitim merkezi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <img class="hero-video" src="https://cdn.la-foa.com/arak-manastiri/foto-1.png" alt="Arak Manastırı Kilisesi ve Şapeli">
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Manastır · #77</span>
+      <div class="hero-title" data-field="baslik">Arak Manastırı Kilisesi ve Şapeli</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Merkez, Muş</span>, Türkiye
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">4.-11. Yüzyıl</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Ermeni Mimarisi</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Ermeni</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Harap</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Muş / Merkez, Kepenek, Arak Köyü</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">38.6960°N, 41.5200°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Muş Ovası'na hakim bir noktada, Kızıl Ziyaret Dağı'nın yamaçlarında yaklaşık 1800 metre yükseklikte yer alan Surp Arakelots Manastırı, Ermeni ruhani ve kültürel tarihinin en önemli merkezlerinden biridir. Kutsal Havariler Kilisesi olarak da bilinmektedir. Manastırın bulunduğu Diringadar zirvesinin, Hristiyanlık öncesi dönemde Ermeni panteonunun ana tanrıçası Anahid'e adanmış bir tapınağa ev sahipliği yaptığı düşünülmektedir. Geleneksel verilere göre manastır, 312 yılında Aziz Krikor Lusavoriç tarafından, Roma'dan getirilen havari röliklerini korumak amacıyla bu tapınağın yerine kurulmuştur.</p>
+        <p>Manastır, tarih boyunca sadece bir ibadet yeri değil, aynı zamanda Tarkmançats (Tercümanlar) Manastırı olarak anılmasını sağlayan devasa bir eğitim ve yazım merkezi olmuştur. 1200-1202 yıllarında hazırlanan ve Ermeni edebiyatının en büyük parşömen el yazması olan "Mışo Carındir" bu manastırın kütüphanesinde korunmuştur. Bahçesinde yer alan Tavit Anhağt ve Ğazar Parbeptsi gibi önemli düşünür ve tarihçilerin mezarları, buranın bir alimler nekropolü olma özelliğini pekiştirir.</p>
+        <p>Manastır kompleksi; ana kilise (Surp Arakelots), narteks, çan kulesi ve ek şapellerden (Surp Tateos, Surp Isdepanos ve Surp Kevork) oluşan zengin bir yapı grubudur. 11. yüzyıla tarihlenen Surp Arakelots Kilisesi, kapalı haç planlı ve merkezi kubbeli bir mimariye sahiptir. Yaklaşık 10x10 metre ölçülerindeki kare planlı kilisede, yığma teknikle birlikte tuğla kullanımı dikkat çeker. Apsisin iki yanındaki hücrelerde İncil yazarları Margos ve Ğugas'ın anıt mezarları bulunur. Yapının en nadide parçası, 1134 tarihli, ceviz ağacından oyulmuş sanatsal kapısıdır. Ustalar Ğugas, Toros ve Krikor tarafından yapılan bu kapı, Orta Çağ Ermeni ahşap işçiliğinin zirvesi kabul edilir ve günümüzde Erivan Tarih Müzesi'nde sergilenmektedir.</p>
+        <p>14. yüzyılda Timurlenk akınlarıyla tahrip olan, 19. yüzyılda ise ziraat ve ruhban okullarıyla yeniden canlanan yapı, Birinci Dünya Savaşı yıllarında büyük hasar görmüş; günümüze ise sadece temel izleri ve bazı duvar kalıntıları ulaşabilmiştir.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Akçaöz, Mustafa, Hançer, Elmon. Muş, Risk Altındaki Mimari Miras, İstanbul: Anadolu Kültür, 2022.</p>
+        <p>Balyan, Dırtad. Hay Vanorayk, Eçmiadzin: Katolikosluk Merkezi Yayınları, 2008.</p>
+        <p>Der Nersessian, Sirarpie. L'Art Armenien, Paris: Arts et Metiers Graphiques 1977.</p>
+        <p>Hübschmann, Heinrich. Die Altarmenischen Ortsnamen, Reprint, Amsterdam: Oriental Press 1969.</p>
+        <p>Maranci, Christina. "Pağeş/ Bitlis ve Daron/ Muş'un Sanat ve Mimarisi", Tarihi Kentler ve Ermeniler- Bitlis ve Muş, (Ed. R. G. Hovannisian), Çev. Zülal Kılıç, İstanbul: Aras Yayıncılık, (2016): 123-148.</p>
+        <p>Thierry, Jean-Michel. "Le couvent des Saints-Apôtres de Muş", Hantès amsoria, Vienne 1976, 90(1-12), (1976): 235-256.</p>
+        <p>Vosgiyan, Hamazasp. Daron-Duruperani Vankeri, Viyana: Mıkhitaryan Matbaası 1953.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-1.png" alt="Arak Manastırı - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-2.png" alt="Arak Manastırı - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-3.png" alt="Arak Manastırı - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-4.png" alt="Arak Manastırı - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-5.png" alt="Arak Manastırı - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-6.png" alt="Arak Manastırı - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-7.png" alt="Arak Manastırı - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-8.png" alt="Arak Manastırı - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-9.png" alt="Arak Manastırı - Görünüm 9"></div>
+        <div class="gallery-img" onclick="openLightbox(9)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-10.png" alt="Arak Manastırı - Görünüm 10"></div>
+        <div class="gallery-img" onclick="openLightbox(10)"><img src="https://cdn.la-foa.com/arak-manastiri/foto-11.png" alt="Arak Manastırı - Görünüm 11"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Merkez, Muş</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,50.84%) var(--my,61.48%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          38.6960°N, 41.5200°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 11}, (_, i) => `https://cdn.la-foa.com/arak-manastiri/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 38.696021, LNG = 41.519994;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('arak-manastiri');</script>
+</body>
+</html>
