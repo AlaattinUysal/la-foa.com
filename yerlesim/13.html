@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Çavuştepe Kalesi — La Foa</title>
+<meta name="description" content="Van, Gürpınar'da II. Sarduri tarafından kurulan Sardurihinili (Çavuştepe): iki ayrı tanrıya adanmış tapınakları, kral sarayı ve Uçkale yapısıyla Urartu mimarlığının en özgün krali merkezlerinden biri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <img class="hero-video" src="https://cdn.la-foa.com/cavustepe-kalesi/hero.jpg" alt="Çavuştepe Kalesi">
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #13</span>
+      <div class="hero-title" data-field="baslik">Çavuştepe Kalesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Gürpınar, Van</span>, Türkiye
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">MÖ 8. Yüzyıl</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Urartu</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Urartu</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Kısmen Ayakta</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Van / Gürpınar</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">38.3522°N, 43.4575°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Van'ın Gürpınar ilçesinde, Gürpınar Ovası'na hâkim Bol Dağı silsilesinin kalkerli kayalık tepeleri üzerinde yer alan Sardurihinili (Çavuştepe), Urartu Kralı II. Sarduri tarafından MÖ 764-734 yılları arasında kurulan en önemli krali merkezlerden biridir. İlk olarak 1961–1984 yılları arasında Prof. Dr. Afif Erzen başkanlığındaki kazılarla gün ışığına çıkarılan ve 2014'ten itibaren Prof. Dr. Rafet Çavuşoğlu yönetiminde yeniden incelenen yerleşim; topoğrafyaya uygun olarak konumlandırılmış, birbirine alçak bir boyunla bağlanan Aşağı ve Yukarı Kale olmak üzere iki ana kısımdan oluşmaktadır. Teknik bakımdan klasik bir savunma kalesinden ziyade yönetsel, dinsel ve ekonomik işlevleri bünyesinde barındıran tahkimatlı bir saray/krali kent niteliğindeki Sardurihinili, Urartu mimarlık tarihinde iki ayrı tanrıya adanmış tapınağa sahip tek merkez olmasıyla özgün bir yere sahiptir. Doğudaki daha yüksek tepe üzerinde yükselen ve etrafı muntazam taş temelli surlarla çevrili Yukarı Kale (0.56 hektar), Urartu'nun baştanrısı Haldi'ye adanmış 12.50x12.50 m ölçülerinde kare planlı, köşeleri rizalitli bir tapınak ile bu tapınakla ilişkili sütunlu salon, tören avlusu ve geniş bir kaya platformundan oluşan bir dinsel/kültik alandır.</p>
+        <p>Aşağı Kale ise batıdaki alçak tepe üzerinde yaklaşık 430-450 m uzunluğunda ve 3 hektarı aşan bir alana yayılmaktadır. Etrafı topoğrafyaya uyumlu, payandalarla desteklenmiş bindirme tekniğinde inşa edilen güçlü sur-teras duvarlarıyla çevrili olan bu bölümde batıdan doğuya doğru saray kompleksi, İrmuşini Tapınağı, depo yapıları ve Uçkale sıralanmaktadır. Batı ucunda ana kayaya oyulmuş zemin katı, su sarnıçları, gelişmiş drenaj sistemi, mutfak birimleri ve boya bezemeli üst kat kalıntılarıyla saray yapısı yer alır. Aşağı Kale'nin merkezinde Tanrı İrmuşini'ye adanmış, dış yüzü perdahlı bazalt bloklardan inşa edilmiş, çivi yazılı kitabeye sahip kare planlı tapınak ve önündeki geniş tören avlusu bulunmaktadır. Tapınağın doğusuna bitişik iki büyük salondan oluşan depolarda, üzerlerinde çivi yazısı ve mühürler barındıran yaklaşık 100 adet gömülü pithos açığa çıkarılmıştır.</p>
+        <p>Aşağı Kale'nin doğu sınırında bir mahmuz gibi uzanan ve "Uçkale" olarak adlandırılan 39x23.92 m ölçülerindeki anıtsal yapı; yüksek işçilikli kalker blokları, rizalitli kurgusu ve "T" biçimli bazalt pencere elemanlarıyla Urartu mimarisinde benzersizdir. Yapı, araştırmacılarca ata kültüyle ilişkili bir tapınak veya İrmuşini kompleksine bağlı bir hazine/arşiv binası olarak yorumlanmaktadır. Merkezde doğrudan bir aşağı yerleşim izine rastlanmamış olsa da yaklaşık 5 km kuzeydoğudaki Eski Norgüh yerleşiminin bu krali merkeze bağlı bir tarımsal ve idari uydu alanı olarak hizmet verdiği değerlendirilmektedir. Kalenin 1 km kuzeyindeki nekropol alanı ise dönemin ölü gömme geleneklerine ışık tutmaktadır.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Avcı, C. (2013). Sardurihinili kenti ve yeni değerlendirmeler. O. Tekin, M. H. Sayar ve E. Konyar (Yay. Haz.), Tarhan armağanı içinde (s. 37-51). Ege Yayınları.</p>
+        <p>Ayman, İ. (2013). Urartu Krallığı'nın Yayılım Alanı İçerisinde Yer Alan Yerleşim Tipleri, İstanbul Üniversitesi Sosyal Bilimler Enstitüsü, Doktora Tezi, İstanbul.</p>
+        <p>Burney, C. A. (1957). Urartian fortresses and towns in the Van region. Anatolian Studies, 7, 35–53.</p>
+        <p>Coşkun, İ. & Çavuşoğlu, R. (2019). Urartu Çavuştepe Kalesi'nden Bir Grup Bileme Taşı. 3. Uluslararası Sosyal ve Beşeri Bilimler Kongresi, Van, ss. 303-312.</p>
+        <p>Çavuşoğlu, R. & Aras, S. (2019). Çavuştepe Kalesi Depolarının Koruma ve Onarım Çalışmaları. Kültürel Miras ve Müzecilik Lisansüstü Öğrenci Sempozyumu, Van, ss. 50-51.</p>
+        <p>Çavuşoğlu, R. & Biber, H. (2021). Çavuştepe Kalesi'nden Boğa Başlı Pişmiş Toprak Kap Eklentileri. M. A. Yılmaz, M. Işıklı & B. Can (Ed.), Mehmet Karaosmanoğlu'na Armağan / Anadolu Arkeolojisiyle Harmanlanmış Bir Ömür içinde (ss. 203-214). Bilgin Kültür Sanat / Bilge Kültür Sanat.</p>
+        <p>Çavuşoğlu, R. & Demirtaş, D. (2018). Van/Çavuştepe Kalesi'nden Bir Grup Kemik At Yanaklığı. Z. Karacagil & E. Anaz (Ed.), Current Debates on Social Science / Sosyal Bilimlerde Güncel Tartışmalar: İnsan Çalışmaları 1 içinde (ss. 739-745). Hiper / Pegem Akademi / Bilgin Kültür Sanat.</p>
+        <p>Çavuşoğlu, R. & Demirtaş, D. (2019). Çavuştepe Örnekleri Işığında Urartu'da İğ (Öreke) Kullanımı. Kültürel Miras ve Müzecilik Lisansüstü Öğrenci Sempozyumu, Van, ss. 18-19.</p>
+        <p>Çavuşoğlu, R. & Demirtaş, D. (2019). Çavuştepe Örnekleri Işığında Urartu Krallığı'nda Eğirmen Kullanımı. G. Yılmaz, R. Çavuşoğlu & M. Kulaz (Ed.), Arkeoloji ve Sanat Tarihi Araştırmaları: Yapılar, Buluntular, Müzeler içinde (ss. 15-27). Hiper Yayın Evi.</p>
+        <p>Çavuşoğlu, R. & Demirtaş, D. (2022). Çavuştepe Kalesi'nde Yeni Dönem Kazıları. Urartu ve Ötesi: Demir Çağı Yaylalarında Gelişim ve Etkileşim, Van, s. 23.</p>
+        <p>Çavuşoğlu, R. & Gökce, B. (2015). Çavuştepe Kalesi 2014. Türk Eskiçağ Bilimleri Enstitüsü Haberler, (39), 31-34.</p>
+        <p>Çavuşoğlu, R. & Kuşman, N. (2023). Çavuştepe Kalesi'nin İnşa Malzemeleri Açısından Geleneksel Çavuştepe Köy Mimarisine Etkileri. B. Koçlar, E. Çalış & M. Çabaz (Ed.), Cumhuriyetimizin 100. Yılına Armağan içinde (ss. 3-12). Berikan Yayınevi.</p>
+        <p>Çavuşoğlu, R. & Sürün, Y. (2019). Çavuştepe Kalesi'nde Ele Geçen Ok Uçları. Kültürel Miras ve Müzecilik Lisansüstü Öğrenci Sempozyumu, Van, ss. 70-71.</p>
+        <p>Çavuşoğlu, R. (2019). Çavuştepe Urartu Kalesi'nin Van Turizmine Katkıları / Contribution of Çavuştepe Urartian Fortress to Van Tourism. III. International West Asia Congress of Tourism Research, Van, ss. 142-149.</p>
+        <p>Çavuşoğlu, R. (2020). Stroge Buildings and Protection Applications in Çavuştepe Fortress. kerpic'20 Healthy Buildings, İstanbul, ss. 71-72.</p>
+        <p>Çavuşoğlu, R. ve Sürün, R. (2023). Van-Çavuştepe Kalesi'nde bulunan ok uçları. Van Yüzüncü Yıl Üniversitesi Sosyal Bilimler Enstitüsü Dergisi, 60, 1-16.</p>
+        <p>Çavuşoğlu, R., Biber, H., Coşkun, İ., Yılmaz, H., Varol, O., Keleş Eriçok, A. vd. (2025). Van/Çavuştepe Kalesi ve Nekropolü 2023 Yılı Çalışmaları. 44. Uluslararası Kazı, Araştırma ve Arkeometri Sempozyumu, Nevşehir, Cilt 4/6, ss. 187-198.</p>
+        <p>Çavuşoğlu, R., Biber, H., Kılıç, S. & Yılmaz, H. (2017/2018). Van Çavuştepe Kalesi 2015-2016 Yılı Çalışmaları. 39. Kazı Sonuçları Toplantısı, Bursa, Cilt 3, ss. 187-206.</p>
+        <p>Çavuşoğlu, R., Biber, H., Kılıç, S. & Yılmaz, H. (2018/2019). Van Çavuştepe Kalesi ve Urartu Nekropolü 2017 Yılı Çalışmaları. 40. Uluslararası Kazı, Araştırma ve Arkeometri Sempozyumu, Çanakkale, Cilt 3/40, ss. 275-297.</p>
+        <p>Çavuşoğlu, R., Biber, H., Kılıç, S., & Yılmaz, H. (2018). Van Çavuştepe Kalesi 2015-2016 yılı çalışmaları. 39. Kazı Sonuçları Toplantısı, 3, 187–206.</p>
+        <p>Çavuşoğlu, R., Biber, H., Yılmaz, H., Coşkun, İ., Kılıç, S., Levendoğlu, M. F. vd. (2022/2023). Van Çavuştepe Kalesi ve Urartu Nekropolü 2021 Yılı Çalışmaları. 42. Uluslararası Kazı, Araştırma ve Arkeometri Sempozyumu, Denizli/Ankara, Cilt 4, ss. 459-472.</p>
+        <p>Çavuşoğlu, R., Biber, H., Yılmaz, H., Coşkun, İ., Levendoğlu, M. F., Varol, O. vd. (2023/2024). Van Çavuştepe Kalesi ve Urartu Nekropolü 2022 Yılı Çalışmaları. 43. Uluslararası Kazı, Araştırma ve Arkeometri Sempozyumu, Ankara, Cilt 6, ss. 383-399.</p>
+        <p>Çavuşoğlu, R., Biber, H., Yılmaz, H., Kılıç, S., Coşkun, İ. & Haydaroğlu, C. (2019). Van Çavuştepe Kalesi ve Urartu Nekropolü 2018 Yılı Çalışmaları. 41. Kazı Sonuçları Toplantısı, Diyarbakır, Cilt 4, ss. 17-29.</p>
+        <p>Çavuşoğlu, R., Biber, H., Yılmaz, H., Kılıç, S., Coşkun, İ., Karslı, Ö. vd. (2017). Çavuştepe Kalesi ve Nekropolü Kazıları: Gürpınar, Van, Türkiye. Journal of Human Sciences.</p>
+        <p>Çavuşoğlu, R., Biber, H., Yılmaz, H., Kılıç, S., Coşkun, İ., Levendoğlu, M. F. vd. (2022). Van Çavuştepe Kalesi ve Urartu Nekropolü 2019-2020 Yılı Çalışmaları. A. Özme (Ed.), 2019-2020 Yılı Kazı Çalışmaları içinde (Cilt 4, ss. 67-80). T.C. Kültür ve Turizm Bakanlığı Yayınları.</p>
+        <p>Çavuşoğlu, R., Gökce, B. & Işık, K. (2016). Van/Çavuştepe Kalesi Kazı ve Onarım Çalışmaları-2015. Türk Eskiçağ Bilimleri Enstitüsü Haberler, (41), 46-48.</p>
+        <p>Çavuşoğlu, R., Gökce, B. & Uslu, E. (2016). Van/Çavuştepe Kalesinde Arkeolojik Kazılar: 2014 Yılı. 37. Uluslararası Kazı, Araştırma ve Arkeometri Sempozyumu, Erzurum, Cilt 37/1, ss. 357-378.</p>
+        <p>Erzen, A. (1967). Van bölgesi Çavuştepe kazısı. Belleten, 31(123), 468-471.</p>
+        <p>Erzen, A. (1968a). Van bölgesi Çavuştepe 1967 kazısı. Belleten, 32(127), 412-418.</p>
+        <p>Erzen, A. (1968b). Van bölgesi Çavuştepe 1968 kazısı. Türk Arkeoloji Dergisi, 17(2), 77-90.</p>
+        <p>Erzen, A. (1971). Çavuştepe 1970 kazısı. Belleten, 35(138), 334-340.</p>
+        <p>Erzen, A. (1977). Çavuştepe kazısı 1976 çalışmaları. Belleten, 41(163), 621-623.</p>
+        <p>Erzen, A. (1978). Çavuştepe I: M.Ö. 7.-6. yüzyıl Urartu mimarlık anıtları ve Ortaçağ nekropolü. Türk Tarih Kurumu Yayınları.</p>
+        <p>Erzen, A. (1979). Çavuştepe yukarı kale ve Toprakkale 1977 çalışmaları. Anadolu Araştırmaları, 6, 1-15.</p>
+        <p>Erzen, A. (1988). Çavuştepe I. Türk Tarih Kurumu Yayınları.</p>
+        <p>Sevin, V. (2012). II. Sarduri'nin büyük eseri: Sardurihinili-Çavuştepe. Aktüel Arkeoloji, 30, 118-121.</p>
+        <p>Tarhan, M. T. (2005). Uç Kale: Çavuştepe-Sardurihinili'nin gizemli yapısı kral kültü tapınağı. Anadolu Araştırmaları, 18(2), 115-136.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-1.png" alt="Çavuştepe Kalesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-2.png" alt="Çavuştepe Kalesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-3.png" alt="Çavuştepe Kalesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-4.png" alt="Çavuştepe Kalesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-5.png" alt="Çavuştepe Kalesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-6.png" alt="Çavuştepe Kalesi - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-7.png" alt="Çavuştepe Kalesi - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-8.png" alt="Çavuştepe Kalesi - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-9.png" alt="Çavuştepe Kalesi - Görünüm 9"></div>
+        <div class="gallery-img" onclick="openLightbox(9)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-10.png" alt="Çavuştepe Kalesi - Görünüm 10"></div>
+        <div class="gallery-img" onclick="openLightbox(10)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-11.png" alt="Çavuştepe Kalesi - Görünüm 11"></div>
+        <div class="gallery-img" onclick="openLightbox(11)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-12.png" alt="Çavuştepe Kalesi - Görünüm 12"></div>
+        <div class="gallery-img" onclick="openLightbox(12)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-13.png" alt="Çavuştepe Kalesi - Görünüm 13"></div>
+        <div class="gallery-img" onclick="openLightbox(13)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-14.png" alt="Çavuştepe Kalesi - Görünüm 14"></div>
+        <div class="gallery-img" onclick="openLightbox(14)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-15.png" alt="Çavuştepe Kalesi - Görünüm 15"></div>
+        <div class="gallery-img" onclick="openLightbox(15)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-16.png" alt="Çavuştepe Kalesi - Görünüm 16"></div>
+        <div class="gallery-img" onclick="openLightbox(16)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-17.png" alt="Çavuştepe Kalesi - Görünüm 17"></div>
+        <div class="gallery-img" onclick="openLightbox(17)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-18.png" alt="Çavuştepe Kalesi - Görünüm 18"></div>
+        <div class="gallery-img" onclick="openLightbox(18)"><img src="https://cdn.la-foa.com/cavustepe-kalesi/foto-19.png" alt="Çavuştepe Kalesi - Görünüm 19"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Gürpınar, Van</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,70.41%) var(--my,66.39%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          38.3522°N, 43.4575°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 19}, (_, i) => `https://cdn.la-foa.com/cavustepe-kalesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 38.352236, LNG = 43.457496;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('cavustepe-kalesi');</script>
+</body>
+</html>

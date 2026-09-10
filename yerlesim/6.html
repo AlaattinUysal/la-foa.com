@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayanis Kalesi — La Foa</title>
+<meta name="description" content="Van Gölü'nün doğu kıyısında, Kral II. Rusa tarafından inşa ettirilen Ayanis Kalesi (Rusaḫinili Eiduru-kai): Urartu Krallığı'nın bilinen son büyük kalesi, Haldi Tapınağı ve zengin depo odalarıyla anıtsal bir merkez.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-content">
+
+    <!-- Logo -->
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon">
+        <img src="../assets/lafoa-logo-clean.png" alt="La Foa" class="logo-img">
+      </div>
+      <div class="logo-text">
+        <h1>Late Antique Feudal Opposition in Armenia</h1>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="nav-links">
+      <li>
+        <a href="#gallery" onclick="document.querySelector('.gallery-grid').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Fotoğraflar
+        </a>
+      </li>
+      <li>
+        <a href="#sources" onclick="document.getElementById('kaynaklarSection').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Kaynaklar
+        </a>
+      </li>
+      <li>
+        <a href="#about" onclick="document.getElementById('mainText').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          Hakkında
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <a href="../index.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      <span>Haritaya Dön</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <img class="hero-video" src="https://cdn.la-foa.com/ayanis-kalesi/hero.jpg" alt="Ayanis Kalesi">
+
+    <div class="hero-overlay">
+      <span class="hero-badge">Kale · #6</span>
+      <div class="hero-title" data-field="baslik">Ayanis Kalesi</div>
+      <div class="hero-loc">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span data-field="konum">Edremit, Van</span>, Türkiye
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="content-section">
+
+    <!-- HIZLI BİLGİ -->
+    <div class="section-block quick-facts-block">
+      <div class="quick-facts-grid">
+        <div class="quick-fact">
+          <div class="quick-fact-label">Dönem</div>
+          <div class="quick-fact-value">MÖ 7. Yüzyıl</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Mimari Tarzı</div>
+          <div class="quick-fact-value">Urartu</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Kültür</div>
+          <div class="quick-fact-value">Urartu</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Durum</div>
+          <div class="quick-fact-value">Kısmen Ayakta</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">İl / İlçe</div>
+          <div class="quick-fact-value">Van / Edremit, Elmalı Köyü</div>
+        </div>
+        <div class="quick-fact">
+          <div class="quick-fact-label">Koordinatlar</div>
+          <div class="quick-fact-value">38.7082°N, 43.2105°E</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HAKKINDA -->
+    <div class="section-block">
+      <div class="prose" id="mainText">
+        <p>Van Gölü'nün doğu kıyısında, başkent Tuşpa'nın 38 km kuzeyinde yükselen bir kayalık tepe üzerinde konumlanan Ayanis Kalesi (Rusaḫinili Eiduru-kai), Urartu Krallığı'nın mimari, askeri ve kültürel ihtişamını en rafine haliyle yansıtan ve krallığın inşa ettiği bilinen son büyük kalesi olarak kabul edilen anıtsal bir merkezdir. Deniz seviyesinden 1866 metre yükseklikte, 100x400 metre boyutlarındaki bir alana planlı bir şekilde yayılan sitadel (iç kale) ve etrafındaki sivil yerleşim, Urartu'nun geç dönem idari ve dini politikalarını anlamamızı sağlayan en kıymetli arkeolojik verileri sunmaktadır. Kral II. Rusa (MÖ 685-653/650) tarafından yaptırılan ve dendrokronolojik analizler ile yazıt verilerine göre MÖ 673-672 yıllarından hemen sonra inşa edildiği anlaşılan bu stratejik kentte kazı çalışmaları 1989 yılında Prof. Dr. Altan Çilingiroğlu başkanlığında başlamış, 2013 yılından itibaren ise Prof. Dr. Mehmet Işıklı yönetiminde sürdürülerek Urartu arkeolojisine eşsiz bir envanter kazandırmıştır.</p>
+        <p>Kalenin güneydoğusunda, Doğu ve Güney surlarının kesiştiği noktada yer alan 3 metre genişliğindeki Anıtsal Kapı, sitadele girişi sağlayan tek anıtsal açıklık olup iki yanındaki pürüzsüz işlenmiş andezit gözetleme kuleleriyle krallığın askeri gücünü ve estetik prestijini daha girişte hissettirmektedir. Bu noktadan güneye doğru uzanan ve Urartu askeri mimarisinin başyapıtlarından biri olan Güney Sur sistemi, dışa bombeli andezit bloklarıyla anıtsal bir görsellik sunarken, jeolojik sarsıntılara karşı ana kaya ile bazalt bloklar arasına yerleştirilen mıcır tabakası sayesinde esnek ve dayanıklı bir zemin mühendisliğine sahiptir. Yaklaşık 8 metre yüksekliğe ulaşan kerpiç bedenle tamamlanan bu sur sisteminde yer alan atık su kanalı kentin gelişmiş altyapısını belgelerken, alanda yürütülen nitelikli kerpiç restorasyonları mimari dokunun korunmasını sağlamıştır.</p>
+        <p>Gündelik yaşamın ve lojistik gücün aynası olan Batı Depo Odaları ise kalın bir duvarla kuzey ve güney olarak ikiye ayrılmış olup, 250'den fazla devasa depolama küpünün (pithos) yer aldığı, basamaklı mimariye sahip iki katlı bodrum yapısıyla dikkat çeker. İçlerinde tahıl ölçülerini ve kökenlerini gösteren çivi yazılı mühür baskılarının (bulla) yanı sıra askeri, evsel ve kült amblemli zengin buluntular barındıran bu depolar, kente Urartu coğrafyasının dört bir yanından tarımsal ürün akışı sağlandığını kanıtlamaktadır.</p>
+        <p>Sitadelin en yüksek noktasında yer alan ve "Payeli Salon" olarak adlandırılan 30x30 metre boyutlarındaki dini merkez, su mermeri kaplamaları ve anıtsal payeleriyle krallığın en kutsal alanı olan Haldi Tapınağı'nı bünyesinde barındırır. Baş tanrı Haldi'ye adanan ve iki sıra bazalt blok üzerine oturtulan 12.45x13.00 metre ölçülerindeki çekirdek tapınak (cella), zengin kazıma ve oyma teknikleriyle bezenmiş su mermeri podyumu, altın kakmalı mozaikleri, duvarlarındaki intaglio tekniğiyle yapılmış taş kakma bezemeleri ve 88 satırlık Urartu dilindeki en uzun tapınak yazıtıyla adeta bir sanat şaheseridir. Tapınağın hemen arkasında yer alan ve benzer şekilde zengin hayvan ve bitki motifli su mermeri podyuma sahip olan Podyumlu Salon, krali ve dini ritüellerin gerçekleştirildiği özel bir mimari mekan olarak kentin elit yapısını tamamlamaktadır.</p>
+        <p>Doğu Anadolu genelinde sivil halkın izlerini süren ilk ve tek sistemli kazı alanı olan Ayanis Dış Kenti ise mimari ve sosyal tabakalaşmayı net biçimde ortaya koymaktadır; anıtsal mimarisine rağmen düşük kaliteli günlük eşyalar barındıran Pınarbaşı alanı kentin idari merkezine işaret ederken, yalın mimarisine tezat olarak yüksek kaliteli buluntular veren Güneytepe mevkii Urartu elitlerinin elit yerleşim dokusunu temsil etmektedir. Günümüzde, bu anıtsal mirasın korunması adına Haldi Tapınağı ve Podyumlu Salon kalıcı ve geçici çatı sistemleriyle koruma altına alınmış, podyumlar metal kasalarla güvenceye bağlanmış ve 2018 yılından itibaren kalede yürüyüş yolları ile seyir terasları inşa edilerek Ayanis Kalesi'nin yaşayan bir ören yeri statüsüyle turizme kazandırılması sağlanmıştır.</p>
+      </div>
+    </div>
+
+    <!-- KAYNAKLAR -->
+    <div class="section-block" id="kaynaklarSection">
+      <h2 class="section-title">Kaynaklar</h2>
+      <div class="prose" id="kaynaklarList">
+        <p>Akın Aras, A. - Işıklı, M. -Aras, O. (2017). "Doğu Anadolu Yaylasında Kültürel Miras – Miras Veri: Ayanis Kalesi Kazıları Işığında Urartu Arkeolojisinde Bu Olguların Analizi", Yerleşim Arkeolojisi Serisi 6 Süreklilik ve Değişim: Miras Veriye Yeni Yaklaşımlar Sempozyum Bildirileri, (Ed. D. B. Khan – E. Sevimli), Ege Yayınları, Ankara, s. 15-27.</p>
+        <p>Aras, O. – Işıklı, M. (2014). "Van Ayanis Urartu Kalesi Restorasyon ve Konservasyon Çalışmaları - 2013", TEBE (Türk Eskiçağ Bilimleri Enstitüsü Dergisi), Sayı: 37 (Ocak 2014), İstanbul, s. 48-50.</p>
+        <p>Ayman, İ. (2013). Urartu Krallığı'nın Yayılım Alanı İçerisinde Yer Alan Yerleşim Tipleri, İstanbul Üniversitesi Sosyal Bilimler Enstitüsü, Doktora Tezi, İstanbul.</p>
+        <p>Baştürk, M. B. (2009). "Ayanis Tapınağı'ndaki Simgeler Işığında Urartu Cult Uygulamaları Üzerine", Altan Çilingiroğlu'na Armağan: Yukarı Denizin Kıyısında Urartu Krallığı'na Adanmış Bir Hayat, Arkeoloji ve Sanat Yayınları, İstanbul, s. 132-149.</p>
+        <p>Baştürk, M. B. (2017). "Urartu Surlarının Üst Yapısı Üzerine Yeni Değerlendirmeler: Ayanis Örneği", (Baskıda).</p>
+        <p>Batmaz, A. (2015). "Ayanis Kalesi'ndeki Haldi Tapınağı'nın Depo Odaları", International Symposium on East Anatolia - South Caucasus Cultures Proceedings I-II, Vol. II, (Ed. Mehmet Işıklı – Birol Can), Cambridge Scholars Publishing, Cambridge, s. 183-196.</p>
+        <p>Belli, O. (1997). Doğu Anadolu'da Urartu Sulama Kanalları, Arkeoloji ve Sanat Yayınları, İstanbul.</p>
+        <p>Bournoutian, G. A. (2006). A Concise History of the Armenian People, Mazda Publishers, California.</p>
+        <p>Burney, C. A. (1957). "Urartian Fortresses and Towns in the Van Region", Anatolian Studies, Vol. 7, Ankara, s. 37-53.</p>
+        <p>Burney, C. A. (1958). "Eastern Anatolia in the Chalcolithic and Early Bronze Age", Anatolian Studies, Vol. 8, Ankara, s. 157-209.</p>
+        <p>Caner, E. (2018). Ayanis Kalesi Mimarisinde Teknik ve Statik Özellikler, (Atatürk Üniversitesi Sosyal Bilimler Enstitüsü, Yayımlanmamış Yüksek Lisans Tezi), Erzurum.</p>
+        <p>Çilingiroğlu, A. (1997). Urartu Krallığı Tarihi ve Sanatı, Yaşar Eğitim ve Kültür Vakfı, İzmir.</p>
+        <p>Çilingiroğlu, A. (1998). "Urartu'da Tapınma ve Tapınma Yerleri", Karatepe'deki Işık: Halet Çambel'e Sunulan Yazılar, Ege Yayınları, İstanbul, s. 229-241.</p>
+        <p>Çilingiroğlu, A. (2001a). "Storerooms", Ayanis I: Ten Years' Excavations at Rusahinili Eiduru-Kai 1989-1998, (Ed. Altan Çilingiroğlu – Mirjo Salvini), CNR Istituto per gli Studi Micenei ed Egeo-Anatolici, Roma, s. 67-85.</p>
+        <p>Çilingiroğlu, A. (2001b). "Temple Area", Ayanis I: Ten Years' Excavations at Rusahinili Eiduru-Kai 1989-1998, (Ed. Altan Çilingiroğlu – Mirjo Salvini), CNR Istituto per gli Studi Micenei ed Egeo-Anatolici, Roma, s. 37-67.</p>
+        <p>Çilingiroğlu, A. (2006). "Ayanis Urartu Tapınağının Mülkleri", Anadolu Arkeolojisine Katkılar: 65 Yaşında Abdullah Yaylalı'ya Sunulan Yazılar, (Ed. Turan Takaoğlu), Hitit Color, İstanbul, s. 75-79.</p>
+        <p>Çilingiroğlu, A. (2007a). "Ayanis Kalesi'ndeki Evsel Mekânlar", Doğudan Yükselen Işık: Arkeoloji Yazıları, Atatürk Üniversitesi 50. Kuruluş Yıl Dönümü Arkeoloji Bölümü Armağanı, (Ed. Birol Can – Mehmet Işıklı), İstanbul, s. 37-45.</p>
+        <p>Çilingiroğlu, A. (2007b). "Urartulu Argişti Oğlu Kral Rusa: Bir Başarı Öyküsü", TÜBA-AR, Sayı: 10, Ankara, s. 73-91.</p>
+        <p>Çilingiroğlu, A. (2011a). "Ayanis Kalesi", Urartu: Doğu'da Değişim, (Ed. Kemalettin Köroğlu – Erkan Konyar), Yapı Kredi Yayınları, İstanbul, s. 338-366.</p>
+        <p>Çilingiroğlu, A. (2011b). "Ayanis: An Iron Age Site in the East", The Oxford Handbook of Ancient Anatolia (10,000 to 323 B.C.E.), (Ed. Sharon R. Steadman – Gregory McMahon), Oxford University Press, New York, s. 1055-1068.</p>
+        <p>Çilingiroğlu, A. (2012). "Ayanis", Ege Üniversitesi Arkeoloji Kazıları, (Ed. Altan Çilingiroğlu – Zeynep Mercangöz – Gürcan Polat), Ege Üniversitesi Yayınları, İzmir, s. 2-24.</p>
+        <p>Çilingiroğlu, A. (2014). "Ayanis Kalesinde Mısır Mavisi (Egyptian Blue)", Arkeolojiyle Geçen Bir Yaşam İçin Yazılar: Veli Sevin'e Armağan, (Ed. Aynur Özfırat), Ege Yayınları, İstanbul, s. 137-147.</p>
+        <p>Çilingiroğlu, A. (2015). "Van Ayanis Kalesi Kazıları Işığında Urartu'da Son Gelişmeler", International Symposium on East Anatolia - South Caucasus Cultures Proceedings I-II, Vol. II, (Ed. Mehmet Işıklı – Birol Can), Cambridge Scholars Publishing, Cambridge, s. 37-51.</p>
+        <p>Çilingiroğlu, A. – Işıklı, M. (2014). "25. Yılında Ayanis Kalesi Kazıları: Dün, Bugün ve Gelecek", Anadolu'nun Zirvesinde Türk Arkeolojisinin 40 Yılı, (Ed. Hasan Kasapoğlu – Mehmet Ali Yılmaz), Bilgin Kültür Sanat Yayınları, Ankara, s. 309-325.</p>
+        <p>Genç, B. (2008). Yazılı Belgeler ve Arkeolojik Kalıntılar Işığında Urartu Krallığının Batı Yayılımı, (Yüzüncü Yıl Üniversitesi Sosyal Bilimler Enstitüsü, Yayımlanmamış Yüksek Lisans Tezi), Van.</p>
+        <p>Işıklı, M. (2014). "Yükseklerde Arkeoloji Yapmak: Doğu Anadolu Arkeolojisinin Dünü-Bugünü", Arkeolojiyle Geçen Bir Yaşam İçin Yazılar: Veli Sevin'e Armağan, (Ed. Aynur Özfırat), Ege Yayınları, İstanbul, s. 1-13.</p>
+        <p>Işıklı, M. – Akın, A. – Öztürk, G. (2015). "Van Ayanis Urartu Kalesi Kazılarında Yeni Dönem", Atatürk Üniversitesi Güzel Sanatlar Enstitüsü Dergisi, Sayı: 35, Erzurum, s. 78-92.</p>
+        <p>Işıklı, M. – Beşikçi, B. (2017). "Ayanis Kalesi Podyumlu Salonu", Aktüel Arkeoloji, Sayı: 60 (Kasım-Aralık 2017), İstanbul, s. 70-74.</p>
+        <p>Işıklı, M. – Aras, O. – Aras, A. A. (2017). "Van Ayanis Kalesi 2016 Yılı Kazı ve Onarım Çalışmaları", 39. Kazı Sonuçları Toplantısı (22-26 Mayıs 2017 Bursa), Cilt: 2, Bursa, s. 264-268.</p>
+        <p>Oybak Dönmez, E. (2013). "Archaeobotanical Studies at the Urartian Site of Ayanis in Van Province, Eastern Turkey", Turkish Journal of Botany, Sayı: 37, TÜBİTAK, s. 282-296.</p>
+        <p>Öner, E. (2002). Van-Ayanis Çevresinin Jeomorfolojisi, Ege Üniversitesi Bilimsel Araştırma Proje Kesin Raporu, Proje No: 1998-EDB-006, İzmir.</p>
+        <p>Özdemir, M. A. – Işıklı, M. (Tarihsiz). "Van Ayanis Kalesinden Ele Geçen Ok Uçları Üzerine Genel Bir Değerlendirme", MASROP E-Dergi, Sayı: 8 (10-11), s. 46-62.</p>
+        <p>Salvini, M. (2006). Urartu Tarihi ve Kültürü, (Çev. Belgin Aksoy), Arkeoloji ve Sanat Yayınları, İstanbul.</p>
+      </div>
+    </div>
+
+    <!-- GALERİ -->
+    <div class="section-block">
+      <div class="section-label">Fotoğraf Galerisi</div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-img" onclick="openLightbox(0)"><img src="https://cdn.la-foa.com/ayanis-kalesi/foto-1.png" alt="Ayanis Kalesi - Görünüm 1"></div>
+        <div class="gallery-img" onclick="openLightbox(1)"><img src="https://cdn.la-foa.com/ayanis-kalesi/foto-2.png" alt="Ayanis Kalesi - Görünüm 2"></div>
+        <div class="gallery-img" onclick="openLightbox(2)"><img src="https://cdn.la-foa.com/ayanis-kalesi/foto-3.png" alt="Ayanis Kalesi - Görünüm 3"></div>
+        <div class="gallery-img" onclick="openLightbox(3)"><img src="https://cdn.la-foa.com/ayanis-kalesi/foto-4.png" alt="Ayanis Kalesi - Görünüm 4"></div>
+        <div class="gallery-img" onclick="openLightbox(4)"><img src="https://cdn.la-foa.com/ayanis-kalesi/foto-5.png" alt="Ayanis Kalesi - Görünüm 5"></div>
+        <div class="gallery-img" onclick="openLightbox(5)"><img src="https://cdn.la-foa.com/ayanis-kalesi/foto-6.png" alt="Ayanis Kalesi - Görünüm 6"></div>
+        <div class="gallery-img" onclick="openLightbox(6)"><img src="https://cdn.la-foa.com/ayanis-kalesi/foto-7.png" alt="Ayanis Kalesi - Görünüm 7"></div>
+        <div class="gallery-img" onclick="openLightbox(7)"><img src="https://cdn.la-foa.com/ayanis-kalesi/foto-8.png" alt="Ayanis Kalesi - Görünüm 8"></div>
+        <div class="gallery-img" onclick="openLightbox(8)"><img src="https://cdn.la-foa.com/ayanis-kalesi/foto-9.png" alt="Ayanis Kalesi - Görünüm 9"></div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- MINI MAP -->
+    <div class="minimap-card">
+      <div class="minimap-header">
+        <div class="map-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+          </svg>
+        </div>
+        <div>
+          <div class="minimap-title">Harita Konumu</div>
+          <div class="minimap-subtitle" data-field="konum">Edremit, Van</div>
+        </div>
+      </div>
+      <div class="minimap-wrap">
+        <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,67.91%) var(--my,61.31%);">
+        <div class="minimap-marker" id="minimapMarker"></div>
+      </div>
+      <div class="minimap-footer">
+        <div class="coords-row">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          38.7082°N, 43.2105°E
+        </div>
+        <a href="../index.html" class="open-map-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+          </svg>
+          Haritada Göster
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <button class="lightbox-prev" onclick="prevImage(event)">❮</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="nextImage(event)">❯</button>
+</div>
+
+<script>
+const images = Array.from({length: 9}, (_, i) => `https://cdn.la-foa.com/ayanis-kalesi/foto-${i + 1}.png`);
+
+let currentImageIndex = 0;
+
+function openLightbox(i) {
+  currentImageIndex = i;
+  updateLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightboxImage() {
+  document.getElementById('lightboxImg').src = images[currentImageIndex];
+}
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+}
+function prevImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  updateLightboxImage();
+}
+function nextImage(e) {
+  if(e) e.stopPropagation();
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  updateLightboxImage();
+}
+
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft') prevImage();
+  if(e.key==='ArrowRight') nextImage();
+});
+
+// Mini-map marker positioning — must match script.js MAP_BOUNDS
+const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
+const LAT = 38.708159, LNG = 43.21046;
+const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
+const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
+const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
+const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const marker = document.getElementById('minimapMarker');
+marker.style.left = mx + '%';
+marker.style.top = my + '%';
+document.getElementById('minimapImg').style.objectPosition = `${mx}% ${my}%`;
+</script>
+<script src="content-loader.js"></script>
+<script>loadSettlementContent('ayanis-kalesi');</script>
+</body>
+</html>
