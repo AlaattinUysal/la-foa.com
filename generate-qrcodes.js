@@ -79,7 +79,7 @@ const settlements = [
     { id: 76, name: "Değirmenaltı Yukarı Kilisesi", lat: 38.431652, lng: 42.188836 },
     { id: 77, name: "Arak Manastırı Kilisesi ve Şapeli", lat: 38.696021, lng: 41.519994 },
     { id: 78, name: "Çanlı Kilise (Surb Garabet Kilisesi)", lat: 38.961300, lng: 41.191378 },
-    { id: 79, name: "Surp Stephanos Manastırı", lat: 38.750000, lng: 43.740107 },
+    { id: 79, name: "Surp Stepanos Kilisesi", lat: 38.750000, lng: 43.740107 },
     { id: 80, name: "Karagöz Kilisesi", lat: 39.472766, lng: 42.562596 },
     { id: 81, name: "Tzkarostavi Kilisesi", lat: 41.241936, lng: 43.163045 },
     { id: 82, name: "Eruşeti Kilisesi", lat: 41.258069, lng: 42.965020 },
