@@ -66,7 +66,7 @@
     </a>
 
     <!-- Mobile hamburger -->
-    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'" aria-label="Menü">
+    <button class="nav-hamburger" onclick="event.stopPropagation(); document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menü">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"/>
         <line x1="3" y1="12" x2="21" y2="12"/>
@@ -231,7 +231,7 @@
       </div>
       <div class="minimap-wrap">
         <img id="minimapImg" src="../assets/map-low.webp" alt="Harita"
-          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,32.07%) var(--my,56.76%);">
+          style="width:100%;height:100%;object-fit:cover;object-position:var(--mx,26.84%) var(--my,58.68%);">
         <div class="minimap-marker" id="minimapMarker"></div>
       </div>
       <div class="minimap-footer">
@@ -239,7 +239,7 @@
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
           </svg>
-          39.0268°N, 39.6614°E
+          38.8695°N, 39.0851°E
         </div>
         <a href="../index.html" class="open-map-btn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -362,11 +362,15 @@ function toggleFullscreen() {
 
 // Mini-map marker positioning — must match script.js MAP_BOUNDS
 const MAP_BOUNDS = { topLeftLat: 43.002, topLeftLng: 36.487, bottomRightLat: 35.998, bottomRightLng: 46.387 };
-const LAT = 39.026806, LNG = 39.661442;
+const LAT = 38.8695, LNG = 39.0851;
+const MAP_PADDING_FRACTION = 0.01253;
+const MAP_IMG_ASPECT = 10000 / 7073;
+const padX = MAP_PADDING_FRACTION;
+const padY = MAP_PADDING_FRACTION * MAP_IMG_ASPECT;
 const latRange = MAP_BOUNDS.topLeftLat - MAP_BOUNDS.bottomRightLat;
 const lngRange = MAP_BOUNDS.bottomRightLng - MAP_BOUNDS.topLeftLng;
-const mx = ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * 100;
-const my = ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * 100;
+const mx = (padX + ((LNG - MAP_BOUNDS.topLeftLng) / lngRange) * (1 - 2 * padX)) * 100;
+const my = (padY + ((MAP_BOUNDS.topLeftLat - LAT) / latRange) * (1 - 2 * padY)) * 100;
 const marker = document.getElementById('minimapMarker');
 marker.style.left = mx + '%';
 marker.style.top = my + '%';
@@ -412,5 +416,13 @@ showControls();
 </script>
 <script src="content-loader.js"></script>
 <script>loadSettlementContent('kalekoy-kalesi');</script>
+<script>
+document.addEventListener('click', (e) => {
+  const nav = document.querySelector('.nav-links');
+  if (nav.classList.contains('open') && !nav.contains(e.target)) {
+    nav.classList.remove('open');
+  }
+});
+</script>
 </body>
 </html>

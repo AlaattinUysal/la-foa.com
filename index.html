@@ -220,8 +220,15 @@
 
     <script src="script.js"></script>
     <script>
-        document.getElementById('navHamburger').addEventListener('click', () => {
+        document.getElementById('navHamburger').addEventListener('click', (e) => {
+            e.stopPropagation();
             document.querySelector('.nav-links').classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('.nav-links');
+            if (nav.classList.contains('open') && !nav.contains(e.target)) {
+                nav.classList.remove('open');
+            }
         });
 
         fetch('https://cdn.la-foa.com/pages/lafoa-nedir/metin.txt', { cache: 'no-cache' })
