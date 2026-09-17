@@ -135,6 +135,12 @@
         <!-- Detail Panel (proje hakkında kısa bilgi) -->
         <aside class="detail-panel" id="detailPanel">
             <div class="detail-panel-inner">
+                <button class="detail-panel-close" id="detailPanelClose" aria-label="Kapat">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
                 <h2 class="detail-panel-title">La Foa Nedir?</h2>
                 <div id="lafoaNedirText">
                 <p class="detail-panel-text">
@@ -197,6 +203,16 @@
         <div class="search-results" id="searchResults"></div>
     </main>
 
+    <!-- La Foa Nedir? aç (yalnızca mobil/tablet) -->
+    <button class="lafoa-info-btn" id="lafoaInfoBtn" aria-label="La Foa Nedir?">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
+        <span>La Foa Nedir?</span>
+    </button>
+
     <!-- Legend -->
     <div class="map-legend">
         <div class="legend-item">
@@ -228,6 +244,22 @@
             const nav = document.querySelector('.nav-links');
             if (nav.classList.contains('open') && !nav.contains(e.target)) {
                 nav.classList.remove('open');
+            }
+        });
+
+        // "La Foa Nedir?" bilgi katmanı — yalnızca dar ekranlarda görünür olan
+        // aç/kapat kontrolleriyle çalışır; masaüstünde panel zaten sabit durur.
+        const detailPanel = document.getElementById('detailPanel');
+        document.getElementById('lafoaInfoBtn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            detailPanel.classList.add('open');
+        });
+        document.getElementById('detailPanelClose').addEventListener('click', () => {
+            detailPanel.classList.remove('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (detailPanel.classList.contains('open') && !detailPanel.contains(e.target)) {
+                detailPanel.classList.remove('open');
             }
         });
 

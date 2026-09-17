@@ -329,11 +329,15 @@ function doSwap(src, levelIndex) {
 }
 
 // ── Fit the map to the viewport ──
+// Desktop/tablet: "contain" (Math.min) so the whole map is visible, unchanged from before.
+// Mobile (<=768px): "cover" (Math.max) so the map fills the screen instead of leaving large
+// empty margins top/bottom; the user can then pan (see touch handlers below) to see the sides.
 function fitMapToView() {
     const wrapperRect = mapWrapper.getBoundingClientRect();
     const scaleX = wrapperRect.width / imgWidth;
     const scaleY = wrapperRect.height / imgHeight;
-    scale = Math.min(scaleX, scaleY);
+    const isMobileViewport = window.innerWidth <= 768;
+    scale = isMobileViewport ? Math.max(scaleX, scaleY) : Math.min(scaleX, scaleY);
 
     translateX = (wrapperRect.width - imgWidth * scale) / 2;
     translateY = (wrapperRect.height - imgHeight * scale) / 2;
@@ -367,7 +371,7 @@ if (mapImage.complete && mapImage.naturalWidth > 0) {
     mapImage.addEventListener('load', initMap);
 }
 
-// ── Pinch-to-Zoom (touch) — panning is disabled, only zoom gestures are handled ──
+// ── Pinch-to-Zoom (touch) + single-finger pan (touch) ──
 let initialPinchDist = 0;
 let initialPinchScale = 1;
 
@@ -402,6 +406,55 @@ mapWrapper.addEventListener('touchmove', (e) => {
         applyTransform();
     }
 }, { passive: true });
+
+// Single-finger drag-to-pan — additive, only ever fires on touch input so desktop
+// mouse/trackpad interaction is completely unaffected.
+let isPanningTouch = false;
+let panStartX = 0, panStartY = 0, panStartTranslateX = 0, panStartTranslateY = 0;
+const PAN_MOVE_THRESHOLD = 5; // px — avoids a tap being read as a micro-drag
+
+function clampTranslateToBounds() {
+    const wrapperRect = mapWrapper.getBoundingClientRect();
+    const contentWidth = imgWidth * scale;
+    const contentHeight = imgHeight * scale;
+
+    if (contentWidth <= wrapperRect.width) {
+        translateX = (wrapperRect.width - contentWidth) / 2;
+    } else {
+        translateX = Math.min(0, Math.max(wrapperRect.width - contentWidth, translateX));
+    }
+    if (contentHeight <= wrapperRect.height) {
+        translateY = (wrapperRect.height - contentHeight) / 2;
+    } else {
+        translateY = Math.min(0, Math.max(wrapperRect.height - contentHeight, translateY));
+    }
+}
+
+mapWrapper.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+        isPanningTouch = true;
+        panStartX = e.touches[0].clientX;
+        panStartY = e.touches[0].clientY;
+        panStartTranslateX = translateX;
+        panStartTranslateY = translateY;
+    }
+}, { passive: true });
+
+mapWrapper.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 1 && isPanningTouch) {
+        const dx = e.touches[0].clientX - panStartX;
+        const dy = e.touches[0].clientY - panStartY;
+        if (Math.abs(dx) < PAN_MOVE_THRESHOLD && Math.abs(dy) < PAN_MOVE_THRESHOLD) return;
+        translateX = panStartTranslateX + dx;
+        translateY = panStartTranslateY + dy;
+        clampTranslateToBounds();
+        applyTransform();
+    }
+}, { passive: true });
+
+mapWrapper.addEventListener('touchend', () => {
+    isPanningTouch = false;
+});
 
 // ── Zoom (Scroll) ──
 mapWrapper.addEventListener('wheel', (e) => {

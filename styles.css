@@ -387,6 +387,13 @@ body {
     display: flex;
 }
 
+/* Masaüstünde panel zaten sabit duruyor: aç/kapat kontrolleri yalnızca
+   dar ekranlarda (bkz. max-width:1024px bloğu) görünür hale gelir. */
+.detail-panel-close,
+.lafoa-info-btn {
+    display: none;
+}
+
 .detail-panel-inner {
     padding: 36px 30px;
     display: flex;
@@ -873,7 +880,105 @@ body {
         --detail-panel-width: 0px;
     }
 
+    /* Panel artık yan sütun değil, aşağıdan açılan bir bilgi katmanı.
+       Kapalıyken ekran dışında beklediği için harita görünümü değişmez. */
     .detail-panel {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        height: auto;
+        max-height: 70vh;
+        border-left: none;
+        border-top: 1px solid var(--color-border);
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        box-shadow: var(--shadow-xl);
+        transform: translateY(101%);
+        transition: transform var(--transition-slow);
+        z-index: 160;
+    }
+
+    .detail-panel.open {
+        transform: translateY(0);
+    }
+
+    .detail-panel-inner {
+        position: relative;
+        padding: 26px 20px calc(20px + var(--footer-height));
+        justify-content: flex-start;
+        max-height: 70vh;
+    }
+
+    .detail-panel-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 34px;
+        height: 34px;
+        border: none;
+        border-radius: 50%;
+        background: var(--color-border-light);
+        color: var(--color-text-secondary);
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Lejant ile zoom kontrollerinin arasında, harita çerçevesini kapatmayacak
+       şekilde ortalanır; ikisiyle de arasında boşluk kalır. */
+    /* Lejant ile zoom/sıfırla kontrollerinin arasında, aynı hizada durur. */
+    .lafoa-info-btn {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        position: fixed;
+        bottom: calc(var(--footer-height) + 16px);
+        right: calc(16px + 44px + 24px);
+        padding: 9px 15px;
+        border: 1px solid var(--color-border);
+        border-radius: 100px;
+        background: var(--color-surface-glass);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        color: var(--color-accent);
+        font-family: var(--font-sans);
+        font-size: 0.76rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+        box-shadow: var(--shadow-md);
+        cursor: pointer;
+        z-index: 55;
+        -webkit-tap-highlight-color: transparent;
+        transition: background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .lafoa-info-btn:active {
+        transform: scale(0.96);
+        background: #FDF0E6;
+    }
+
+    .lafoa-info-btn svg {
+        flex-shrink: 0;
+        opacity: 0.95;
+    }
+
+    /* Harita zoom kontrolleriyle ve açılan kartlarla çakışmasın */
+    .map-controls {
+        bottom: calc(var(--footer-height) + 64px);
+    }
+
+    body:has(.info-card.active) .lafoa-info-btn,
+    body:has(.detail-panel.open) .lafoa-info-btn {
+        display: none;
+    }
+
+    body:has(.detail-panel.open) .map-legend,
+    body:has(.detail-panel.open) .map-controls {
         display: none;
     }
 }
@@ -909,17 +1014,15 @@ body {
         top: 70px;
     }
 
-    .info-card {
-        width: 100%;
-        max-width: 100%;
-        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    }
-
     .map-legend {
         bottom: calc(var(--footer-height) + 16px);
         left: 16px;
         gap: 12px;
         padding: 8px 12px;
+    }
+
+    body:has(.info-card.active) .map-legend {
+        display: none;
     }
 
     .legend-item {
@@ -954,6 +1057,18 @@ body {
     .map-legend {
         flex-direction: column;
         gap: 6px;
+    }
+}
+
+/* Çok dar ekranlarda lejanta değmemesi için buton yalnızca ikona iner */
+@media (max-width: 374px) {
+    .lafoa-info-btn span {
+        display: none;
+    }
+
+    .lafoa-info-btn {
+        gap: 0;
+        padding: 10px;
     }
 }
 
