@@ -103,6 +103,12 @@ body {
   .nav-links.open a {
     padding: 12px 15px;
   }
+
+  .nav-links.open a:hover,
+  .nav-links.open a:active,
+  .nav-links.open a.active {
+    background-clip: content-box;
+  }
 }
 
 /* CONTENT */

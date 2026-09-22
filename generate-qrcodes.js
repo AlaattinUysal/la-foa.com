@@ -69,7 +69,6 @@ const settlements = [
     { id: 66, name: "Satleli Kalesi", lat: 41.259005, lng: 42.326634 },
     { id: 67, name: "Ardanuç (Gevhernik) Kalesi", lat: 41.127013, lng: 42.054802 },
     { id: 68, name: "Ferhatlı Kalesi", lat: 41.143047, lng: 42.008760 },
-    { id: 69, name: "Şatberdi Kalesi", lat: 41.095420, lng: 41.913382 },
     { id: 70, name: "Melo Kalesi", lat: 41.074164, lng: 41.766016 },
     { id: 71, name: "Surp Vardan Kilisesi", lat: 38.501036, lng: 43.344599 },
     { id: 72, name: "Yanal Kilisesi (Soreder Kilisesi)", lat: 38.263030, lng: 44.252248 },
@@ -109,9 +108,9 @@ async function generateQRCodes() {
         // e.g. https://la-foa.com/yerlesim/3.html
         const urlForQR = `${BASE_URL}/yerlesim/${settlement.id}.html`;
         
-        // Use a safe filename format (ID-Name)
-        const safeName = settlement.name.replace(/[^a-z0-9]/gi, '_').replace(/_+/g, '_').toLowerCase();
-        const fileName = `id-${settlement.id}-${safeName}.png`;
+        // Filename is id-only: the QR encodes a URL keyed on id, and the printed
+        // QR codes must keep working even if a settlement is later renamed.
+        const fileName = `id-${settlement.id}.png`;
         const filePath = path.join(outputDir, fileName);
         
         try {

@@ -244,8 +244,7 @@ function openInfoCard(settlement, markerEl) {
     cardTitle.textContent = settlement.name;
     cardCoords.textContent = `${settlement.lat.toFixed(4)}°N, ${settlement.lng.toFixed(4)}°E`;
 
-    const safeName = settlement.name.replace(/[^a-z0-9]/gi, '_').replace(/_+/g, '_').toLowerCase();
-    cardQrCode.src = `qrcodes/id-${settlement.id}-${safeName}.png`;
+    cardQrCode.src = `qrcodes/id-${settlement.id}.png`;
 
     cardDetailBtn.href = `yerlesim/${settlement.id}.html`;
     infoCard.classList.add('active');
