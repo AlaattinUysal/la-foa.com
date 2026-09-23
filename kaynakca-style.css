@@ -123,7 +123,7 @@
 }
 .kynk-region-pill:hover { border-color: var(--accent-light); color: var(--text); }
 .kynk-region-pill.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-.kynk-region-pill .n { opacity: .75; margin-left: 3px; }
+.kynk-region-pill .n { margin-left: 3px; }
 
 /* A-Z şeridi (sol panel) */
 .kynk-body-row { flex: 1; min-height: 0; min-width: 0; display: flex; }

@@ -9,7 +9,7 @@
   --surface: #fff;
   --text: #2C1810;
   --text-sec: #6B5C4E;
-  --text-muted: #9E8E7E;
+  --text-muted: #776B5F;
   --border: #E8DDD0;
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Noto Serif', serif;
@@ -96,11 +96,6 @@ body { font-family: var(--font-sans); background: var(--bg); color: var(--text);
 
   .nav-links.open a {
     padding: 12px 15px;
-  }
-
-  .nav-links.open a:hover,
-  .nav-links.open a:active {
-    background-clip: content-box;
   }
 }
 @media(max-width:600px) {
