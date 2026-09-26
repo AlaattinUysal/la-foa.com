@@ -181,7 +181,7 @@ function parseBlocks(text) {
 }
 
 function normLetter(ch) {
-  const map = { 'Ç':'C','Ğ':'G','İ':'I','Ö':'O','Ş':'S','Ü':'U','Č':'C','Š':'S','Ž':'Z' };
+  const map = { 'Ç':'C','Ğ':'G','İ':'I','Ö':'O','Ş':'S','Ü':'U','Č':'C','Š':'S','Ž':'Z','Б':'B','М':'M' };
   ch = (ch || '').toUpperCase();
   if (map[ch]) return map[ch];
   if (/^[A-Z]$/.test(ch)) return ch;

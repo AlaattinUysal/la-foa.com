@@ -22,7 +22,7 @@
     --color-kilise: #8E44AD;
     --color-diger: #2980B9;
     --color-marker-glow: rgba(192, 57, 43, 0.3);
-    --detail-panel-width: 300px;
+    --detail-panel-width: 270px;
     --footer-height: 44px;
 
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -431,7 +431,7 @@ body {
 
 .detail-panel-text {
     font-family: var(--font-serif);
-    font-size: 0.81rem;
+    font-size: 0.82rem;
     line-height: 1.57;
     color: var(--color-text-secondary);
     margin-bottom: 12px;
